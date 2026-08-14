@@ -14,6 +14,9 @@ const FORTRESS_ROWS = [[11,12],[8,9,10],[4,5,6,7],[0,1,2,3]];
 const state = {phase:1,built:0,score:0,combo:1,selectedRank:null,health:Array(13).fill(0),paused:false,laserTimer:null,bombTimer:null,bomb:null,phaseTwoHits:0,recallQueue:[],reviewQueue:[],mastered:new Set(),misses:0};
 const $ = id => document.getElementById(id);
 
+function syncViewportHeight(){const height=window.visualViewport?.height||window.innerHeight;document.documentElement.style.setProperty('--app-height',`${Math.round(height)}px`)}
+syncViewportHeight();window.addEventListener('resize',syncViewportHeight);window.visualViewport?.addEventListener('resize',syncViewportHeight);
+
 function cardMarkup(card) {
   const [rank,suit]=card, red=suit==='hearts'||suit==='diamonds';
   return `<div class="card-face ${red?'red':''}"><span>${rank}<br>${SUITS[suit]}</span><em>${SUITS[suit]}</em><div class="health"><i style="width:100%"></i></div></div>`;
@@ -33,6 +36,7 @@ function renderControls(){
   document.querySelectorAll('.rank-button').forEach(b=>b.onclick=()=>{if(state.paused)return;state.selectedRank=b.dataset.rank;renderControls();sound('select')});
   $('suitRow').innerHTML=Object.entries(SUITS).map(([name,symbol])=>`<button class="suit-button ${(name==='hearts'||name==='diamonds')?'red':''}" data-suit="${name}" ${state.selectedRank?'':'disabled'}><span>${symbol}</span><small>${name.toUpperCase()}</small></button>`).join('');
   document.querySelectorAll('.suit-button').forEach(b=>b.onclick=()=>placeCard(b.dataset.suit));
+  $('valueStep').classList.toggle('active',!state.selectedRank);$('suitStep').classList.toggle('active',!!state.selectedRank);$('selectionPreview').textContent=state.selectedRank?`${state.selectedRank} OF …`:'SELECT VALUE';
 }
 
 function placeCard(suit){if(state.paused||state.phase!==1||state.built>=13||!state.selectedRank)return;const expected=MEMORY_STACK[state.built],chosenRank=state.selectedRank;state.selectedRank=null;
