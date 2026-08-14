@@ -1,5 +1,5 @@
 .ship-wrap {
-  animation: saucer-bank-patrol var(--flight-duration, 5.6s) linear infinite alternate;
+  animation: saucer-bank-patrol 5.6s linear infinite alternate;
 }
 
 @keyframes saucer-bank-patrol {
