@@ -1,5 +1,5 @@
 .ship-wrap {
-  animation: saucer-bank-patrol 5.6s ease-in-out infinite alternate;
+  animation: saucer-bank-patrol var(--flight-duration, 5.6s) linear infinite alternate;
 }
 
 @keyframes saucer-bank-patrol {
@@ -8,31 +8,31 @@
     transform: translateX(-50%) translateY(1px) rotate(-9deg);
   }
   5% {
-    left: 18.5%;
+    left: 21.2%;
     transform: translateX(-50%) translateY(4px) rotate(4deg);
   }
   10% {
-    left: 20%;
+    left: 24.4%;
     transform: translateX(-50%) translateY(0) rotate(-2deg);
   }
   30% {
-    left: var(--jink-left-1, 36%);
+    left: 37.2%;
     transform: translateX(-50%) translateY(var(--jink-y-1, 2px)) rotate(var(--jink-bank-1, -1deg));
   }
   50% {
-    left: var(--jink-left-2, 50%);
+    left: 50%;
     transform: translateX(-50%) translateY(var(--jink-y-2, 4px)) rotate(var(--jink-bank-2, 1deg));
   }
   70% {
-    left: var(--jink-left-3, 66%);
+    left: 62.8%;
     transform: translateX(-50%) translateY(var(--jink-y-3, 1px)) rotate(var(--jink-bank-3, 2deg));
   }
   90% {
-    left: 80%;
+    left: 75.6%;
     transform: translateX(-50%) translateY(0) rotate(2deg);
   }
   95% {
-    left: 81.5%;
+    left: 78.8%;
     transform: translateX(-50%) translateY(4px) rotate(-4deg);
   }
   100% {

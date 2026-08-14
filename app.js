@@ -36,7 +36,7 @@ const $ = id => document.getElementById(id);
 const sectorStart = () => state.sector * SECTOR_SIZE;
 const globalPosition = localIndex => sectorStart() + localIndex + 1;
 const sectorCard = localIndex => MEMORY_STACK[sectorStart() + localIndex];
-function randomizeShipFlight(){const ship=$('ship'),between=(min,max)=>min+Math.random()*(max-min);ship.style.setProperty('--jink-left-1',`${between(32,40).toFixed(1)}%`);ship.style.setProperty('--jink-left-2',`${between(46,54).toFixed(1)}%`);ship.style.setProperty('--jink-left-3',`${between(60,68).toFixed(1)}%`);for(let i=1;i<=3;i++){ship.style.setProperty(`--jink-y-${i}`,`${between(-3,7).toFixed(1)}px`);ship.style.setProperty(`--jink-bank-${i}`,`${between(-5,5).toFixed(1)}deg`)}}
+function randomizeShipFlight(){const ship=$('ship'),between=(min,max)=>min+Math.random()*(max-min);ship.style.setProperty('--flight-duration',`${between(4.9,6.3).toFixed(2)}s`);for(let i=1;i<=3;i++){ship.style.setProperty(`--jink-y-${i}`,`${between(-3,7).toFixed(1)}px`);ship.style.setProperty(`--jink-bank-${i}`,`${between(-5,5).toFixed(1)}deg`)}}
 
 function syncViewportHeight(){const height=window.visualViewport?.height||window.innerHeight;document.documentElement.style.setProperty('--app-height',`${Math.round(height)}px`)}
 syncViewportHeight();window.addEventListener('resize',syncViewportHeight);window.visualViewport?.addEventListener('resize',syncViewportHeight);
