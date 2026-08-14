@@ -14,9 +14,10 @@ Then visit `http://localhost:8080`.
 
 ## Gameplay
 
-- Phase 1: choose a suit, then tap or drag the correct rank into the glowing next position. The ship damages completed cards, so build quickly.
-- Phase 2: read the falling card and tap its matching memory position before it lands. Intercept 10 bombs to win.
+- Phase 1: choose a value, then its suit, to build the glowing next position. The ship damages completed cards, so build quickly.
+- Phase 2: each of the 13 cards appears once in a shuffled order. Read the falling card and tap its memory position before it lands. Missed cards return in a review round; master all 13 to win.
+- Sound effects use the browser's built-in audio system and begin after the first tap. Use the sound button to mute them.
 
 ## Customize the stack
 
-Edit `MEMORY_STACK` near the top of `app.js`. It is intentionally isolated as an ordered list of `[rank, suit]` pairs so it can later hold a complete 52-card stack.
+`MEMORY_STACK` near the top of `app.js` contains the complete 52-card Juan Tamariz Mnemonica order. The prototype currently trains positions 1–13; later levels can use the remaining blocks.

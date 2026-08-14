@@ -21,6 +21,7 @@
       <div><span>PHASE</span><strong id="phaseLabel">01 · BUILD</strong></div>
       <div><span>SCORE</span><strong id="scoreLabel">0000</strong></div>
       <div><span>COMBO</span><strong id="comboLabel">×1</strong></div>
+      <div><span id="statLabel">SHIELD</span><strong id="statValue">100%</strong></div>
     </section>
 
     <section class="battlefield" id="battlefield">
@@ -42,17 +43,19 @@
         <div><span>NEXT MEMORY POSITION</span><strong id="targetPosition">01</strong></div>
         <div class="target-card" id="targetCard">4♣</div>
       </div>
-      <p class="hint" id="hint">Choose a suit, then tap or drag the correct rank into the glowing position.</p>
-      <div class="suit-row" id="suitRow"></div>
+      <p class="hint" id="hint">Choose the value first, then tap its suit to lock in the card.</p>
       <div class="rank-panel">
-        <span class="rank-label">RANK</span>
+        <span class="rank-label">VALUE</span>
         <div class="rank-row" id="rankRow"></div>
+      </div>
+      <div class="suit-panel">
+        <span>SUIT</span>
+        <div class="suit-row" id="suitRow"></div>
       </div>
     </section>
 
     <section class="control-deck phase-two-controls hidden" id="phaseTwoControls">
-      <p class="phase-two-title">INTERCEPT THE MEMORY BOMBS</p>
-      <p class="hint">Tap the fortress position that matches the falling card.</p>
+      <div class="recall-heading"><div><p class="phase-two-title">INTERCEPT MEMORY BOMBS</p><p class="hint">Tap the matching fortress position.</p></div><strong id="recallStatus">13 REMAIN</strong></div>
       <div class="position-grid" id="positionGrid"></div>
     </section>
 
