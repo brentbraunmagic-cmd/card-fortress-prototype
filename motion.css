@@ -40,3 +40,23 @@
     transform: translateX(-50%) translateY(1px) rotate(9deg);
   }
 }
+
+.point-penalty.phase-score-token {
+  color: #54ff8a;
+  text-shadow: 0 2px #075522, 0 0 5px #fff, 0 0 18px #24ff69, 0 0 35px rgba(24, 255, 94, .8);
+  animation: phase-score-pop 1.8s ease-out forwards;
+}
+
+.point-penalty.phase-score-token b {
+  border-color: #54ff8a;
+  background: rgba(2, 30, 13, .84);
+  color: #baffcf;
+  text-shadow: 0 0 7px #20ff65;
+}
+
+@keyframes phase-score-pop {
+  0% { transform: translate(-50%, 18px) scale(.35); opacity: 0; }
+  14% { transform: translate(-50%, 0) scale(1.18); opacity: 1; }
+  30%, 78% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -15px) scale(.96); opacity: 0; }
+}

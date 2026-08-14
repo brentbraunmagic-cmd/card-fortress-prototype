@@ -24,6 +24,7 @@ Then visit `http://localhost:8080`.
 - Sound effects use the browser's built-in audio system and begin after the first tap. Use the sound button to mute them.
 - The fortress builds in a 5–5–3 layout from the bottom up. The saucer follows one uninterrupted linear patrol without stopping or teleporting, always banks and wobbles as it reverses direction at each edge, and layers randomized altitude and banking motion over each crossing without changing its horizontal timeline. It fires foreground directional beams toward individual cards on a randomized schedule, including occasional rapid double hits. Repeated hits progressively remove card corners and add scorch/crack damage. Critical cards ignite with animated flame, smoke, warning audio, a red danger glow, and an urgent repair message; the final hit creates a flash, blast ring, and fragment explosion. Each completed fortress row gains an animated metal space-station frame.
 - After every sector recall round, a stack-and-sector-specific leaderboard shows the current result and the device's top three scores. Only qualifying top-three results are saved locally. A new number-one score triggers a firework and explosion celebration.
+- At the end of both build and recall phases, gameplay pauses briefly with the completed battlefield still visible while a large green centered token displays the player's current total score.
 
 ## Customize the stack
 
