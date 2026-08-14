@@ -49,9 +49,10 @@ function renderFortress() {
   const root=$('fortress'); root.innerHTML='';
   FORTRESS_ROWS.forEach(positions=>{const row=document.createElement('div');row.className='fortress-row';
     positions.forEach(pos=>{const el=document.createElement('div');el.className='fortress-card';el.dataset.position=String(globalPosition(pos)).padStart(2,'0');el.dataset.index=pos;
-      if(state.health[pos]>0){el.classList.add('built');el.innerHTML=cardMarkup(sectorCard(pos));el.querySelector('.health i').style.width=`${state.health[pos]}%`;if(state.health[pos]<55)el.classList.add('damaged');}
+      if(state.health[pos]>0){el.classList.add('built');el.innerHTML=cardMarkup(sectorCard(pos));el.querySelector('.health i').style.width=`${state.health[pos]}%`;if(state.health[pos]<100){const stage=Math.min(4,Math.ceil((100-state.health[pos])/20));el.classList.add('damaged',`damage-${stage}`);el.querySelector('.card-face').insertAdjacentHTML('beforeend','<i class="scorch"></i><i class="crack"></i>')}}
       if(pos===state.built && state.phase===1)el.classList.add('next');
-      el.addEventListener('dragover',e=>e.preventDefault());el.addEventListener('drop',e=>{e.preventDefault();placeCard(e.dataTransfer.getData('rank'));});row.appendChild(el)});root.appendChild(row)});
+      el.addEventListener('dragover',e=>e.preventDefault());el.addEventListener('drop',e=>{e.preventDefault();placeCard(e.dataTransfer.getData('rank'));});row.appendChild(el)});if(positions.every(pos=>state.health[pos]>0))row.classList.add('completed');root.appendChild(row)});
+  if(state.built===13)root.classList.add('station-complete');
 }
 
 function renderControls(){
@@ -70,9 +71,9 @@ function placeCard(suit){if(state.paused||state.phase!==1||state.built>=13||!sta
 function fireLaser(){if(state.paused||state.phase!==1||state.built===0)return;
   // Attack the newest wall segment so a destroyed card becomes the next card to rebuild.
   const target=state.built-1,card=document.querySelector(`[data-index="${target}"]`);if(!card)return;
-  const field=$('battlefield').getBoundingClientRect(), ship=$('ship').getBoundingClientRect(), rect=card.getBoundingClientRect();const laser=document.createElement('i');laser.className='laser';laser.style.left=`${ship.left-field.left+ship.width/2}px`;laser.style.top=`${ship.bottom-field.top-8}px`;$('laserLayer').appendChild(laser);
+  const field=$('battlefield').getBoundingClientRect(), cannon=document.querySelector('.ship-cannon').getBoundingClientRect(), rect=card.getBoundingClientRect(),startX=cannon.left-field.left+cannon.width/2,startY=cannon.bottom-field.top-2,endX=rect.left-field.left+rect.width/2,endY=rect.top-field.top+rect.height/2,dx=endX-startX,dy=endY-startY,length=Math.hypot(dx,dy),angle=Math.atan2(dy,dx)*180/Math.PI;const laser=document.createElement('i');laser.className='laser';laser.style.left=`${startX}px`;laser.style.top=`${startY}px`;laser.style.width=`${length}px`;laser.style.transform=`rotate(${angle}deg) scaleX(0)`;$('laserLayer').appendChild(laser);
   sound('laser');
-  requestAnimationFrame(()=>{laser.style.left=`${rect.left-field.left+rect.width/2}px`;laser.style.top=`${rect.top-field.top+rect.height/2}px`});
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{laser.style.transform=`rotate(${angle}deg) scaleX(1)`}));
   setTimeout(()=>{laser.remove();damageCard(target,15);const impact=document.createElement('i');impact.className='impact';impact.style.left=`${rect.left-field.left+rect.width/2-14}px`;impact.style.top=`${rect.top-field.top+rect.height/2-14}px`;$('laserLayer').appendChild(impact);setTimeout(()=>impact.remove(),400)},430)
 }
 
