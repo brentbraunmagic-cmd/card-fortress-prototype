@@ -18,6 +18,7 @@ Then visit `http://localhost:8080`.
 
 - Phase 1: choose a value, then its suit, to build the glowing next position. The ship damages completed cards, so build quickly.
 - Phase 2: each of the 13 cards appears once in a shuffled order. Read the falling card and tap its memory position before it lands. Missed cards return in a review round; master all 13 to win.
+- The mothership visibly recedes into space as Phase 2 begins, shrinking smoothly to a distant point so the recall action stays focused on the attacking drones. It returns at full size when the next fortress-building sector begins.
 - Phase 2 cards are presented as large rank-and-suit symbols inside swept-wing stealth drones with eye lights and thrusters. Drones bank through broad, smooth zigzags at a readable pace while retaining the original vertical time-to-bottom.
 - Mothership laser hits deduct 100 points and produce a large centered penalty alert. Late in their descent, drones fire one rear-facing laser at the weakest surviving fortress card for 35 damage; these heavier attacks deduct 500 points. Destroyed cards explode, and all card damage triggers a whole-screen rattle and strong red warning flash. Two visible corner turrets track every drone; a correct answer makes the nearer turret fire a green interception beam before the drone explodes into fragments.
 - Sound effects use the browser's built-in audio system and begin after the first tap. Use the sound button to mute them.
