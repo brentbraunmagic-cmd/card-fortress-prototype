@@ -44,7 +44,7 @@
 .point-penalty.phase-score-token {
   color: #54ff8a;
   text-shadow: 0 2px #075522, 0 0 5px #fff, 0 0 18px #24ff69, 0 0 35px rgba(24, 255, 94, .8);
-  animation: phase-score-pop 1.8s ease-out forwards;
+  animation: phase-score-pop 3.95s ease-out forwards;
 }
 
 .point-penalty.phase-score-token b {
@@ -56,8 +56,8 @@
 
 @keyframes phase-score-pop {
   0% { transform: translate(-50%, 18px) scale(.35); opacity: 0; }
-  14% { transform: translate(-50%, 0) scale(1.18); opacity: 1; }
-  30%, 78% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+  7% { transform: translate(-50%, 0) scale(1.18); opacity: 1; }
+  16%, 90% { transform: translate(-50%, 0) scale(1); opacity: 1; }
   100% { transform: translate(-50%, -15px) scale(.96); opacity: 0; }
 }
 
