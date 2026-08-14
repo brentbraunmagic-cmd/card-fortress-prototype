@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#07101f" />
   <title>Memory Fortress</title>
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
       <div>
-        <p class="eyebrow">NEURAL DEFENSE // SECTOR 01</p>
+        <p class="eyebrow" id="sectorLabel">NEURAL DEFENSE // SECTOR 01 // 01–13</p>
         <h1>MEMORY FORTRESS</h1>
       </div>
       <button class="icon-button" id="soundButton" aria-label="Toggle sound">◖))</button>
@@ -68,6 +68,20 @@
     </footer>
   </main>
 
+  <div class="stack-chooser" id="stackChooser" role="dialog" aria-modal="true" aria-labelledby="stackChooserTitle">
+    <div class="stack-chooser-card">
+      <div class="chooser-orbit" aria-hidden="true"><i></i><b>52</b></div>
+      <p class="eyebrow">MEMORY SYSTEM INITIALIZATION</p>
+      <h2 id="stackChooserTitle">CHOOSE YOUR STACK</h2>
+      <p>Select the memorized deck you want to defend. You’ll train the full deck across four 13-card sectors.</p>
+      <div class="stack-options">
+        <button data-stack="mnemonica"><strong>MNEMONICA</strong><small>Juan Tamariz · Starts 4♣</small><span>SELECT →</span></button>
+        <button data-stack="redford"><strong>REDFORD</strong><small>Patrick Redford · Starts Q♥</small><span>SELECT →</span></button>
+        <button data-stack="aronson"><strong>ARONSON</strong><small>Simon Aronson · Starts J♠</small><span>SELECT →</span></button>
+      </div>
+    </div>
+  </div>
+
   <div class="modal hidden" id="modal" role="dialog" aria-modal="true">
     <div class="modal-card">
       <p class="eyebrow" id="modalEyebrow">PHASE COMPLETE</p>
@@ -76,6 +90,6 @@
       <button class="primary-button" id="modalButton">BEGIN PHASE 2</button>
     </div>
   </div>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>

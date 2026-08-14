@@ -2,6 +2,8 @@
 
 A mobile-first, dependency-free prototype of the card memorization fortress game.
 
+At launch, players choose Mnemonica, Patrick Redford's Redford Stack, or Simon Aronson's Aronson Stack. Each complete 52-card stack is trained across four sectors: 1–13, 14–26, 27–39, and 40–52.
+
 ## Run it
 
 Open `index.html` directly in a browser, or serve this folder with any static web server. For example:
@@ -20,4 +22,4 @@ Then visit `http://localhost:8080`.
 
 ## Customize the stack
 
-`MEMORY_STACK` near the top of `app.js` contains the complete 52-card Juan Tamariz Mnemonica order. The prototype currently trains positions 1–13; later levels can use the remaining blocks.
+The stack constants near the top of `app.js` contain the complete 52-card Mnemonica, Redford, and Aronson orders. `STACKS` controls the choices presented on the launch screen.
