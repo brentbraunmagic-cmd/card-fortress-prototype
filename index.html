@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#07101f" />
   <title>Memory Fortress</title>
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=17" />
 </head>
 <body>
   <main class="app-shell">
@@ -36,6 +36,10 @@
       <div class="laser-layer" id="laserLayer" aria-hidden="true"></div>
       <div class="bomb-layer" id="bombLayer"></div>
       <div class="fortress" id="fortress" aria-label="13 position card fortress"></div>
+      <div class="defense-turrets hidden" id="defenseTurrets" aria-hidden="true">
+        <div class="defense-turret left"><div class="turret-head"><i class="turret-barrel"></i><b></b></div><span></span></div>
+        <div class="defense-turret right"><div class="turret-head"><i class="turret-barrel"></i><b></b></div><span></span></div>
+      </div>
       <div class="battle-message" id="battleMessage">FORTIFY POSITION 01</div>
     </section>
 
@@ -95,6 +99,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=15"></script>
+  <script src="app.js?v=17"></script>
 </body>
 </html>
