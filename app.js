@@ -59,7 +59,6 @@ function renderControls(){
   document.querySelectorAll('.rank-button').forEach(b=>b.onclick=()=>{if(state.paused)return;state.selectedRank=b.dataset.rank;renderControls();sound('select')});
   $('suitRow').innerHTML=Object.entries(SUITS).map(([name,symbol])=>`<button class="suit-button ${(name==='hearts'||name==='diamonds')?'red':''}" data-suit="${name}" ${state.selectedRank?'':'disabled'}><span>${symbol}</span><small>${name.toUpperCase()}</small></button>`).join('');
   document.querySelectorAll('.suit-button').forEach(b=>b.onclick=()=>placeCard(b.dataset.suit));
-  $('valueStep').classList.toggle('active',!state.selectedRank);$('suitStep').classList.toggle('active',!!state.selectedRank);$('selectionPreview').textContent=state.selectedRank?`${state.selectedRank} OF …`:'SELECT VALUE';
 }
 
 function placeCard(suit){if(state.paused||state.phase!==1||state.built>=13||!state.selectedRank)return;const expected=sectorCard(state.built),chosenRank=state.selectedRank;state.selectedRank=null;

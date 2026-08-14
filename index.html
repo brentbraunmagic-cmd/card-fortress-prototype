@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#07101f" />
   <title>Memory Fortress</title>
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
   <main class="app-shell">
@@ -43,15 +43,12 @@
         <div><span>NEXT MEMORY POSITION</span><strong id="targetPosition">01</strong></div>
         <div class="target-card" id="targetCard">4♣</div>
       </div>
-      <div class="entry-flow" aria-label="Card entry order">
-        <span class="active" id="valueStep">1 · VALUE</span><i>→</i><span id="suitStep">2 · SUIT</span><strong id="selectionPreview">SELECT VALUE</strong>
-      </div>
       <div class="rank-panel">
-        <span class="rank-label">1 VALUE</span>
+        <span class="rank-label">VALUE</span>
         <div class="rank-row" id="rankRow"></div>
       </div>
       <div class="suit-panel">
-        <span>2 SUIT</span>
+        <span>SUIT</span>
         <div class="suit-row" id="suitRow"></div>
       </div>
     </section>
@@ -96,6 +93,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
