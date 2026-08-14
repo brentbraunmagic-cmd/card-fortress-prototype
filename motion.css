@@ -83,3 +83,44 @@
 @keyframes active-position-pulse {
   to { transform: scale(1.1); filter: brightness(1.25); }
 }
+
+.target-card.answer-hidden {
+  visibility: hidden;
+}
+
+.position-grid.numeric-keypad {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.numeric-keypad .position-code {
+  grid-column: 1 / -1;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid rgba(49, 231, 255, .5);
+  border-radius: 7px;
+  background: rgba(5, 24, 37, .92);
+  box-shadow: inset 0 0 14px rgba(49, 231, 255, .1), 0 0 10px rgba(49, 231, 255, .12);
+}
+
+.position-code small {
+  color: #80a9ba;
+  font: 800 8px ui-monospace, monospace;
+  letter-spacing: .1em;
+}
+
+.position-code strong {
+  color: #fff;
+  font: 1000 21px ui-monospace, monospace;
+  letter-spacing: .08em;
+  text-shadow: 0 0 10px var(--cyan);
+}
+
+.numeric-keypad .position-button {
+  height: 31px;
+  padding: 0;
+  color: #fff;
+  border-color: #5d8096;
+}

@@ -4,6 +4,10 @@ A mobile-first, dependency-free prototype of the card memorization fortress game
 
 At launch, players choose Mnemonica, Patrick Redford's Redford Stack, or Simon Aronson's Aronson Stack. Each complete 52-card stack is trained across four sectors: 1–13, 14–26, 27–39, and 40–52.
 
+After choosing a stack, players select Training Mode or Advanced Mode. Training shows the card answer beside the active fortress position during Phase 1. Advanced hides that answer, requiring recall from the position alone. Phase 2 drone recall is identical in both modes, and leaderboards are stored separately by stack, mode, and sector.
+
+Super Advanced Mode creates two separate shuffled 52-position streams. Fortress sectors consume 13 unique positions from the build stream, while each drone round consumes 13 different positions from the drone stream—never the positions just built. Across four sectors, each stream uses every position exactly once. Drone answers are entered through a two-digit 01–52 keypad.
+
 ## Run it
 
 Open `index.html` directly in a browser, or serve this folder with any static web server. For example:
