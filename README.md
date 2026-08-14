@@ -19,7 +19,7 @@ Then visit `http://localhost:8080`.
 - Phase 1: choose a value, then its suit, to build the glowing next position. The ship damages completed cards, so build quickly.
 - Phase 2: each of the 13 cards appears once in a shuffled order. Read the falling card and tap its memory position before it lands. Missed cards return in a review round; master all 13 to win.
 - Sound effects use the browser's built-in audio system and begin after the first tap. Use the sound button to mute them.
-- The saucer cannon fires foreground directional beams toward individual cards. Repeated hits progressively remove card corners and add scorch/crack damage. Critical cards ignite with animated flame, smoke, warning audio, and an urgent repair message; the final hit creates a flash, blast ring, and fragment explosion. Each completed fortress row gains an animated metal space-station frame.
+- The fortress builds in a 5–5–3 layout from the bottom up. The saucer patrols horizontally and fires foreground directional beams toward individual cards on a randomized schedule, including occasional rapid double hits. Repeated hits progressively remove card corners and add scorch/crack damage. Critical cards ignite with animated flame, smoke, warning audio, a red danger glow, and an urgent repair message; the final hit creates a flash, blast ring, and fragment explosion. Each completed fortress row gains an animated metal space-station frame.
 - After every sector recall round, a stack-and-sector-specific leaderboard shows the current result and the device's top three scores. Only qualifying top-three results are saved locally. A new number-one score triggers a firework and explosion celebration.
 
 ## Customize the stack
