@@ -471,21 +471,21 @@ footer {
   position: absolute;
   z-index: 1;
   bottom: 0;
-  width: 79px;
-  height: 42px;
+  width: 63px;
+  height: 34px;
   border: 2px solid #a9bec8;
   background: linear-gradient(145deg, #d2dee3 0 10%, #718995 28%, #344d59 62%, #142630 100%);
   box-shadow: inset 0 3px #e2edf1, inset 0 -5px #10222c, 0 0 9px rgba(49, 231, 255, .38);
 }
 
 .defense-turret.left::before {
-  left: 28px;
+  left: 25px;
   border-radius: 3px 6px 8px 3px;
   clip-path: polygon(0 48%, 30% 48%, 30% 24%, 62% 24%, 62% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .defense-turret.right::before {
-  right: 28px;
+  right: 25px;
   border-radius: 6px 3px 3px 8px;
   clip-path: polygon(0 0, 38% 0, 38% 24%, 70% 24%, 70% 48%, 100% 48%, 100% 100%, 0 100%);
 }
@@ -494,27 +494,28 @@ footer {
   content: '';
   position: absolute;
   z-index: 0;
-  bottom: 7px;
-  width: 61px;
-  height: 24px;
+  bottom: 6px;
+  width: 49px;
+  height: 20px;
   border: 2px solid #718b99;
   background: linear-gradient(180deg, #213943, #4d6874 52%, #172a34);
   box-shadow: inset 0 2px #90a8b3, inset 0 -3px #0d1c24, 0 0 6px rgba(49, 231, 255, .25);
 }
 
 .defense-turret.left::after {
-  left: 37px;
+  left: 32px;
   border-radius: 3px 5px 6px 3px;
   clip-path: polygon(0 36%, 28% 36%, 28% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .defense-turret.right::after {
-  right: 37px;
+  right: 32px;
   border-radius: 5px 3px 3px 6px;
   clip-path: polygon(0 0, 72% 0, 72% 36%, 100% 36%, 100% 100%, 0 100%);
 }
 
 .defense-turrets {
+  z-index: 4;
   left: 50%;
   right: auto;
   bottom: 31px;
@@ -522,8 +523,8 @@ footer {
   transform: translateX(-50%);
 }
 
-.defense-turret.left { left: -42px; }
-.defense-turret.right { right: -42px; }
+.defense-turret.left { left: -39px; }
+.defense-turret.right { right: -39px; }
 
 .defense-turret > span {
   bottom: 0;
@@ -601,6 +602,88 @@ footer {
 @media (max-width: 360px) {
   .defense-turret.left { left: -27px; }
   .defense-turret.right { right: -27px; }
-  .defense-turret::before { width: 64px; }
-  .defense-turret::after { width: 49px; }
+  .defense-turret::before { width: 52px; }
+  .defense-turret::after { width: 40px; }
+}
+
+/* Permanent armored floor and turret wells. The cards remain above this layer. */
+.defense-turrets {
+  z-index: 4;
+}
+
+.defense-turrets::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: -43px;
+  right: -43px;
+  bottom: -2px;
+  height: 19px;
+  border: 2px solid #a8bdc7;
+  border-radius: 5px 5px 9px 9px;
+  background: linear-gradient(180deg, #d3dfe4 0 12%, #708895 19%, #354e5a 56%, #142731 100%);
+  box-shadow: inset 0 3px #edf5f7, inset 0 -5px #0b1b23, 0 0 10px rgba(49, 231, 255, .35);
+  clip-path: polygon(0 18%, 7% 0, 93% 0, 100% 18%, 97% 100%, 3% 100%);
+}
+
+.defense-turrets::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: -33px;
+  right: -33px;
+  bottom: 7px;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #46efff 0 4px, transparent 4px 22px);
+  filter: drop-shadow(0 0 4px #31e7ff);
+  opacity: .75;
+}
+
+.defense-turret::before {
+  left: 1px;
+  right: auto;
+  bottom: 0;
+  width: 47px;
+  height: 17px;
+  border: 2px solid #9fb5c0;
+  border-radius: 8px 8px 4px 4px;
+  background: linear-gradient(180deg, #bccbd2, #4f6874 48%, #162932);
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+
+.defense-turret.left::before,
+.defense-turret.right::before {
+  left: 1px;
+  right: auto;
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+
+.defense-turret::after {
+  left: 4px;
+  right: auto;
+  bottom: 11px;
+  width: 41px;
+  height: 29px;
+  border: 2px solid #7894a1;
+  border-radius: 12px 12px 5px 5px;
+  background: radial-gradient(ellipse at 50% 100%, #07151d 0 45%, #314b58 48% 62%, #8aa1ac 66% 71%, #1b303a 74%);
+  box-shadow: inset 0 0 7px #08151c, 0 0 7px rgba(49, 231, 255, .28);
+  clip-path: none;
+}
+
+.defense-turret.left::after,
+.defense-turret.right::after {
+  left: 4px;
+  right: auto;
+  clip-path: none;
+}
+
+.defense-turret.left { left: -42px; }
+.defense-turret.right { right: -42px; }
+
+@media (max-width: 360px) {
+  .defense-turrets::before { left: -28px; right: -28px; }
+  .defense-turrets::after { left: -22px; right: -22px; }
+  .defense-turret.left { left: -28px; }
+  .defense-turret.right { right: -28px; }
 }
