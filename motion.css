@@ -1403,7 +1403,7 @@ footer {
 .defense-turrets::before {
   left: 50%;
   right: auto;
-  bottom: -34px;
+  bottom: -45px;
   width: min(112vw, 560px);
   height: 112px;
   transform: translateX(-50%);
@@ -1452,15 +1452,15 @@ footer {
 
 .objective > div:nth-child(2) span {
   color: inherit;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 900;
-  letter-spacing: .13em;
+  letter-spacing: .035em;
 }
 
 .objective strong {
   display: inline;
   color: #efffff;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 1;
   text-shadow: 0 0 5px #fff, 0 0 12px #31e7ff;
 }
@@ -1468,6 +1468,11 @@ footer {
 .target-card {
   z-index: 1;
   border-left-color: #48616c;
+  padding-left: 10px;
+  color: #efffff;
+  font-size: 22px;
+  letter-spacing: .14em;
+  text-shadow: 0 0 5px #fff, 0 0 12px #31e7ff;
 }
 
 @media (max-width: 360px) {
@@ -1481,7 +1486,17 @@ footer {
   }
 
   .objective > div:nth-child(2) span {
-    font-size: 7px;
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  .objective strong {
+    font-size: 11px;
+  }
+
+  .target-card {
+    padding-left: 7px;
+    font-size: 20px;
     letter-spacing: .1em;
   }
 }
