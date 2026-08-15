@@ -547,7 +547,7 @@ footer {
   border: 1px solid #b7c8d0;
   background: linear-gradient(90deg, #263b48, #96aab4 55%, #304956);
   box-shadow: inset 0 0 5px #13232d, 0 0 5px rgba(49, 231, 255, .25);
-  transition: transform 2.52s cubic-bezier(.2, .8, .2, 1), opacity 1.4s .8s;
+  transition: transform 2.5s 1s cubic-bezier(.2, .8, .2, 1), opacity 1.4s 1.8s;
 }
 
 .bay-door::after {
@@ -575,7 +575,7 @@ footer {
   opacity: 1;
   bottom: 9px;
   transform: translateY(0) scale(1);
-  transition: opacity .55s .35s, bottom 2.58s cubic-bezier(.16, .85, .2, 1.05), transform .08s linear;
+  transition: opacity .55s 1.2s, bottom 2.5s 1s cubic-bezier(.16, .85, .2, 1.05), transform .08s linear;
 }
 
 .battlefield.turrets-deployed .door-left {
