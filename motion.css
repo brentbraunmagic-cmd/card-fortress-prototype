@@ -97,6 +97,79 @@
   letter-spacing: .06em;
 }
 
+.pinball-score-token b {
+  width: min(340px, 90vw);
+  padding: 11px 13px 12px;
+}
+
+.pinball-score-token .pinball-line,
+.pinball-score-token .pinball-total {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px 9px;
+  border-top: 1px solid rgba(84, 255, 138, .42);
+  color: #baffcf;
+  text-align: left;
+}
+
+.pinball-score-token .pinball-line small,
+.pinball-score-token .pinball-total small {
+  margin: 0;
+  color: #8fffb1;
+  font: 900 9px ui-monospace;
+  letter-spacing: .13em;
+}
+
+.pinball-score-token .pinball-line strong,
+.pinball-score-token .pinball-total strong {
+  color: #effff3;
+  font: 900 clamp(20px, 6.5vw, 29px) ui-monospace;
+  line-height: 1;
+  text-shadow: 0 0 5px #fff, 0 0 13px #24ff69;
+}
+
+.pinball-score-token .bonus-line {
+  max-height: 0;
+  margin-top: 0;
+  padding-block: 0;
+  transform: translateY(-8px);
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .35s ease, margin .35s ease, padding .35s ease, transform .35s ease, opacity .25s ease;
+}
+
+.pinball-score-token.show-bonus .bonus-line {
+  max-height: 48px;
+  margin-top: 8px;
+  padding-block: 7px;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.pinball-score-token .pinball-total {
+  margin-top: 0;
+  transform: translateY(-12px) rotateX(68deg);
+  opacity: 0;
+  transform-origin: center top;
+}
+
+.pinball-score-token.tallying .pinball-total {
+  animation: pinball-total-roll .48s cubic-bezier(.18, .82, .2, 1) forwards;
+}
+
+.pinball-score-token.total-settled .pinball-total {
+  filter: brightness(1.35);
+}
+
+@keyframes pinball-total-roll {
+  0% { transform: translateY(-12px) rotateX(68deg); opacity: 0; }
+  64% { transform: translateY(3px) rotateX(-8deg); opacity: 1; }
+  100% { transform: translateY(0) rotateX(0); opacity: 1; }
+}
+
 .point-penalty.turret-score-token b {
   display: block;
   box-sizing: border-box;
@@ -1393,6 +1466,48 @@ footer {
   .battlefield.bays-built .defense-turret {
     transform: translateY(0) scale(.8);
   }
+}
+
+/* Final specificity pass for the pinball tally over the legacy turret score skin. */
+.point-penalty.pinball-score-token b .pinball-line,
+.point-penalty.pinball-score-token b .pinball-total {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  padding: 7px 9px;
+  color: #baffcf;
+  font: inherit;
+  letter-spacing: normal;
+  text-align: left;
+  text-shadow: none;
+}
+
+.point-penalty.pinball-score-token b .bonus-line {
+  max-height: 0;
+  margin-top: 0;
+  padding-block: 0;
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+.point-penalty.pinball-score-token.show-bonus b .bonus-line {
+  max-height: 48px;
+  margin-top: 8px;
+  padding-block: 7px;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.point-penalty.pinball-score-token b .pinball-total {
+  margin-top: 0;
+  transform: translateY(-12px) rotateX(68deg);
+  opacity: 0;
+  transform-origin: center top;
+}
+
+.point-penalty.pinball-score-token.tallying b .pinball-total {
+  animation: pinball-total-roll .48s cubic-bezier(.18, .82, .2, 1) forwards;
 }
 
 /* Phase 2 uses the same recessed ship-display language as the build readout. */
