@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v1';
+const CACHE_NAME = 'memory-fortress-v3';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -6,9 +6,9 @@ const OFFLINE_FILES = [
   './motion.css',
   './app.js',
   './manifest.webmanifest',
-  './assets/icon-180.png',
-  './assets/icon-192.png',
-  './assets/icon-512.png',
+  './assets/icon-v2-180.png',
+  './assets/icon-v2-192.png',
+  './assets/icon-v2-512.png',
   './assets/fortress-deck-v2.png',
   './assets/manta-drone.png',
   './assets/mothership-b.png',
