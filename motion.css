@@ -81,6 +81,22 @@
   text-shadow: 0 0 7px #20ff65;
 }
 
+.point-penalty.phase-score-token b small {
+  display: block;
+  margin-top: 7px;
+  color: #baffcf;
+  font: 900 9px/1.25 ui-monospace;
+  letter-spacing: .08em;
+  white-space: normal;
+}
+
+.run-score #runTimes {
+  margin: 7px 0 3px;
+  color: #dce8ec;
+  font-size: 9px;
+  letter-spacing: .06em;
+}
+
 .point-penalty.turret-score-token b {
   display: block;
   box-sizing: border-box;
