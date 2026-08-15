@@ -451,3 +451,90 @@ footer {
   color: #7894a8;
   font-size: 9px;
 }
+
+/* Fortress defense bays arrive in two construction milestones. */
+.defense-turret {
+  opacity: 0;
+  transform: translateY(18px) scale(.68);
+  transform-origin: center bottom;
+  transition: opacity .2s ease, transform .55s cubic-bezier(.2, .9, .2, 1.25);
+}
+
+.battlefield.bays-built .defense-turret {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: bay-lock-in .58s ease-out both;
+}
+
+.defense-turret::before,
+.defense-turret::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 2px;
+  width: 13px;
+  height: 22px;
+  border: 2px solid #8ca6b4;
+  background: linear-gradient(135deg, #c3d1d8, #405866 55%, #182833);
+  box-shadow: inset 0 0 4px #10202a, 0 0 7px rgba(49, 231, 255, .35);
+}
+
+.defense-turret::before { left: 0; transform: skewY(-17deg); }
+.defense-turret::after { right: 0; transform: skewY(17deg); }
+
+.bay-door {
+  position: absolute;
+  z-index: 4;
+  bottom: 13px;
+  width: 18px;
+  height: 27px;
+  border: 1px solid #b7c8d0;
+  background: linear-gradient(90deg, #263b48, #96aab4 55%, #304956);
+  box-shadow: inset 0 0 5px #13232d, 0 0 5px rgba(49, 231, 255, .25);
+  transition: transform .52s cubic-bezier(.2, .8, .2, 1), opacity .35s .25s;
+}
+
+.bay-door::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: #31e7ff;
+  box-shadow: 0 0 5px #31e7ff;
+}
+
+.bay-door.door-left { left: 7px; border-radius: 8px 1px 1px 3px; }
+.bay-door.door-left::after { right: 2px; }
+.bay-door.door-right { right: 7px; border-radius: 1px 8px 3px 1px; }
+.bay-door.door-right::after { left: 2px; }
+
+.defense-turret .turret-head {
+  opacity: 0;
+  bottom: 4px;
+  transform: translateY(24px) scale(.7);
+}
+
+.battlefield.turrets-deployed .defense-turret .turret-head {
+  opacity: 1;
+  bottom: 9px;
+  transform: translateY(0) scale(1);
+  transition: opacity .18s .22s, bottom .58s cubic-bezier(.16, .85, .2, 1.25), transform .08s linear;
+}
+
+.battlefield.turrets-deployed .door-left {
+  transform: translateX(-15px) rotate(-28deg);
+  opacity: .72;
+}
+
+.battlefield.turrets-deployed .door-right {
+  transform: translateX(15px) rotate(28deg);
+  opacity: .72;
+}
+
+@keyframes bay-lock-in {
+  0% { filter: brightness(2.2); }
+  45% { filter: brightness(1.35); }
+  70% { transform: translateY(-3px) scale(1.04); }
+  100% { filter: brightness(1); transform: translateY(0) scale(1); }
+}
