@@ -137,3 +137,26 @@
   color: #fff;
   border-color: #5d8096;
 }
+
+.replay-option {
+  margin-top: 12px;
+}
+
+.replay-option button {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #496c82;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #13263a, #091522);
+  color: #dffaff;
+  font: 900 11px ui-monospace, monospace;
+  letter-spacing: .08em;
+}
+
+.replay-option small {
+  display: block;
+  margin-top: 6px;
+  color: #7894a8;
+  font: 800 8px ui-monospace, monospace;
+  letter-spacing: .05em;
+}
