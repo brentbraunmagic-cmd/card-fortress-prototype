@@ -682,6 +682,7 @@ footer {
   height: 70px;
   background: url('assets/manta-drone.png') center / contain no-repeat;
   filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .7)) drop-shadow(0 0 7px rgba(69, 184, 255, .58));
+  transition: transform .1s linear, filter .18s ease;
 }
 
 .bomb.drone::before,
