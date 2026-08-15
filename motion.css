@@ -676,6 +676,58 @@ footer {
   box-shadow: inset 0 0 13px rgba(255, 45, 91, .6), 0 0 16px rgba(255, 38, 79, .9);
 }
 
+/* Approved C manta drone asset with a live card display. */
+.bomb.drone {
+  width: 104px;
+  height: 70px;
+  background: url('assets/manta-drone.png') center / contain no-repeat;
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .7)) drop-shadow(0 0 7px rgba(69, 184, 255, .58));
+}
+
+.bomb.drone::before,
+.bomb.drone .drone-wing,
+.bomb.drone .drone-eye,
+.bomb.drone .drone-thruster {
+  display: none;
+}
+
+.bomb.drone .drone-core {
+  left: 50%;
+  top: 20px;
+  width: 29px;
+  height: 35px;
+  transform: translateX(-50%);
+  border: 1px solid #89dfff;
+  border-radius: 3px;
+  clip-path: polygon(10% 0, 90% 0, 100% 8%, 100% 92%, 90% 100%, 10% 100%, 0 92%, 0 8%);
+  background: linear-gradient(145deg, #ffffff, #dff7ff);
+  box-shadow: inset 0 0 5px rgba(71, 185, 255, .42), 0 0 5px rgba(51, 209, 255, .7);
+}
+
+.bomb.drone .drone-core b {
+  flex-direction: column;
+  gap: 0;
+  color: #08121b;
+  font-size: 16px;
+  line-height: .72;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+.bomb.drone .drone-core b span {
+  font-size: 19px;
+  line-height: .85;
+}
+
+.bomb.drone .drone-core b.red {
+  color: #c50936;
+  text-shadow: none;
+}
+
+.bomb.drone.aiming {
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .7)) drop-shadow(0 0 11px rgba(255, 40, 76, .95));
+}
+
 /* Permanent armored floor and turret wells. The cards remain above this layer. */
 .defense-turrets {
   z-index: 4;
