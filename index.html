@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#07101f" />
   <title>Memory Fortress</title>
-  <link rel="stylesheet" href="styles.css?v=36" />
-  <link rel="stylesheet" href="motion.css?v=36" />
+  <link rel="stylesheet" href="styles.css?v=38" />
+  <link rel="stylesheet" href="motion.css?v=38" />
 </head>
 <body>
   <main class="app-shell">
@@ -61,7 +61,7 @@
     </section>
 
     <section class="control-deck phase-two-controls hidden" id="phaseTwoControls">
-      <div class="recall-heading"><div><p class="phase-two-title">HURRY — INTERCEPT MEMORY DRONES</p><p class="hint">Tap the matching fortress position.</p></div><strong id="recallStatus">13 REMAIN</strong></div>
+      <div class="recall-heading"><div><p class="phase-two-title">HURRY! INTERCEPT MEMORY DRONES</p><p class="hint">Tap the matching fortress position.</p></div><strong id="recallStatus">13 REMAIN</strong></div>
       <div class="position-grid" id="positionGrid"></div>
     </section>
 
@@ -117,7 +117,19 @@
       </div>
     </div>
   </div>
+  <div class="tutorial-overlay hidden" id="tutorial" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle">
+    <div class="tutorial-rings" id="tutorialRings" aria-hidden="true"></div>
+    <div class="tutorial-card">
+      <p class="eyebrow" id="tutorialStepLabel">HOW TO PLAY · 1 OF 3</p>
+      <h2 id="tutorialTitle">WE’RE UNDER ATTACK</h2>
+      <p id="tutorialText">Build the fortress! Match the corresponding card with the number it is in the stack.</p>
+      <div class="tutorial-dots" id="tutorialDots" aria-hidden="true"></div>
+      <div class="tutorial-actions">
+        <button id="tutorialNext">NEXT →</button>
+      </div>
+    </div>
+  </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=36"></script>
+  <script src="app.js?v=38"></script>
 </body>
 </html>

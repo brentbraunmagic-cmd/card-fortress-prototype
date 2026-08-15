@@ -210,3 +210,113 @@
   margin-top: 0;
   font-size: 10px;
 }
+
+.tutorial-overlay {
+  position: fixed;
+  z-index: 70;
+  inset: 0;
+  background: rgba(1, 6, 14, .44);
+  backdrop-filter: blur(1px);
+}
+
+.tutorial-card {
+  position: absolute;
+  z-index: 3;
+  top: calc(108px + env(safe-area-inset-top));
+  left: 50%;
+  width: min(calc(100% - 30px), 430px);
+  padding: 17px 17px 15px;
+  transform: translateX(-50%);
+  border: 1px solid var(--cyan);
+  border-radius: 13px;
+  background: radial-gradient(circle at 50% 0, rgba(23, 72, 98, .98), rgba(6, 19, 32, .98) 70%);
+  box-shadow: 0 0 28px rgba(49, 231, 255, .28), 0 14px 38px rgba(0, 0, 0, .6);
+  text-align: center;
+}
+
+.tutorial-card h2 {
+  margin: 6px 0 7px;
+  color: #fff;
+  font-size: 21px;
+  letter-spacing: .05em;
+}
+
+.tutorial-card > p:not(.eyebrow) {
+  min-height: 42px;
+  margin: 0;
+  color: #bdd2df;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.tutorial-rings {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tutorial-ring {
+  position: fixed;
+  border: 3px solid #fff36a;
+  border-radius: 16px;
+  box-shadow: 0 0 5px #fff, 0 0 14px #ffd52f, 0 0 29px rgba(255, 191, 24, .9), inset 0 0 14px rgba(255, 231, 64, .3);
+  animation: tutorial-ring-pulse .75s ease-in-out infinite alternate;
+}
+
+.target-card.tutorial-reveal {
+  visibility: visible !important;
+}
+
+.tutorial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 11px 0;
+}
+
+.tutorial-dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #36556b;
+}
+
+.tutorial-dots i.active {
+  background: #fff;
+  box-shadow: 0 0 8px var(--cyan);
+}
+
+.tutorial-actions {
+  display: block;
+}
+
+.tutorial-actions button {
+  height: 40px;
+  border: 1px solid #46677d;
+  border-radius: 7px;
+  background: #0b1a29;
+  color: #91a9ba;
+  font: 900 10px ui-monospace, monospace;
+  letter-spacing: .08em;
+}
+
+.tutorial-actions button {
+  width: 100%;
+  border: 0;
+  background: linear-gradient(90deg, #237bd8, var(--cyan));
+  color: #03121b;
+}
+
+@keyframes tutorial-ring-pulse {
+  to { transform: scale(1.06); filter: brightness(1.3); }
+}
+
+@media (max-height: 700px) {
+  .tutorial-card {
+    top: calc(82px + env(safe-area-inset-top));
+    padding: 12px 14px;
+  }
+  .tutorial-card h2 { font-size: 18px; }
+  .tutorial-card > p:not(.eyebrow) { min-height: 34px; font-size: 11px; }
+}

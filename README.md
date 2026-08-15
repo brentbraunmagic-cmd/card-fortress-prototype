@@ -6,7 +6,9 @@ At launch, players choose Mnemonica, Patrick Redford's Redford Stack, or Simon A
 
 After choosing a stack, players select Training Mode or Advanced Mode. Training shows the card answer beside the active fortress position during Phase 1. Advanced hides that answer, requiring recall from the position alone. Phase 2 drone recall is identical in both modes, and leaderboards are stored separately by stack, mode, and sector.
 
-Super Advanced Mode creates two separate shuffled 52-position streams. Fortress sectors consume 13 unique positions from the build stream, while each drone round consumes 13 different positions from the drone stream—never the positions just built. Across four sectors, each stream uses every position exactly once. Drone answers are entered through a two-digit 01–52 keypad.
+Before the first attack, a required three-slide walkthrough appears over the real opening game screen. It explains that the fortress is under attack, circles the active position and its matching card, then highlights the value-first and suit-second input sequence. The walkthrough adapts to the actual opening card and position for the selected stack and mode. Completion is remembered on that device, so it appears only once.
+
+Super Advanced Mode creates two separate shuffled 52-position streams. Fortress sectors consume 13 unique positions from the build stream, while each drone round consumes 13 different positions from the drone stream. Those positions never match the positions just built. Across four sectors, each stream uses every position exactly once. Drone answers are entered through a two-digit 01–52 keypad.
 
 ## Run it
 
