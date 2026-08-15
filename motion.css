@@ -693,22 +693,50 @@ footer {
   animation: none;
 }
 
-.defense-turret.left { left: -45px; }
-.defense-turret.right { right: -45px; }
+.defense-turret.left { left: -55px; }
+.defense-turret.right { right: -55px; }
 
 /* Intercept beams stay above the fortress even though its floor stays behind it. */
 .laser-layer { z-index: 9; }
 .ground-laser { z-index: 16; }
 .ground-muzzle { z-index: 15; }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .defense-turret.left {
-    left: -49px;
+    left: -55px;
     transform-origin: right bottom;
   }
 
   .defense-turret.right {
-    right: -49px;
+    right: -55px;
+    transform-origin: left bottom;
+  }
+
+  .battlefield.bays-built .defense-turret {
+    transform: translateY(0) scale(.8);
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --card-w: 52px;
+    --card-h: 62px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --card-w: 42px;
+    --card-h: 52px;
+  }
+
+  .defense-turret.left {
+    left: -58px;
+    transform-origin: right bottom;
+  }
+
+  .defense-turret.right {
+    right: -58px;
     transform-origin: left bottom;
   }
 
