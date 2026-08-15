@@ -68,11 +68,14 @@
 }
 
 .point-penalty.turret-score-token b {
+  display: block;
+  box-sizing: border-box;
   width: min(330px, 88vw);
   padding: 10px 12px 8px;
   font-size: clamp(16px, 5.2vw, 23px);
   line-height: 1.05;
   letter-spacing: .075em;
+  text-align: center;
   white-space: normal;
 }
 
@@ -82,6 +85,28 @@
   font: 900 .58em ui-monospace;
   letter-spacing: .24em;
   color: #7dffa5;
+}
+
+.point-penalty.turret-score-token b em {
+  display: block;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(84,255,138,.55);
+  color: #54ff8a;
+  font: 900 clamp(25px, 8vw, 38px) ui-monospace;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-shadow: 0 2px #075522, 0 0 5px #fff, 0 0 18px #24ff69;
+}
+
+.battlefield.turret-hero .defense-turret .turret-head {
+  animation: turret-online-hero 1s ease-in-out both;
+}
+
+@keyframes turret-online-hero {
+  0% { filter: brightness(1) drop-shadow(0 2px 3px rgba(0,0,0,.8)) drop-shadow(0 0 4px rgba(49,231,255,.45)); }
+  45% { filter: brightness(1.65) saturate(1.25) drop-shadow(0 0 8px #31e7ff) drop-shadow(0 0 15px rgba(55,255,108,.95)); }
+  100% { filter: brightness(1.18) drop-shadow(0 2px 3px rgba(0,0,0,.8)) drop-shadow(0 0 7px rgba(55,255,108,.6)); }
 }
 
 @keyframes phase-score-pop {
