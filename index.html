@@ -79,11 +79,26 @@
       <p class="eyebrow">MEMORY SYSTEM INITIALIZATION</p>
       <h2 id="stackChooserTitle">CHOOSE YOUR STACK</h2>
       <p>Select the memorized deck you want to defend. You’ll train the full deck across four 13-card sectors.</p>
-      <div class="stack-options">
+      <div class="stack-options" id="stackOptions">
         <button data-stack="mnemonica"><strong>MNEMONICA</strong><small>Juan Tamariz · Starts 4♣</small><span>SELECT →</span></button>
         <button data-stack="redford"><strong>REDFORD</strong><small>Patrick Redford · Starts Q♥</small><span>SELECT →</span></button>
         <button data-stack="aronson"><strong>ARONSON</strong><small>Simon Aronson · Starts J♠</small><span>SELECT →</span></button>
+        <button id="createCustomStack"><strong>CUSTOM STACK</strong><small>Build your own 52-card memorized order</small><span>BUILD →</span></button>
       </div>
+    </div>
+  </div>
+
+  <div class="stack-chooser hidden" id="customStackBuilder" role="dialog" aria-modal="true" aria-labelledby="customStackTitle">
+    <div class="stack-chooser-card custom-builder-card">
+      <p class="eyebrow">CUSTOM STACK CONSOLE</p>
+      <h2 id="customStackTitle">BUILD YOUR STACK</h2>
+      <p>Tap the value, then tap the suit. Each card locks immediately and advances to the next position.</p>
+      <div class="custom-position-display"><span>POSITION</span><strong id="customPosition">01</strong><b id="customEntryPrompt">SELECT VALUE</b></div>
+      <div class="custom-control-panel"><span class="custom-control-label">VALUE</span><div class="custom-rank-row" id="customRankRow"></div><span class="custom-control-label">SUIT</span><div class="custom-suit-row" id="customSuitRow"></div></div>
+      <div class="custom-progress"><span id="customProgressText">0 OF 52 CARDS</span><i><b id="customProgressBar"></b></i></div>
+      <div class="custom-recent" id="customRecent"><span>YOUR LAST CARDS WILL APPEAR HERE</span></div>
+      <div class="custom-name-panel hidden" id="customNamePanel"><label for="customStackName">NAME YOUR COMPLETED STACK</label><input id="customStackName" maxlength="28" placeholder="MY CUSTOM STACK" autocomplete="off" /><button class="primary-button" id="saveCustomStack">SAVE CUSTOM STACK</button></div>
+      <div class="custom-builder-actions"><button id="undoCustomCard">UNDO LAST CARD</button><button id="exitCustomBuilder">SAVE DRAFT &amp; EXIT</button></div>
     </div>
   </div>
 
@@ -140,6 +155,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=122"></script>
+  <script src="app.js?v=123"></script>
 </body>
 </html>
