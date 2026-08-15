@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#07101f" />
   <title>Memory Fortress</title>
   <link rel="stylesheet" href="styles.css?v=120" />
-  <link rel="stylesheet" href="motion.css?v=118" />
+  <link rel="stylesheet" href="motion.css?v=119" />
 </head>
 <body>
   <main class="app-shell">
@@ -78,7 +78,7 @@
       <div class="chooser-orbit" aria-hidden="true"><i></i><b>52</b></div>
       <p class="eyebrow">MEMORY SYSTEM INITIALIZATION</p>
       <h2 id="stackChooserTitle">CHOOSE YOUR STACK</h2>
-      <p>Select the memorized deck you want to defend. You’ll train the full deck across four 13-card sectors.</p>
+      <p>Choose a stack. Train all 52 cards across four sectors.</p>
       <div class="stack-options" id="stackOptions">
         <button data-stack="mnemonica"><strong>MNEMONICA</strong><small>Juan Tamariz · Starts 4♣</small><span>SELECT →</span></button>
         <button data-stack="redford"><strong>REDFORD</strong><small>Patrick Redford · Starts Q♥</small><span>SELECT →</span></button>
@@ -114,7 +114,7 @@
       <div class="chooser-orbit" aria-hidden="true"><i></i><b>MODE</b></div>
       <p class="eyebrow"><span id="selectedStackName">SELECTED STACK</span> // DIFFICULTY</p>
       <h2 id="modeChooserTitle">CHOOSE YOUR MODE</h2>
-      <p>Training reveals each card during fortress construction. Advanced gives you only the memory position.</p>
+      <p>Training shows the card. Advanced shows only its position.</p>
       <div class="stack-options">
         <button data-mode="training"><strong>TRAINING MODE</strong><small>Position and card answer are both visible</small><span>SELECT →</span></button>
         <button data-mode="advanced"><strong>ADVANCED MODE</strong><small>Position only · recall the card from memory</small><span>SELECT →</span></button>
@@ -123,7 +123,7 @@
       <label class="tutorial-toggle">
         <input type="checkbox" id="showTutorialToggle" />
         <i aria-hidden="true"></i>
-        <span><strong>SHOW TUTORIAL</strong><small>Replay the build and raider instructions this run</small></span>
+        <span><strong>SHOW TUTORIAL</strong><small>Replay instructions this run</small></span>
       </label>
     </div>
   </div>
