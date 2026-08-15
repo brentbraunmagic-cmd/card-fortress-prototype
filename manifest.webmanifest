@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "Memory Fortress",
+  "short_name": "Fortress",
+  "description": "Defend your fortress while mastering a memorized deck of cards.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "portrait",
+  "background_color": "#050a14",
+  "theme_color": "#07101f",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

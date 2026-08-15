@@ -22,6 +22,10 @@ python -m http.server 8080
 
 Then visit `http://localhost:8080`.
 
+## Install on a phone
+
+The published HTTPS version is an installable web app. On iPhone, open it in Safari, choose Share, choose Add to Home Screen, turn on Open as Web App, and tap Add. On Android, open it in Chrome and choose Install app or Add to Home screen. Launching from the new Home Screen icon removes the normal browser address bar. The included service worker also keeps the game available after its first successful online load.
+
 ## Gameplay
 
 - Phase 1: choose a value, then its suit, to build the glowing next position. The ship damages completed cards, so build quickly.
@@ -33,8 +37,8 @@ Then visit `http://localhost:8080`.
 - Memory Raiders move laterally about 75 percent faster than the original flight path while retaining the same travel width, vertical descent speed, and approximately 15-second crash time.
 - Each recall phase contains two distinct orange-red Elite Raiders. A battlefield warning, red perimeter alarm, and three-pulse audible siren activate together above the fortress as each enters, without the damage vibration. They descend 50 percent faster, reach the floor in approximately 10 seconds, and award double base interception points. The game stores card response times and mistakes on the device, then selects the Elites from up to three of the player's weakest cards and fills any remaining slot randomly. With no prior history, it selects two random cards.
 - The combo resets to `×1` when the Raider phase begins, so fortress-building and Raider-interception streaks are scored independently.
-- Fortress completion awards a build-time bonus: 1,200 points at 20 seconds or faster, then 1,000, 800, 600, 400, and 200 points across progressively slower tiers through 75 seconds. Tutorials and transition animations are excluded. The green completion panel reveals the build score, then the time bonus, then rolls the digits into the sector total like a pinball tally. Final result screens show the build time and Raider time, and saved leaderboard entries retain both times alongside their scores.
-- Raider completion awards a recall-time bonus: 1,500 points at 25 seconds or faster, then 1,200, 900, 600, 300, and 150 points across progressively slower tiers through 110 seconds. The Raider completion panel reveals the defense score and elapsed time, then the time bonus, then rolls the digits into the full sector total.
+- Fortress completion awards a continuously declining hidden build-time bonus. It starts at 1,200 points and reaches zero at 75 seconds, producing distinct whole-number bonuses instead of fixed tiers. Tutorials and transition animations are excluded. The green completion panel reveals the build score, then the time bonus, then rolls the digits into the sector total like a pinball tally. Final result screens show the Build time and Raider time, and saved leaderboard entries retain both times alongside their scores.
+- Raider completion awards a continuously declining hidden recall-time bonus. It starts at 1,500 points and reaches zero at 110 seconds. The Raider completion panel reveals the defense score and elapsed time, then the time bonus, then rolls the digits into the full sector total.
 - Completing all 13 Raiders without a wrong selection, crash, or review round awards a 1,000-point Perfect Recall bonus. It receives its own reveal between the Raider defense score and time bonus before the full sector total rolls up.
 - Sound effects use the browser's built-in audio system and begin after the first tap. Use the sound button to mute them.
 - The live score is centered prominently in the top status board, with phase information on the left and an enlarged combo readout on the right. The informational shield and miss counters are omitted. A wrong Phase 2 answer produces a compact red `MISS -50` alert in the open upper battlefield, lightly shakes the game, and resets the combo.
