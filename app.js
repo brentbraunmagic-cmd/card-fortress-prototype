@@ -65,8 +65,9 @@ const state = {stackKey:null,mode:null,forceTutorial:false,positionOrder:Array.f
 const $ = id => document.getElementById(id);
 const formatScore = value => Math.max(0,Math.round(Number(value)||0)).toLocaleString('en-US');
 const formatTime = seconds => {if(seconds===null||seconds===undefined||!Number.isFinite(Number(seconds)))return '--:--.-';const safe=Math.max(0,Number(seconds)),minutes=Math.floor(safe/60),remainder=(safe%60).toFixed(1).padStart(4,'0');return `${String(minutes).padStart(2,'0')}:${remainder}`};
-const buildTimeBonus = seconds => seconds<=20?1200:seconds<=30?1000:seconds<=40?800:seconds<=50?600:seconds<=60?400:seconds<=75?200:0;
-const raiderTimeBonus = seconds => seconds<=25?1500:seconds<=35?1200:seconds<=50?900:seconds<=65?600:seconds<=85?300:seconds<=110?150:0;
+const countdownBonus = (seconds,maximum,duration) => Math.max(0,Math.round(maximum*(1-Math.max(0,seconds)/duration)));
+const buildTimeBonus = seconds => countdownBonus(seconds,1200,75);
+const raiderTimeBonus = seconds => countdownBonus(seconds,1500,110);
 function finishBuildTimer(){if(state.buildElapsed!==null)return;state.buildElapsed=(performance.now()-state.buildStartedAt)/1000;state.timeBonus=buildTimeBonus(state.buildElapsed);state.score+=state.timeBonus;updateUI()}
 function finishRecallTimer(){if(state.recallElapsed!==null)return;state.recallElapsed=(performance.now()-state.recallStartedAt)/1000;state.recallTimeBonus=raiderTimeBonus(state.recallElapsed);state.perfectRecallBonus=state.misses===0&&state.droneDestroyed===0?1000:0;state.score+=state.recallTimeBonus+state.perfectRecallBonus;updateUI()}
 function sectorTimesText(build=state.buildElapsed,recall=state.recallElapsed){return `BUILD ${formatTime(build)} · RAIDERS ${formatTime(recall)}`}
