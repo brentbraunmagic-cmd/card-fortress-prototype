@@ -1403,7 +1403,7 @@ footer {
 .defense-turrets::before {
   left: 50%;
   right: auto;
-  bottom: -45px;
+  bottom: -53px;
   width: min(112vw, 560px);
   height: 112px;
   transform: translateX(-50%);
