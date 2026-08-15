@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#07101f" />
   <title>Memory Fortress</title>
-  <link rel="stylesheet" href="styles.css?v=118" />
+  <link rel="stylesheet" href="styles.css?v=119" />
   <link rel="stylesheet" href="motion.css?v=118" />
 </head>
 <body>
@@ -93,12 +93,19 @@
       <p class="eyebrow">CUSTOM STACK CONSOLE</p>
       <h2 id="customStackTitle">BUILD YOUR STACK</h2>
       <p>Tap the value, then tap the suit. Each card locks immediately and advances to the next position.</p>
-      <div class="custom-position-display"><span>POSITION</span><strong id="customPosition">01</strong><b id="customEntryPrompt">SELECT VALUE</b></div>
-      <div class="custom-control-panel"><span class="custom-control-label">VALUE</span><div class="custom-rank-row" id="customRankRow"></div><span class="custom-control-label">SUIT</span><div class="custom-suit-row" id="customSuitRow"></div></div>
-      <div class="custom-progress"><span id="customProgressText">0 OF 52 CARDS</span><i><b id="customProgressBar"></b></i></div>
-      <div class="custom-recent" id="customRecent"><span>YOUR LAST CARDS WILL APPEAR HERE</span></div>
-      <div class="custom-name-panel hidden" id="customNamePanel"><label for="customStackName">NAME YOUR COMPLETED STACK</label><input id="customStackName" maxlength="28" placeholder="MY CUSTOM STACK" autocomplete="off" /><button class="primary-button" id="saveCustomStack">SAVE CUSTOM STACK</button></div>
-      <div class="custom-builder-actions"><button id="undoCustomCard">UNDO LAST CARD</button><button id="exitCustomBuilder">SAVE DRAFT &amp; EXIT</button></div>
+      <div id="customEntryPanel">
+        <div class="custom-position-display"><span>POSITION</span><strong id="customPosition">01</strong><b id="customEntryPrompt">SELECT VALUE</b></div>
+        <div class="custom-control-panel"><span class="custom-control-label">VALUE</span><div class="custom-rank-row" id="customRankRow"></div><span class="custom-control-label">SUIT</span><div class="custom-suit-row" id="customSuitRow"></div></div>
+        <div class="custom-progress"><span id="customProgressText">0 OF 52 CARDS</span><i><b id="customProgressBar"></b></i></div>
+        <div class="custom-recent" id="customRecent"><span>YOUR LAST CARDS WILL APPEAR HERE</span></div>
+        <div class="custom-builder-actions"><button id="undoCustomCard">UNDO LAST CARD</button><button id="exitCustomBuilder">SAVE DRAFT &amp; EXIT</button></div>
+      </div>
+      <div class="custom-review hidden" id="customReviewPanel">
+        <div class="custom-review-heading"><strong>VERIFY ALL 52 CARDS</strong><small>Tap any card to correct it before saving.</small></div>
+        <div class="custom-review-sectors" id="customReviewSectors"></div>
+        <div class="custom-name-panel" id="customNamePanel"><label for="customStackName">NAME YOUR VERIFIED STACK</label><input id="customStackName" maxlength="28" placeholder="MY CUSTOM STACK" autocomplete="off" /><button class="primary-button" id="saveCustomStack">SAVE VERIFIED STACK</button></div>
+        <button class="custom-review-back" id="returnToCustomEntry">EDIT LAST CARD</button>
+      </div>
     </div>
   </div>
 
@@ -155,6 +162,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=123"></script>
+  <script src="app.js?v=124"></script>
 </body>
 </html>
