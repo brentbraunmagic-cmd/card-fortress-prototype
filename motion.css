@@ -47,6 +47,19 @@
   animation: phase-score-pop 3.95s ease-out forwards;
 }
 
+.point-penalty.defeat-token {
+  color: #ff301f;
+  text-shadow: 0 3px #660700, 0 0 6px #fff, 0 0 20px #ff2818, 0 0 42px rgba(255, 26, 10, .95);
+  animation: phase-score-pop 3.95s ease-out forwards;
+}
+
+.point-penalty.defeat-token b {
+  border-color: #ff4b32;
+  background: rgba(42, 3, 1, .9);
+  color: #ffc0b4;
+  text-shadow: 0 0 8px #ff2e17;
+}
+
 .point-penalty.phase-score-token b {
   border-color: #54ff8a;
   background: rgba(2, 30, 13, .84);
