@@ -50,7 +50,7 @@
 .point-penalty.defeat-token {
   color: #ff301f;
   text-shadow: 0 3px #660700, 0 0 6px #fff, 0 0 20px #ff2818, 0 0 42px rgba(255, 26, 10, .95);
-  animation: phase-score-pop 3.95s ease-out forwards;
+  animation: phase-score-pop 3s ease-out forwards;
 }
 
 .point-penalty.defeat-token b {
@@ -65,7 +65,7 @@
   width: min(82vw, 350px);
   margin-top: 13px;
   color: #fff1ed;
-  font: 900 clamp(12px, 3.8vw, 16px) ui-monospace;
+  font: 900 clamp(16px, 4.8vw, 21px) ui-monospace;
   line-height: 1.25;
   letter-spacing: .025em;
   text-align: center;
