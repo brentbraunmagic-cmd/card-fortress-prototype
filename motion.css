@@ -466,21 +466,72 @@ footer {
   animation: bay-lock-in .58s ease-out both;
 }
 
-.defense-turret::before,
-.defense-turret::after {
+.defense-turret::before {
   content: '';
   position: absolute;
   z-index: 1;
-  bottom: 2px;
-  width: 13px;
-  height: 22px;
+  bottom: 0;
+  width: 34px;
+  height: 17px;
   border: 2px solid #8ca6b4;
   background: linear-gradient(135deg, #c3d1d8, #405866 55%, #182833);
   box-shadow: inset 0 0 4px #10202a, 0 0 7px rgba(49, 231, 255, .35);
 }
 
-.defense-turret::before { left: 0; transform: skewY(-17deg); }
-.defense-turret::after { right: 0; transform: skewY(17deg); }
+.defense-turret.left::before {
+  left: 25px;
+  border-radius: 2px 2px 7px 2px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%);
+}
+
+.defense-turret.right::before {
+  right: 25px;
+  border-radius: 2px 2px 2px 7px;
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+}
+
+.defense-turret::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  bottom: 4px;
+  width: 24px;
+  height: 34px;
+  border: 2px solid #718b99;
+  background: linear-gradient(90deg, #1d303c, #849ba7 52%, #263d49);
+  box-shadow: inset 0 0 5px #0c1820, 0 0 6px rgba(49, 231, 255, .28);
+}
+
+.defense-turret.left::after {
+  left: 33px;
+  border-radius: 3px 8px 8px 3px;
+  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 82%);
+}
+
+.defense-turret.right::after {
+  right: 33px;
+  border-radius: 8px 3px 3px 8px;
+  clip-path: polygon(0 0, 100% 18%, 100% 82%, 0 100%);
+}
+
+.defense-turrets {
+  left: 50%;
+  right: auto;
+  bottom: 31px;
+  width: calc(var(--card-w) * 5 + 22px);
+  transform: translateX(-50%);
+}
+
+.defense-turret.left { left: -25px; }
+.defense-turret.right { right: -25px; }
+
+.defense-turret > span {
+  bottom: 0;
+  width: 43px;
+}
+
+.defense-turret.left > span { left: 3px; }
+.defense-turret.right > span { left: 3px; }
 
 .bay-door {
   position: absolute;
@@ -537,4 +588,8 @@ footer {
   45% { filter: brightness(1.35); }
   70% { transform: translateY(-3px) scale(1.04); }
   100% { filter: brightness(1); transform: translateY(0) scale(1); }
+}
+
+@media (max-height: 700px) {
+  .defense-turrets { bottom: 25px; }
 }
