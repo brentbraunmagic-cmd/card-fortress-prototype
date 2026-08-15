@@ -1472,7 +1472,8 @@ footer {
   color: #efffff;
   font-size: 22px;
   letter-spacing: .14em;
-  text-shadow: 0 0 5px #fff, 0 0 12px #31e7ff;
+  text-shadow: none;
+  filter: none;
 }
 
 @media (max-width: 360px) {
