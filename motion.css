@@ -215,8 +215,7 @@
   position: fixed;
   z-index: 70;
   inset: 0;
-  background: rgba(1, 6, 14, .44);
-  backdrop-filter: blur(1px);
+  background: rgba(1, 6, 14, .12);
 }
 
 .tutorial-card {
@@ -262,6 +261,30 @@
   border-radius: 16px;
   box-shadow: 0 0 5px #fff, 0 0 14px #ffd52f, 0 0 29px rgba(255, 191, 24, .9), inset 0 0 14px rgba(255, 231, 64, .3);
   animation: tutorial-ring-pulse .75s ease-in-out infinite alternate;
+}
+
+.tutorial-ring::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  width: max-content;
+  padding: 4px 7px;
+  border: 1px solid #fff36a;
+  border-radius: 5px;
+  background: #07111d;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 213, 47, .75);
+  font: 1000 9px ui-monospace, monospace;
+  letter-spacing: .08em;
+  text-shadow: 0 0 5px #000;
+  white-space: nowrap;
+}
+
+.tutorial-ring.label-above::after {
+  top: -24px;
+  bottom: auto;
 }
 
 .target-card.tutorial-reveal {
@@ -319,4 +342,21 @@
   }
   .tutorial-card h2 { font-size: 18px; }
   .tutorial-card > p:not(.eyebrow) { min-height: 34px; font-size: 11px; }
+}
+
+footer {
+  display: none;
+}
+
+.suit-button {
+  height: 46px;
+  border-radius: 8px;
+}
+
+.suit-button span {
+  font-size: 25px;
+}
+
+.suit-button small {
+  font-size: 8px;
 }
