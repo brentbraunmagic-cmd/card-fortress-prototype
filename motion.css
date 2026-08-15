@@ -606,6 +606,60 @@ footer {
   .defense-turret::after { width: 40px; }
 }
 
+/* Design B mothership: a wide, shallow battleship that enters after card one. */
+.ship-wrap {
+  top: calc(30px - min(17.8vw, 96px));
+  left: 50%;
+  width: 80%;
+  height: min(17.8vw, 96px);
+  transform: translateX(-50%);
+  opacity: 1;
+  filter: drop-shadow(0 5px 13px rgba(32, 126, 255, .72));
+  animation: none;
+  transition: transform .9s cubic-bezier(.18,.82,.28,1), opacity .42s ease;
+}
+
+.ship-wrap.waiting {
+  transform: translate(-50%, -65px) scale(.96);
+  opacity: 0;
+}
+
+.ship-wrap.deployed {
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.mothership-body {
+  position: absolute;
+  inset: 0;
+  background: url('assets/mothership-b.png') center / contain no-repeat;
+  transform-origin: 50% 70%;
+  animation: mothership-drift 6.5s ease-in-out infinite alternate;
+}
+
+.mothership-body .ship-cannon {
+  position: absolute;
+  z-index: 4;
+  top: auto;
+  bottom: 5px;
+  width: 9px;
+  height: 9px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mothership-body .ship-cannon::after { display: none; }
+.mothership-body .cannon-left { left: 30.5%; }
+.mothership-body .cannon-center { left: 50%; transform: translateX(-50%); }
+.mothership-body .cannon-right { right: 30.5%; }
+
+@keyframes mothership-drift {
+  from { transform: translateX(-2.5%) rotate(-.35deg); }
+  to { transform: translateX(2.5%) rotate(.35deg); }
+}
+
 /* Readable stealth-drone flight: stable core, banking wings, directional engines. */
 .bomb.drone {
   width: 116px;
