@@ -687,3 +687,32 @@ footer {
   .defense-turret.left { left: -28px; }
   .defense-turret.right { right: -28px; }
 }
+
+/* Moving turret hardware never enters the fortress card rectangle. */
+.battlefield.bays-built .defense-turret {
+  animation: none;
+}
+
+.defense-turret.left { left: -45px; }
+.defense-turret.right { right: -45px; }
+
+/* Intercept beams stay above the fortress even though its floor stays behind it. */
+.laser-layer { z-index: 9; }
+.ground-laser { z-index: 16; }
+.ground-muzzle { z-index: 15; }
+
+@media (max-width: 360px) {
+  .defense-turret.left {
+    left: -49px;
+    transform-origin: right bottom;
+  }
+
+  .defense-turret.right {
+    right: -49px;
+    transform-origin: left bottom;
+  }
+
+  .battlefield.bays-built .defense-turret {
+    transform: translateY(0) scale(.68);
+  }
+}
