@@ -97,6 +97,25 @@
   letter-spacing: .06em;
 }
 
+.performance-insights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 9px;
+}
+
+.performance-insights b {
+  padding: 4px 7px;
+  border: 1px solid rgba(84, 255, 138, .48);
+  border-radius: 4px;
+  background: rgba(12, 63, 31, .48);
+  color: #a9ffc3;
+  font: 900 7px ui-monospace;
+  letter-spacing: .08em;
+  text-shadow: 0 0 6px rgba(36, 255, 105, .55);
+}
+
 .pinball-score-token b {
   width: min(340px, 90vw);
   padding: 11px 13px 12px;
