@@ -606,6 +606,76 @@ footer {
   .defense-turret::after { width: 40px; }
 }
 
+/* Readable stealth-drone flight: stable core, banking wings, directional engines. */
+.bomb.drone {
+  width: 116px;
+  height: 60px;
+  transform: none;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .72)) drop-shadow(0 0 10px rgba(184, 229, 255, .7));
+}
+
+.bomb.drone::before {
+  left: 39px;
+  top: 9px;
+  width: 38px;
+  height: 37px;
+  background: linear-gradient(145deg, #f7fbfd 0, #aebfc8 28%, #536a77 63%, #dce6ea 100%);
+}
+
+.bomb.drone .drone-wing {
+  top: 15px;
+  width: 61px;
+  height: 29px;
+  background: linear-gradient(160deg, #f8fbfc 0, #b9c9d0 30%, #617783 66%, #dbe5e9 100%);
+  clip-path: polygon(100% 0, 72% 12%, 8% 43%, 0 62%, 57% 100%, 100% 69%);
+  transition: transform .1s linear, filter .18s ease;
+  transform-origin: 88% 52%;
+}
+
+.bomb.drone .drone-wing.left { transform: rotate(var(--wing-bank, 0deg)); }
+.bomb.drone .drone-wing.right { transform: scaleX(-1) rotate(var(--wing-bank, 0deg)); }
+
+.bomb.drone .drone-core {
+  left: 34px;
+  top: 3px;
+  width: 48px;
+  height: 46px;
+  transform: none;
+}
+
+.bomb.drone .drone-thruster {
+  left: 49px;
+  top: 43px;
+  width: 18px;
+  height: 19px;
+  transform: skewX(var(--trail-lean, 0deg));
+  transform-origin: center top;
+  transition: transform .1s linear;
+}
+
+.bomb.drone .drone-thruster::before,
+.bomb.drone .drone-thruster::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  width: 5px;
+  height: 17px;
+  background: linear-gradient(#fff, #6cf1ff 30%, #4777ff 68%, transparent);
+  filter: drop-shadow(0 0 4px #4da9ff);
+}
+
+.bomb.drone .drone-thruster::before { left: -15px; }
+.bomb.drone .drone-thruster::after { right: -15px; }
+
+.bomb.drone.aiming .drone-wing {
+  filter: brightness(1.22) drop-shadow(0 0 5px #ff587e);
+}
+
+.bomb.drone.aiming .drone-core {
+  border-color: #ff244f;
+  box-shadow: inset 0 0 13px rgba(255, 45, 91, .6), 0 0 16px rgba(255, 38, 79, .9);
+}
+
 /* Permanent armored floor and turret wells. The cards remain above this layer. */
 .defense-turrets {
   z-index: 4;
