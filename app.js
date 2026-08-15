@@ -30,6 +30,7 @@ const RANKS = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const FORTRESS_ROWS = [[10,11,12],[5,6,7,8,9],[0,1,2,3,4]];
 const SECTOR_SIZE = 13;
 const SECTOR_COUNT = 4;
+const SAFE_DAMAGE_VARIANTS = [1,3,5];
 
 const DEFEAT_TAUNTS = [
   'Are you even trying?',
@@ -97,7 +98,7 @@ function renderFortress() {
   const root=$('fortress'); root.innerHTML='';
   FORTRESS_ROWS.forEach(positions=>{const row=document.createElement('div');row.className='fortress-row';
     positions.forEach(pos=>{const el=document.createElement('div');el.className='fortress-card';el.dataset.position=String(globalPosition(pos)).padStart(2,'0');el.dataset.index=pos;
-      if(state.health[pos]>0){el.classList.add('built');el.innerHTML=cardMarkup(sectorCard(pos));if(state.health[pos]<100){const stage=Math.min(4,Math.ceil((100-state.health[pos])/20)),variant=(globalPosition(pos)*3+pos)%5+1;el.classList.add('damaged',`damage-${stage}`,`damage-variant-${variant}`);el.querySelector('.card-face').insertAdjacentHTML('beforeend','<span class="damage-surface"><i class="impact-burn"></i><i class="split main-split"></i><i class="split branch-one"></i><i class="split branch-two"></i><b class="char-patch"></b><em class="ember-seam"></em></span>');if(state.health[pos]<=25){el.classList.add('critical');el.insertAdjacentHTML('beforeend','<span class="card-flames"><i></i><i></i><i></i><b></b><em></em><em></em></span>')}}}
+      if(state.health[pos]>0){el.classList.add('built');el.innerHTML=cardMarkup(sectorCard(pos));if(state.health[pos]<100){const stage=Math.min(4,Math.ceil((100-state.health[pos])/20)),variant=SAFE_DAMAGE_VARIANTS[(globalPosition(pos)*3+pos)%SAFE_DAMAGE_VARIANTS.length];el.classList.add('damaged',`damage-${stage}`,`damage-variant-${variant}`);el.querySelector('.card-face').insertAdjacentHTML('beforeend','<span class="damage-surface"><i class="impact-burn"></i><i class="split main-split"></i><i class="split branch-one"></i><i class="split branch-two"></i><b class="char-patch"></b><em class="ember-seam"></em></span>');if(state.health[pos]<=25){el.classList.add('critical');el.insertAdjacentHTML('beforeend','<span class="card-flames"><i></i><i></i><i></i><b></b><em></em><em></em></span>')}}}
       if(pos===state.built && state.phase===1)el.classList.add('next');
       el.addEventListener('dragover',e=>e.preventDefault());el.addEventListener('drop',e=>{e.preventDefault();placeCard(e.dataTransfer.getData('rank'));});row.appendChild(el)});if(positions.every(pos=>state.health[pos]>0))row.classList.add('completed');root.appendChild(row)});
   if(state.health.every(health=>health>0))root.classList.add('station-complete');

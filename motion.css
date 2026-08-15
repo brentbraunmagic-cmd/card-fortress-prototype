@@ -1361,6 +1361,8 @@ footer {
   isolation: isolate;
   filter: none;
   text-shadow: 0 1px rgba(255, 255, 255, .72);
+  opacity: 1;
+  visibility: visible;
 }
 
 .fortress-card.damaged .damage-surface {
