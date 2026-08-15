@@ -44,7 +44,7 @@
 .point-penalty.phase-score-token {
   color: #54ff8a;
   text-shadow: 0 2px #075522, 0 0 5px #fff, 0 0 18px #24ff69, 0 0 35px rgba(24, 255, 94, .8);
-  animation: phase-score-pop 3.95s ease-out forwards;
+  animation: phase-score-pop var(--score-hold, 3.95s) ease-out forwards;
 }
 
 .point-penalty.defeat-token {
@@ -65,6 +65,23 @@
   background: rgba(2, 30, 13, .84);
   color: #baffcf;
   text-shadow: 0 0 7px #20ff65;
+}
+
+.point-penalty.turret-score-token b {
+  width: min(330px, 88vw);
+  padding: 10px 12px 8px;
+  font-size: clamp(16px, 5.2vw, 23px);
+  line-height: 1.05;
+  letter-spacing: .075em;
+  white-space: normal;
+}
+
+.point-penalty.turret-score-token b small {
+  display: block;
+  margin-top: 7px;
+  font: 900 .58em ui-monospace;
+  letter-spacing: .24em;
+  color: #7dffa5;
 }
 
 @keyframes phase-score-pop {
