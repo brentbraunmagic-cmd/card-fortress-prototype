@@ -1656,7 +1656,13 @@ footer {
   filter: none;
 }
 
-/* Damage changes the surface, not the white card stock. */
+/* Every built card uses one neutral stock color in every damage state. */
+.fortress-card.built {
+  background: linear-gradient(145deg, #ffffff 0, #f5f7f8 62%, #e8edf0 100%);
+  border-color: #ffffff;
+}
+
+.fortress-card.built .card-face,
 .fortress-card.damaged .card-face,
 .fortress-card.critical .card-face {
   background: linear-gradient(145deg, #ffffff 0, #f5f7f8 62%, #e8edf0 100%);
