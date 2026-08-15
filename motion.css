@@ -1357,6 +1357,38 @@ footer {
   filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .7)) drop-shadow(0 0 11px rgba(255, 40, 76, .95));
 }
 
+/* One learned-pressure target per Raider phase. */
+.bomb.drone.elite-raider {
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .8)) drop-shadow(0 0 9px #ff3d16) drop-shadow(0 0 17px rgba(255, 154, 28, .82));
+  animation: elite-raider-heat .58s ease-in-out infinite alternate;
+}
+
+.bomb.drone.elite-raider::after {
+  content: 'ELITE';
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  padding: 2px 6px;
+  border: 1px solid #ffb229;
+  border-radius: 3px;
+  background: rgba(48, 8, 2, .9);
+  color: #fff0b0;
+  font: 900 7px ui-monospace;
+  letter-spacing: .16em;
+  box-shadow: 0 0 8px rgba(255, 77, 20, .9);
+}
+
+.bomb.drone.elite-raider .drone-core {
+  border-color: #ff8b20;
+  box-shadow: inset 0 0 9px rgba(255, 69, 16, .58), 0 0 9px rgba(255, 133, 26, .95);
+}
+
+@keyframes elite-raider-heat {
+  to { filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .8)) drop-shadow(0 0 13px #ff3517) drop-shadow(0 0 22px rgba(255, 184, 35, .95)) brightness(1.09); }
+}
+
 /* Permanent armored floor and turret wells. The cards remain above this layer. */
 .defense-turrets {
   z-index: 4;
