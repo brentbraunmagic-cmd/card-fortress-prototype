@@ -155,6 +155,72 @@
   line-height: 1;
 }
 
+/* Score and combo now own the space previously used by informational counters. */
+.status-strip {
+  grid-template-columns: .9fr 1.65fr 1.45fr;
+  grid-template-rows: 1fr;
+}
+
+.status-strip > div:nth-child(1),
+.status-strip > div:nth-child(2),
+.status-strip > div:nth-child(3) {
+  grid-row: 1;
+}
+
+.status-strip > div:nth-child(3) {
+  grid-column: 3;
+  border-bottom: 0;
+}
+
+.status-strip .combo-status strong b {
+  font-size: 25px;
+}
+
+.status-strip .combo-status strong span {
+  font-size: 12px;
+}
+
+.miss-penalty {
+  position: absolute;
+  z-index: 24;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  transform: translateX(-50%);
+  color: #ff5b45;
+  font: 900 clamp(18px, 5.8vw, 25px) ui-monospace;
+  text-shadow: 0 2px #5e0800, 0 0 9px rgba(255, 42, 20, .8);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: miss-penalty-pop 1.15s ease-out forwards;
+}
+
+.miss-penalty b {
+  padding: 3px 6px;
+  border: 1px solid #ff624c;
+  border-radius: 3px;
+  background: rgba(42, 3, 1, .84);
+  font-size: .55em;
+  letter-spacing: .12em;
+}
+
+.app-shell.miss-alarm {
+  animation: miss-rattle .36s ease-out;
+}
+
+@keyframes miss-rattle {
+  0%,100% { transform: translate(0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, 1px); }
+}
+
+@keyframes miss-penalty-pop {
+  0% { transform: translate(-50%, 8px) scale(.65); opacity: 0; }
+  18%,72% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -12px) scale(.94); opacity: 0; }
+}
+
 .battlefield.turret-hero .defense-turret .turret-head {
   animation: turret-online-hero 1s ease-in-out both;
 }
