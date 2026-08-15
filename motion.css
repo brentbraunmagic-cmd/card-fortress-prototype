@@ -168,6 +168,15 @@
   opacity: 1;
 }
 
+.raider-score-token.show-perfect .perfect-line,
+.raider-score-token.show-time .time-bonus-line {
+  max-height: 48px;
+  margin-top: 8px;
+  padding-block: 7px;
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .pinball-score-token .pinball-total {
   margin-top: 0;
   transform: translateY(-12px) rotateX(68deg);
@@ -1583,6 +1592,15 @@ footer {
 }
 
 .point-penalty.pinball-score-token.show-bonus b .bonus-line {
+  max-height: 48px;
+  margin-top: 8px;
+  padding-block: 7px;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.point-penalty.raider-score-token.show-perfect b .perfect-line,
+.point-penalty.raider-score-token.show-time b .time-bonus-line {
   max-height: 48px;
   margin-top: 8px;
   padding-block: 7px;
