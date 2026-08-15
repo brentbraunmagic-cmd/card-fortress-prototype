@@ -91,7 +91,7 @@ syncViewportHeight();window.addEventListener('resize',syncViewportHeight);window
 
 function cardMarkup(card) {
   const [rank,suit]=card, red=suit==='hearts'||suit==='diamonds';
-  return `<div class="card-face ${red?'red':''}"><span>${rank}<br>${SUITS[suit]}</span><em>${SUITS[suit]}</em></div>`;
+  return `<div class="card-face ${red?'red':''}"><em>${SUITS[suit]}</em></div><span class="protected-card-index ${red?'red':''}">${rank}<br>${SUITS[suit]}</span>`;
 }
 
 function renderFortress() {
