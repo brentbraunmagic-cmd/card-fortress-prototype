@@ -795,6 +795,37 @@ footer {
 @keyframes ash-spark { 0% { transform:translate(0,0);opacity:0; } 20% { opacity:1; } 100% { transform:translate(4px,-18px);opacity:0; } }
 @keyframes critical-heat { to { filter: brightness(1.08) saturate(1.08); } }
 
+/* Five stable damage skins prevent every fortress card from breaking identically. */
+.damage-variant-2 .damage-surface { transform: scaleX(-1); }
+.damage-variant-2 .card-flames { left: -2px; right: auto; }
+.fortress-card.damage-variant-2.damage-3 .card-face { clip-path: polygon(24% 0,100% 0,100% 82%,93% 90%,100% 100%,10% 100%,0 83%,0 24%); }
+.fortress-card.damage-variant-2.damage-4 .card-face { clip-path: polygon(30% 0,92% 0,100% 25%,100% 100%,17% 100%,0 72%,0 30%); }
+
+.damage-variant-3 .damage-surface { transform: rotate(180deg); }
+.damage-variant-3 .card-flames { left: -3px; right: auto; top: auto; bottom: -3px; transform: rotate(-12deg); }
+.fortress-card.damage-variant-3.damage-3 .card-face { clip-path: polygon(0 0,90% 0,100% 17%,100% 76%,84% 100%,24% 100%,0 78%); }
+.fortress-card.damage-variant-3.damage-4 .card-face { clip-path: polygon(0 0,100% 0,100% 70%,72% 100%,30% 100%,0 76%,0 15%); }
+
+.damage-variant-4 .impact-burn { left: -5px; right: auto; top: 8%; transform: scale(.88); }
+.damage-variant-4 .main-split { left: 38%; transform: rotate(11deg); }
+.damage-variant-4 .ember-seam { left: calc(38% + 2px); transform: rotate(11deg); }
+.damage-variant-4 .branch-one { top: 29%; transform: rotate(-17deg); }
+.damage-variant-4 .branch-two { top: 72%; transform: rotate(18deg); }
+.damage-variant-4 .char-patch { left: -9px; right: auto; top: 24%; }
+.damage-variant-4 .card-flames { left: -2px; right: auto; top: 7px; }
+.fortress-card.damage-variant-4.damage-3 .card-face { clip-path: polygon(18% 0,100% 0,100% 100%,23% 100%,0 80%,0 20%); }
+.fortress-card.damage-variant-4.damage-4 .card-face { clip-path: polygon(28% 0,100% 0,100% 68%,82% 100%,22% 100%,0 74%,0 27%); }
+
+.damage-variant-5 .impact-burn { right: 4%; top: auto; bottom: -6px; transform: scale(.82); }
+.damage-variant-5 .main-split { left: 60%; transform: rotate(14deg); }
+.damage-variant-5 .ember-seam { left: calc(60% + 2px); transform: rotate(14deg); }
+.damage-variant-5 .branch-one { left: 12%; top: 52%; transform: rotate(31deg); }
+.damage-variant-5 .branch-two { right: 9%; top: 34%; transform: rotate(-14deg); }
+.damage-variant-5 .char-patch { right: 8%; top: auto; bottom: -8px; width: 72%; height: 28%; background: radial-gradient(ellipse at 52% 100%,#080402 0 25%,#32140a 43%,rgba(113,47,17,.55) 58%,transparent 75%); }
+.damage-variant-5 .card-flames { left: 50%; right: auto; top: -8px; transform: translateX(-50%); }
+.fortress-card.damage-variant-5.damage-3 .card-face { clip-path: polygon(0 0,78% 0,100% 19%,100% 100%,66% 100%,55% 91%,42% 100%,0 100%,0 12%); }
+.fortress-card.damage-variant-5.damage-4 .card-face { clip-path: polygon(0 0,72% 0,100% 28%,100% 79%,85% 100%,66% 100%,53% 86%,37% 100%,0 100%,0 22%); }
+
 /* Approved twin-cannon turret A. The head rotates independently on the existing bay. */
 .defense-turret .turret-head {
   left: -7px;
