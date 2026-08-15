@@ -113,6 +113,48 @@
   text-shadow: 0 2px #075522, 0 0 5px #fff, 0 0 18px #24ff69;
 }
 
+.raider-reward {
+  position: absolute;
+  z-index: 24;
+  transform: translate(-50%, -50%);
+  color: #baffc9;
+  font: 900 clamp(22px, 7vw, 31px) ui-monospace;
+  line-height: 1;
+  text-shadow: 0 2px #075522, 0 0 5px #fff, 0 0 14px #24ff69;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: raider-reward-pop .95s ease-out forwards;
+}
+
+@keyframes raider-reward-pop {
+  0% { transform: translate(-50%, -50%) scale(.45); opacity: 0; }
+  18% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+  68% { transform: translate(-50%, -65%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -95%) scale(.92); opacity: 0; }
+}
+
+.status-strip .combo-status strong {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.status-strip .combo-status strong span {
+  color: #a9bfce;
+  font-size: 10px;
+  letter-spacing: .08em;
+  opacity: 1;
+}
+
+.status-strip .combo-status strong b {
+  color: #efffff;
+  font: 900 17px ui-monospace;
+  line-height: 1;
+}
+
 .battlefield.turret-hero .defense-turret .turret-head {
   animation: turret-online-hero 1s ease-in-out both;
 }
