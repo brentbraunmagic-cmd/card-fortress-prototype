@@ -89,7 +89,7 @@ function renderControls(){
 
 function placeCard(suit){if(state.paused||state.phase!==1||state.built>=13||!state.selectedRank)return;const expected=sectorCard(state.built),chosenRank=state.selectedRank;state.selectedRank=null;
   if(chosenRank===expected[0]&&suit===expected[1]){state.health[state.built]=100;state.built++;if(state.built===13)state.turretsDeployed=true;state.score+=100*state.combo;state.combo=Math.min(9,state.combo+1);flashMessage(`${chosenRank} OF ${suit.toUpperCase()} · SECURED`,true);updateUI();renderFortress();renderControls();sound(state.built===13?'deploy':'build');
-    if(state.built===13)setTimeout(showPhaseComplete,350);
+    if(state.built===13)setTimeout(showPhaseComplete,3600);
   }else{state.combo=1;state.score=Math.max(0,state.score-25);flashMessage('MEMORY MISMATCH',false);updateUI();renderControls();sound('error')}
 }
 
