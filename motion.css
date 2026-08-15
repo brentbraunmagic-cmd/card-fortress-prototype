@@ -608,7 +608,7 @@ footer {
 
 /* Design B mothership: a wide, shallow battleship that enters after card one. */
 .ship-wrap {
-  top: calc(30px - min(17.8vw, 96px));
+  top: calc(38px - min(17.8vw, 96px));
   left: 50%;
   width: 80%;
   height: min(17.8vw, 96px);
@@ -616,7 +616,7 @@ footer {
   opacity: 1;
   filter: drop-shadow(0 5px 13px rgba(32, 126, 255, .72));
   animation: none;
-  transition: transform .9s cubic-bezier(.18,.82,.28,1), opacity .42s ease;
+  transition: transform 1.8s cubic-bezier(.16,.76,.25,1), opacity .9s ease;
 }
 
 .ship-wrap.waiting {

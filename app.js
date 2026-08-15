@@ -87,7 +87,7 @@ function renderControls(){
   document.querySelectorAll('.suit-button').forEach(b=>b.onclick=()=>placeCard(b.dataset.suit));
 }
 
-function deployMothership(){const ship=$('ship');ship.classList.remove('waiting','hidden','retreating');ship.classList.add('deployed');setTimeout(()=>{if(state.phase===1)state.shipEntered=true},950)}
+function deployMothership(){const ship=$('ship');ship.classList.remove('waiting','hidden','retreating');ship.classList.add('deployed');setTimeout(()=>{if(state.phase!==1||state.built===0)return;state.shipEntered=true;fireLaser()},1800)}
 
 function placeCard(suit){if(state.paused||state.phase!==1||state.built>=13||!state.selectedRank)return;const expected=sectorCard(state.built),chosenRank=state.selectedRank;state.selectedRank=null;
   if(chosenRank===expected[0]&&suit===expected[1]){state.health[state.built]=100;state.built++;if(state.built===1)deployMothership();if(state.built===13)state.turretsDeployed=true;state.score+=100*state.combo;state.combo=Math.min(9,state.combo+1);flashMessage(`${chosenRank} OF ${suit.toUpperCase()} · SECURED`,true);updateUI();renderFortress();renderControls();sound(state.built===13?'deploy':'build');
