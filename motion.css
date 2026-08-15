@@ -360,3 +360,87 @@ footer {
 .suit-button small {
   font-size: 8px;
 }
+
+.rank-button.inline-restart {
+  border-color: #ff8737;
+  background: linear-gradient(180deg, #67270d, #321205);
+  color: #ffd0a8;
+  box-shadow: inset 0 1px rgba(255, 218, 181, .2), 0 0 9px rgba(255, 92, 24, .28);
+  font-size: 7px;
+  letter-spacing: -.02em;
+  text-shadow: 0 1px #170500;
+}
+
+.rank-button.inline-restart:active {
+  background: linear-gradient(180deg, #8d3610, #481705);
+  box-shadow: 0 0 13px rgba(255, 106, 34, .6);
+}
+
+.tutorial-toggle {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 13px;
+  padding: 11px 13px;
+  border: 1px solid #31536a;
+  border-radius: 9px;
+  background: rgba(8, 23, 37, .9);
+  text-align: left;
+}
+
+.tutorial-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tutorial-toggle > i {
+  position: relative;
+  width: 42px;
+  height: 23px;
+  border-radius: 14px;
+  background: #1b3243;
+  box-shadow: inset 0 1px 4px #02070c;
+}
+
+.tutorial-toggle > i::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #718898;
+  transition: .2s;
+}
+
+.tutorial-toggle input:checked + i {
+  background: rgba(49, 231, 255, .35);
+  box-shadow: inset 0 0 8px rgba(49, 231, 255, .55), 0 0 9px rgba(49, 231, 255, .3);
+}
+
+.tutorial-toggle input:checked + i::after {
+  left: 22px;
+  background: #fff;
+  box-shadow: 0 0 8px var(--cyan);
+}
+
+.tutorial-toggle span strong,
+.tutorial-toggle span small {
+  display: block;
+}
+
+.tutorial-toggle span strong {
+  color: #e9fbff;
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.tutorial-toggle span small {
+  margin-top: 3px;
+  color: #7894a8;
+  font-size: 9px;
+}
