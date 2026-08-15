@@ -1462,7 +1462,8 @@ footer {
   color: #efffff;
   font-size: 14px;
   line-height: 1;
-  text-shadow: 0 0 5px #fff, 0 0 12px #31e7ff;
+  text-shadow: none;
+  filter: none;
 }
 
 .target-card {
