@@ -361,17 +361,21 @@ footer {
   font-size: 8px;
 }
 
-.rank-button.inline-restart {
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.icon-button.top-restart {
   border-color: #ff8737;
   background: linear-gradient(180deg, #67270d, #321205);
   color: #ffd0a8;
-  box-shadow: inset 0 1px rgba(255, 218, 181, .2), 0 0 9px rgba(255, 92, 24, .28);
-  font-size: 7px;
-  letter-spacing: -.02em;
-  text-shadow: 0 1px #170500;
+  box-shadow: inset 0 1px rgba(255, 218, 181, .2), 0 0 9px rgba(255, 92, 24, .25);
+  font-size: 22px;
 }
 
-.rank-button.inline-restart:active {
+.icon-button.top-restart:active {
   background: linear-gradient(180deg, #8d3610, #481705);
   box-shadow: 0 0 13px rgba(255, 106, 34, .6);
 }

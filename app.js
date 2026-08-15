@@ -81,9 +81,8 @@ function renderFortress() {
 }
 
 function renderControls(){
-  $('rankRow').innerHTML=RANKS.map(rank=>`<button class="rank-button ${rank===state.selectedRank?'selected':''}" data-rank="${rank}">${rank}</button>`).join('')+'<button class="rank-button inline-restart" id="inlineRestart">↻ RESTART</button>';
+  $('rankRow').innerHTML=RANKS.map(rank=>`<button class="rank-button ${rank===state.selectedRank?'selected':''}" data-rank="${rank}">${rank}</button>`).join('');
   document.querySelectorAll('.rank-button').forEach(b=>b.onclick=()=>{if(state.paused)return;state.selectedRank=b.dataset.rank;renderControls();sound('select')});
-  $('inlineRestart').onclick=restart;
   $('suitRow').innerHTML=Object.entries(SUITS).map(([name,symbol])=>`<button class="suit-button ${(name==='hearts'||name==='diamonds')?'red':''}" data-suit="${name}" ${state.selectedRank?'':'disabled'}><span>${symbol}</span><small>${name.toUpperCase()}</small></button>`).join('');
   document.querySelectorAll('.suit-button').forEach(b=>b.onclick=()=>placeCard(b.dataset.suit));
 }

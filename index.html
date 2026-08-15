@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#07101f" />
   <title>Memory Fortress</title>
-  <link rel="stylesheet" href="styles.css?v=42" />
-  <link rel="stylesheet" href="motion.css?v=42" />
+  <link rel="stylesheet" href="styles.css?v=43" />
+  <link rel="stylesheet" href="motion.css?v=43" />
 </head>
 <body>
   <main class="app-shell">
@@ -15,7 +15,10 @@
         <p class="eyebrow" id="sectorLabel">NEURAL DEFENSE // SECTOR 01 // 01–13</p>
         <h1>MEMORY FORTRESS</h1>
       </div>
-      <button class="icon-button" id="soundButton" aria-label="Toggle sound">◖))</button>
+      <div class="top-actions">
+        <button class="icon-button top-restart" id="restartButton" aria-label="Restart game">↻</button>
+        <button class="icon-button" id="soundButton" aria-label="Toggle sound">◖))</button>
+      </div>
     </header>
 
     <section class="status-strip" aria-label="Game status">
@@ -66,7 +69,6 @@
     </section>
 
     <footer>
-      <button class="secondary-button" id="restartButton">↻ RESTART</button>
       <div class="progress-wrap"><span id="progressText">0 / 13 BUILT</span><div class="progress"><i id="progressBar"></i></div></div>
       <button class="secondary-button" id="pauseButton">Ⅱ PAUSE</button>
     </footer>
@@ -135,6 +137,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=42"></script>
+  <script src="app.js?v=43"></script>
 </body>
 </html>
