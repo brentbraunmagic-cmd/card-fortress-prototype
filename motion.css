@@ -608,7 +608,7 @@ footer {
 
 /* Design B mothership: a wide, shallow battleship that enters after card one. */
 .ship-wrap {
-  top: calc(38px - min(17.8vw, 96px));
+  top: calc(48px - min(17.8vw, 96px));
   left: 50%;
   width: 80%;
   height: min(17.8vw, 96px);
@@ -651,9 +651,9 @@ footer {
 }
 
 .mothership-body .ship-cannon::after { display: none; }
-.mothership-body .cannon-left { left: 30.5%; }
-.mothership-body .cannon-center { left: 50%; transform: translateX(-50%); }
-.mothership-body .cannon-right { right: 30.5%; }
+.mothership-body .cannon-left { left: 31.7%; right: auto; }
+.mothership-body .cannon-center { left: 50%; right: auto; transform: translateX(-50%); }
+.mothership-body .cannon-right { left: auto; right: 31.7%; }
 
 @keyframes mothership-drift {
   from { transform: translateX(-2.5%) rotate(-.35deg); }
