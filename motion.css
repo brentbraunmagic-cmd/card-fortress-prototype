@@ -50,7 +50,7 @@
 .point-penalty.defeat-token {
   color: #ff301f;
   text-shadow: 0 3px #660700, 0 0 6px #fff, 0 0 20px #ff2818, 0 0 42px rgba(255, 26, 10, .95);
-  animation: phase-score-pop 3s ease-out forwards;
+  animation: phase-score-pop 5s ease-out forwards;
 }
 
 .point-penalty.defeat-token b {
