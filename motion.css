@@ -606,6 +606,23 @@ footer {
   .defense-turret::after { width: 40px; }
 }
 
+/* Approved twin-cannon turret A. The head rotates independently on the existing bay. */
+.defense-turret .turret-head {
+  left: -7px;
+  width: 63px;
+  height: 63px;
+  border: 0;
+  border-radius: 0;
+  background: url('assets/twin-cannon-turret.png') center / contain no-repeat;
+  box-shadow: none;
+  transform-origin: 50% 54%;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.8)) drop-shadow(0 0 4px rgba(49,231,255,.45));
+}
+
+.defense-turret .turret-head > * { display: none; }
+.defense-turret.firing .turret-head { filter: brightness(1.22) drop-shadow(0 0 7px rgba(55,255,108,.8)); }
+.ground-laser.twin-beam { height: 4px; }
+
 /* Design B mothership: a wide, shallow battleship that enters after card one. */
 .ship-wrap {
   top: calc(48px - min(17.8vw, 96px));
