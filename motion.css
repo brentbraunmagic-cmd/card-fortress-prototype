@@ -368,11 +368,14 @@ footer {
 }
 
 .icon-button.top-restart {
+  width: auto;
+  padding: 0 10px;
   border-color: #ff8737;
   background: linear-gradient(180deg, #67270d, #321205);
   color: #ffd0a8;
   box-shadow: inset 0 1px rgba(255, 218, 181, .2), 0 0 9px rgba(255, 92, 24, .25);
-  font-size: 22px;
+  font: 900 9px ui-monospace, monospace;
+  letter-spacing: .05em;
 }
 
 .icon-button.top-restart:active {

@@ -44,7 +44,7 @@ function randomizeShipFlight(){const ship=$('ship'),between=(min,max)=>min+Math.
 
 function buildTutorialSlides(){const card=sectorCard(0),position=String(globalPosition(0)).padStart(2,'0'),rank=card[0],suit=card[1];return[
   {title:'WE’RE UNDER ATTACK',text:`Build the fortress! Match the corresponding card with the number it is in the stack. Position ${position} matches ${rank}${SUITS[suit]}.`,selectors:['.fortress-card.next','#targetCard'],labels:[`POSITION ${position}`,`CARD ${rank}${SUITS[suit]}`]},
-  {title:'CHOOSE THE VALUE FIRST',text:`For ${rank}${SUITS[suit]}, tap ${rank} first. This arms the suit controls.`,selectors:[`.rank-button[data-rank="${rank}"]`],labels:[`TAP VALUE ${rank}`]},
+  {title:'CHOOSE THE VALUE FIRST',text:`For ${rank}${SUITS[suit]}, tap ${rank} first.`,selectors:[`.rank-button[data-rank="${rank}"]`],labels:[`TAP VALUE ${rank}`]},
   {title:'THEN CHOOSE THE SUIT',text:`Tap ${SUITS[suit]} to lock ${rank}${SUITS[suit]} into position ${position}. Build quickly. The mothership will attack.`,selectors:[`.suit-button[data-suit="${suit}"]`],labels:[`TAP SUIT ${SUITS[suit]}`]}
 ]}
 function droneTutorialSlides(){const index=state.bomb?.index??0,card=droneCard(index),position=String(droneGlobalPosition(index)).padStart(2,'0'),answerSelector=state.mode==='super'?'.position-code':`.position-button[data-position="${index}"]`;return[
