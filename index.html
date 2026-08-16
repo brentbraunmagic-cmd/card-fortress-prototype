@@ -13,21 +13,19 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=124" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260816-21" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260816-24" />
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
-      <button class="icon-button top-restart" id="restartButton" aria-label="Restart game">RESTART</button>
       <button class="hidden" id="soundButton" aria-hidden="true" tabindex="-1"></button>
     </header>
 
     <section class="status-strip" aria-label="Game status">
       <div class="score-status"><span>SCORE</span><strong id="scoreLabel">0</strong></div>
       <div class="combo-status"><strong><b id="comboLabel">×1</b></strong></div>
-      <div class="fortress-health" id="fortressHealth">
-        <span>FORTRESS <b id="fortressHealthLabel">100%</b></span>
-        <i><b id="fortressHealthBar"></b></i>
+      <div class="restart-status">
+        <button class="icon-button top-restart" id="restartButton" aria-label="Restart game">RESTART</button>
       </div>
     </section>
 
