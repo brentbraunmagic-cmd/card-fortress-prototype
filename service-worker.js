@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v48';
+const CACHE_NAME = 'memory-fortress-v50';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -29,6 +29,7 @@ const OFFLINE_FILES = [
   ,'./assets/dashboard-raiders-training-v1.png'
   ,'./assets/dashboard-raiders-keypad-v1.png'
   ,'./assets/menu-mode-panel-v1.png'
+  ,'./assets/memory-fortress-splash-v1.png'
 ];
 
 self.addEventListener('install', event => {
