@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=124" />
-  <link rel="stylesheet" href="control-reskin.css?v=3" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260816-21" />
 </head>
 <body>
   <main class="app-shell">
@@ -51,7 +51,16 @@
     </section>
 
     <section class="control-deck" id="buildControls">
-      <div class="target-card" id="targetCard" aria-label="Training card hint">4♣</div>
+      <div class="build-hint" id="buildHint">
+        <div class="panel-health fortress-health healthy" id="panelFortressHealth">
+          <span><em>SHIELDS</em><b id="panelFortressHealthLabel">100%</b></span>
+          <i><b id="panelFortressHealthBar"></b></i>
+        </div>
+        <div class="build-readouts">
+          <div class="target-position" id="targetPosition" aria-label="Current stack position">01</div>
+          <div class="target-card" id="targetCard" aria-label="Training card hint">4♣</div>
+        </div>
+      </div>
       <div class="rank-panel">
         <span class="rank-label">VALUE</span>
         <div class="rank-row" id="rankRow"></div>
@@ -73,16 +82,16 @@
     </footer>
   </main>
 
-  <div class="stack-chooser" id="stackChooser" role="dialog" aria-modal="true" aria-labelledby="stackChooserTitle">
+  <div class="stack-chooser hidden" id="stackChooser" role="dialog" aria-modal="true" aria-labelledby="stackChooserTitle">
     <div class="stack-chooser-card">
       <div class="chooser-orbit" aria-hidden="true"><i></i><b>52</b></div>
-      <p class="eyebrow">MEMORY SYSTEM INITIALIZATION</p>
-      <h2 id="stackChooserTitle">CHOOSE YOUR STACK</h2>
-      <p>Choose a stack. Train all 52 cards across four sectors.</p>
+      <p class="eyebrow">MEMORY FLEET COMMAND</p>
+      <h2 id="stackChooserTitle">CHOOSE YOUR CAPTAIN</h2>
+      <p>Your captain determines the memorized stack used across all four sectors.</p>
       <div class="stack-options" id="stackOptions">
-        <button data-stack="mnemonica"><strong>MNEMONICA</strong><small>Juan Tamariz · Starts 4♣</small><span>SELECT →</span></button>
-        <button data-stack="redford"><strong>REDFORD</strong><small>Patrick Redford · Starts Q♥</small><span>SELECT →</span></button>
-        <button data-stack="aronson"><strong>ARONSON</strong><small>Simon Aronson · Starts J♠</small><span>SELECT →</span></button>
+        <button data-stack="mnemonica"><strong>CAPTAIN JUAN TAMARIZ</strong><small>SPECIALTY · MNEMONICA · Starts 4♣</small><span>SELECT →</span></button>
+        <button data-stack="redford"><strong>CAPTAIN PATRICK REDFORD</strong><small>SPECIALTY · REDFORD STACK · Starts Q♥</small><span>SELECT →</span></button>
+        <button data-stack="aronson"><strong>CAPTAIN SIMON ARONSON</strong><small>SPECIALTY · ARONSON STACK · Starts J♠</small><span>SELECT →</span></button>
         <button id="createCustomStack"><strong>CUSTOM STACK</strong><small>Build your own 52-card memorized order</small><span>BUILD →</span></button>
       </div>
     </div>
@@ -109,10 +118,10 @@
     </div>
   </div>
 
-  <div class="stack-chooser hidden" id="modeChooser" role="dialog" aria-modal="true" aria-labelledby="modeChooserTitle">
+  <div class="stack-chooser" id="modeChooser" role="dialog" aria-modal="true" aria-labelledby="modeChooserTitle">
     <div class="stack-chooser-card">
       <div class="chooser-orbit" aria-hidden="true"><i></i><b>MODE</b></div>
-      <p class="eyebrow"><span id="selectedStackName">SELECTED STACK</span> // DIFFICULTY</p>
+      <p class="eyebrow">MISSION PROFILE // DIFFICULTY</p>
       <h2 id="modeChooserTitle">CHOOSE YOUR MODE</h2>
       <p>Training shows the card. Advanced shows only its position.</p>
       <div class="stack-options">
@@ -125,6 +134,19 @@
         <i aria-hidden="true"></i>
         <span><strong>SHOW TUTORIAL</strong><small>Replay instructions this run</small></span>
       </label>
+    </div>
+  </div>
+
+  <div class="stack-chooser hidden" id="shipChooser" role="dialog" aria-modal="true" aria-labelledby="shipChooserTitle">
+    <div class="stack-chooser-card ship-chooser-card">
+      <p class="eyebrow">COCKPIT CONFIGURATION</p>
+      <h2 id="shipChooserTitle">SELECT YOUR SHIP</h2>
+      <p>Each ship uses the same cards and scoring. Choose the control layout that feels best.</p>
+      <div class="ship-options">
+        <button data-ship-class="fortress"><i class="ship-silhouette fortress-ship"></i><span><strong>FORTRESS CLASS</strong><small>Large controls · Four rank rows</small></span><b>SELECT →</b></button>
+        <button data-ship-class="strike"><i class="ship-silhouette strike-ship"></i><span><strong>STRIKE CLASS</strong><small>Low profile · Two rank rows</small></span><b>SELECT →</b></button>
+        <button data-ship-class="interceptor"><i class="ship-silhouette interceptor-ship"></i><span><strong>INTERCEPTOR CLASS</strong><small>Center keypad · Suits on both sides</small></span><b>SELECT →</b></button>
+      </div>
     </div>
   </div>
 
@@ -162,6 +184,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=129"></script>
+  <script src="app.js?v=133"></script>
 </body>
 </html>

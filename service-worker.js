@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v6';
+const CACHE_NAME = 'memory-fortress-v18';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -15,6 +15,16 @@ const OFFLINE_FILES = [
   './assets/mothership-b.png',
   './assets/telescope-dome-b.png',
   './assets/twin-cannon-turret.png'
+  ,'./assets/console-rank-key-v1.png'
+  ,'./assets/console-suit-key-v1.png'
+  ,'./assets/menu-command-frame-v1.png'
+  ,'./assets/cockpit-shell-v1.png'
+  ,'./assets/ship-fortress-v1.png'
+  ,'./assets/ship-strike-v1.png'
+  ,'./assets/ship-interceptor-v1.png'
+  ,'./assets/dashboard-fortress-approved-v1.png'
+  ,'./assets/dashboard-fortress-windows-v1.png'
+  ,'./assets/dashboard-strike-windows-v1.png'
 ];
 
 self.addEventListener('install', event => {

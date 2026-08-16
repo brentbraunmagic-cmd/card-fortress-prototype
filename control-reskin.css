@@ -29,3 +29,1299 @@
 }
 #buildControls .rank-panel{grid-column:1;grid-row:2}
 #buildControls .suit-panel{grid-column:2;grid-row:2}
+
+/* Paired Phase 1 readout and a clear Raider playfield. */
+#buildControls .build-hint{
+  grid-column:2;
+  grid-row:1;
+  justify-self:end;
+  display:flex;
+  gap:7px;
+  margin-right:5px;
+}
+#buildControls .build-hint .target-position,
+#buildControls .build-hint .target-card{
+  min-width:63px;
+  min-height:31px;
+  display:grid;
+  place-items:center;
+  margin:0;
+  padding:4px 10px;
+  border:1px solid #92a8b4;
+  border-radius:6px;
+  background:repeating-linear-gradient(180deg,rgba(126,244,255,.05) 0 1px,transparent 1px 3px),linear-gradient(180deg,#07151e,#102732);
+  color:#fff;
+  font:1000 23px/1 ui-monospace,monospace;
+  letter-spacing:.1em;
+  box-shadow:inset 0 0 10px #000,0 0 0 2px #263b46;
+}
+#buildControls .build-hint .target-card.answer-hidden{display:none}
+.phase-two-controls .recall-heading{display:none}
+
+/* Option A cockpit skin: one reinforced panel with integrated instruments. */
+#buildControls{
+  position:relative;
+  overflow:hidden;
+  border-top:2px solid #758995;
+  border-bottom:2px solid #14242f;
+  background:
+    radial-gradient(circle at 8px 8px,#d7e0e5 0 2px,#536975 2px 4px,transparent 4.5px),
+    radial-gradient(circle at calc(100% - 8px) 8px,#d7e0e5 0 2px,#536975 2px 4px,transparent 4.5px),
+    radial-gradient(circle at 8px calc(100% - 8px),#d7e0e5 0 2px,#536975 2px 4px,transparent 4.5px),
+    radial-gradient(circle at calc(100% - 8px) calc(100% - 8px),#d7e0e5 0 2px,#536975 2px 4px,transparent 4.5px),
+    repeating-linear-gradient(105deg,rgba(255,255,255,.025) 0 1px,transparent 1px 7px),
+    linear-gradient(180deg,#233744 0,#101f2a 16%,#07121b 55%,#142630 100%);
+  box-shadow:inset 0 2px rgba(255,255,255,.16),inset 0 -5px 12px #02070b,0 -7px 20px rgba(0,0,0,.5);
+}
+
+/* Restart is a permanent physical control in the lower command panel. */
+.app-shell{position:relative;grid-template-rows:0 auto minmax(270px,1fr) auto}
+.topbar{
+  position:static;
+  min-height:0;
+  height:0;
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+.topbar:after{display:none}
+.top-restart{
+  position:absolute;
+  z-index:28;
+  right:10px;
+  bottom:calc(8px + env(safe-area-inset-bottom));
+  width:72px;
+  height:29px;
+  padding:0 8px;
+  border:2px solid #9a531f;
+  border-radius:6px;
+  color:#ffd28a;
+  background:linear-gradient(180deg,#502713 0,#1d0d08 55%,#090504 100%);
+  font:900 8px ui-monospace,monospace;
+  letter-spacing:.08em;
+  box-shadow:inset 0 1px #e49255,inset 0 -2px #050201,0 0 0 2px #2a3940,0 0 9px rgba(255,105,24,.28);
+}
+.top-restart:active{transform:translateY(1px);filter:brightness(1.25)}
+.status-strip{
+  height:calc(62px + env(safe-area-inset-top));
+  padding-top:env(safe-area-inset-top);
+}
+@media(max-height:700px){.topbar{min-height:0;height:0;padding:0}.status-strip{height:calc(52px + env(safe-area-inset-top))}.top-restart{height:26px;bottom:calc(6px + env(safe-area-inset-bottom))}}
+
+/* Illustrated armored keys, preserving the approved dimensions and grid. */
+#buildControls .rank-button{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:0;
+  border-radius:0;
+  clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px);
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.42) 0 4%,transparent 5% 94%,rgba(0,0,0,.72) 95%),
+    linear-gradient(180deg,#a8bac3 0,#405762 12%,#172832 24%,#07131d 31%,#0b1c28 72%,#263d49 84%,#80939c 100%);
+  color:#dffbff;
+  text-shadow:0 0 5px #fff,0 0 11px #19c9ff;
+  box-shadow:inset 0 0 0 2px #111d24,inset 0 0 0 4px #617580,inset 0 0 12px 5px #020609,0 2px 4px rgba(0,0,0,.75);
+}
+#buildControls .rank-button:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:5px;
+  clip-path:polygon(5px 0,calc(100% - 5px) 0,100% 5px,100% calc(100% - 5px),calc(100% - 5px) 100%,5px 100%,0 calc(100% - 5px),0 5px);
+  background:radial-gradient(circle at 50% 30%,#173749,#07131e 72%);
+  box-shadow:inset 0 0 9px #000;
+}
+#buildControls .rank-button:after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:15%;right:15%;bottom:3px;height:2px;
+  background:#29dfff;
+  box-shadow:0 0 6px #1bcfff;
+  opacity:.72;
+}
+#buildControls .rank-button>span{position:relative;z-index:1}
+#buildControls .rank-button.selected{
+  color:#fff;
+  background:linear-gradient(180deg,#e6f8ff 0,#6d9caa 13%,#174358 27%,#09202d 72%,#40818f 88%,#e3f8ff 100%);
+  text-shadow:0 0 5px #fff,0 0 15px #24e7ff;
+  box-shadow:inset 0 0 0 2px #d8f8ff,inset 0 0 0 4px #31dfff,inset 0 0 18px 5px #06364a,0 0 13px rgba(49,231,255,.72);
+}
+
+#buildControls .suit-row{transform:none}
+#buildControls .suit-button{
+  overflow:hidden;
+  border:0;
+  border-radius:0;
+  transform:none;
+  clip-path:polygon(25% 0,75% 0,100% 25%,100% 75%,75% 100%,25% 100%,0 75%,0 25%);
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.4) 0 5%,transparent 6% 93%,rgba(0,0,0,.75) 94%),
+    linear-gradient(180deg,#9dafb8 0,#405762 13%,#111f28 25%,#07121b 70%,#304752 87%,#81939c 100%);
+  box-shadow:inset 0 0 0 2px #101a20,inset 0 0 0 4px #617681,inset 0 0 12px 5px #020609,0 3px 5px rgba(0,0,0,.75);
+}
+#buildControls .suit-button:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:6px;
+  clip-path:inherit;
+  background:radial-gradient(circle,#173748,#061019 72%);
+  box-shadow:inset 0 0 10px #000;
+}
+#buildControls .suit-button span{
+  position:relative;
+  z-index:1;
+  transform:none;
+  color:#ecfbff;
+  text-shadow:0 0 4px #fff,0 0 11px #2edfff;
+}
+#buildControls .suit-button.red span{color:#ff5a48;text-shadow:0 0 5px #fff,0 0 12px #ff351e}
+#buildControls .suit-button.red{background:linear-gradient(180deg,#aeb9bc 0,#4f5d60 13%,#211a18 25%,#110a09 70%,#553229 87%,#9a837d 100%)}
+#buildControls .suit-button:disabled{opacity:.28;filter:saturate(.15) brightness(.65)}
+#buildControls .suit-button:not(:disabled){animation:suit-console-ready 1.15s ease-in-out infinite alternate}
+#buildControls .suit-button:not(:disabled):active{transform:scale(.94);filter:brightness(1.45)}
+@keyframes suit-console-ready{to{filter:brightness(1.18);box-shadow:inset 0 0 0 2px #d8f8ff,inset 0 0 0 4px #31dfff,inset 0 0 15px 5px #042c3c,0 0 10px rgba(49,231,255,.5)}}
+#buildControls:after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:8px;
+  bottom:8px;
+  left:calc(59% - 1px);
+  width:2px;
+  background:linear-gradient(#8799a2,#1b2d37 18%,#091219 82%,#71838c);
+  box-shadow:1px 0 rgba(255,255,255,.08),-1px 0 #020609;
+  pointer-events:none;
+}
+#buildControls>*{position:relative;z-index:1}
+#buildControls .build-hint{
+  width:100%;
+  display:grid;
+  grid-template-rows:auto auto;
+  gap:7px;
+  padding:7px;
+  border:1px solid #627783;
+  border-radius:8px;
+  background:linear-gradient(145deg,#172a35,#08131b 62%);
+  box-shadow:inset 0 0 15px #020609,0 0 0 2px #263b45;
+}
+#buildControls .build-readouts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+#buildControls .panel-health{
+  width:100%;
+  padding:0;
+  display:block!important;
+  border:0!important;
+}
+#buildControls .panel-health>span{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:5px;
+  color:#a9eaf0;
+  font:900 7px ui-monospace,monospace;
+  letter-spacing:.08em;
+}
+#buildControls .panel-health>span b{color:#f4ffff;font-size:10px}
+#buildControls .panel-health>i{height:10px}
+#buildControls .build-hint .target-position,
+#buildControls .build-hint .target-card{
+  min-width:0;
+  border-color:#738b96;
+  background:repeating-linear-gradient(180deg,rgba(126,244,255,.045) 0 1px,transparent 1px 3px),radial-gradient(circle at 50% 30%,#153441,#061118 72%);
+  box-shadow:inset 0 0 13px #000,0 0 8px rgba(49,231,255,.12);
+  text-shadow:0 0 8px rgba(159,248,255,.42);
+}
+#buildControls .suit-row{transform:scale(.94)}
+
+/* Single instrument rail: health on the left, position and hint on the right. */
+#buildControls .build-hint{
+  grid-column:1/-1;
+  grid-row:1;
+  justify-self:stretch;
+  width:100%;
+  min-height:42px;
+  grid-template-columns:minmax(0,1fr) auto;
+  grid-template-rows:1fr;
+  align-items:stretch;
+  gap:8px;
+  margin:0;
+  padding:5px 7px;
+  border:2px solid #81939c;
+  border-radius:7px;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.08),transparent 15%,transparent 85%,rgba(255,255,255,.05)),
+    linear-gradient(180deg,#263b47 0,#0b1821 30%,#050c12 72%,#1a2d37 100%);
+  box-shadow:inset 0 1px #c0cbd0,inset 0 -2px #020609,inset 0 0 14px #000,0 2px 7px rgba(0,0,0,.6);
+}
+#buildControls .panel-health{
+  grid-column:1;
+  grid-row:1;
+  align-self:center;
+  padding:2px 5px 1px!important;
+}
+#buildControls .panel-health>span{margin-bottom:3px;font-size:7px}
+#buildControls .panel-health>i{height:9px}
+#buildControls .build-readouts{
+  grid-column:2;
+  grid-row:1;
+  display:grid;
+  grid-template-columns:62px 70px;
+  gap:7px;
+}
+#buildControls .build-hint .target-position,
+#buildControls .build-hint .target-card{
+  min-height:30px;
+  height:100%;
+  padding:3px 7px;
+  font-size:20px;
+}
+#buildControls .rank-panel{grid-column:1;grid-row:2}
+#buildControls .suit-panel{grid-column:2;grid-row:2}
+
+/* Heavier structural hardware and brighter machined edges. */
+#buildControls{
+  border:2px solid #607783;
+  border-left-color:#283d48;
+  border-right-color:#283d48;
+  background:
+    radial-gradient(circle at 10px 10px,#f1f4f5 0 2px,#738793 2.5px 5px,#182832 5.5px 7px,transparent 7.5px),
+    radial-gradient(circle at calc(100% - 10px) 10px,#f1f4f5 0 2px,#738793 2.5px 5px,#182832 5.5px 7px,transparent 7.5px),
+    radial-gradient(circle at 10px calc(100% - 10px),#f1f4f5 0 2px,#738793 2.5px 5px,#182832 5.5px 7px,transparent 7.5px),
+    radial-gradient(circle at calc(100% - 10px) calc(100% - 10px),#f1f4f5 0 2px,#738793 2.5px 5px,#182832 5.5px 7px,transparent 7.5px),
+    repeating-linear-gradient(105deg,rgba(255,255,255,.035) 0 1px,transparent 1px 6px),
+    linear-gradient(180deg,#344c58 0,#142732 14%,#07131c 58%,#203640 100%);
+  box-shadow:inset 0 3px rgba(255,255,255,.2),inset 0 -5px 12px #02070b,0 -7px 20px rgba(0,0,0,.55);
+}
+
+/* Production illustrated key skins based on the approved armored-console mockup. */
+#buildControls .rank-button{
+  clip-path:polygon(8% 0,92% 0,100% 15%,100% 85%,92% 100%,8% 100%,0 85%,0 15%);
+  background-color:transparent;
+  background-image:url("assets/console-rank-key-v1.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+  box-shadow:none;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.8));
+}
+#buildControls .rank-button:before,
+#buildControls .rank-button:after{display:none}
+#buildControls .rank-button>span{
+  color:#bff6ff;
+  font-weight:1000;
+  text-shadow:0 0 3px #fff,0 0 8px #009dff,0 0 14px #0075d9;
+}
+#buildControls .rank-button.selected{
+  background-image:url("assets/console-rank-key-v1.png");
+  box-shadow:none;
+  filter:brightness(1.28) drop-shadow(0 0 7px rgba(36,216,255,.9));
+}
+#buildControls .suit-button,
+#buildControls .suit-button.red{
+  clip-path:none;
+  background-color:transparent;
+  background-image:url("assets/console-suit-key-v1.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+  box-shadow:none;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.85));
+}
+#buildControls .suit-button:before{display:none}
+#buildControls .suit-button span{
+  color:#c9f7ff;
+  text-shadow:0 0 3px #fff,0 0 8px #008cff,0 0 14px #006dd0;
+}
+#buildControls .suit-button.red span{
+  color:#ff5143;
+  text-shadow:0 0 3px #fff,0 0 8px #ff2f1f,0 0 14px #d8190d;
+}
+#buildControls .suit-button:disabled{
+  opacity:.42;
+  filter:grayscale(.75) brightness(.62) drop-shadow(0 2px 2px rgba(0,0,0,.75));
+}
+#buildControls .suit-button:not(:disabled){animation:illustrated-suit-ready 1.15s ease-in-out infinite alternate}
+@keyframes illustrated-suit-ready{to{filter:brightness(1.24) drop-shadow(0 0 7px rgba(38,216,255,.8))}}
+
+/* Fortress-stage mothership penalties are intentionally quieter than Raider damage. */
+.point-penalty.mothership-penalty{font-size:clamp(17px,5.5vw,24px)}
+.point-penalty.mothership-penalty b{margin-bottom:4px;padding:3px 7px;font-size:7px}
+
+/* Final preflight menu: choose the cockpit and its control geometry. */
+.ship-chooser-card{width:min(100%,500px)}
+.ship-chooser-card>p:not(.eyebrow){margin-bottom:12px}
+.ship-options{display:grid;gap:9px}
+.ship-options button{
+  position:relative;
+  min-height:112px;
+  display:grid;
+  grid-template-columns:105px minmax(0,1fr) auto;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  overflow:hidden;
+  border:2px solid #6f828c;
+  clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);
+  background:repeating-linear-gradient(105deg,rgba(255,255,255,.035) 0 1px,transparent 1px 7px),linear-gradient(145deg,#314955,#0a1720 45%,#050c12);
+  box-shadow:inset 0 2px rgba(255,255,255,.18),inset 0 -4px #020609;
+  text-align:left;
+}
+.ship-options button:before{content:"";position:absolute;inset:5px;border:1px solid rgba(38,213,255,.28);clip-path:inherit;pointer-events:none}
+.ship-options button:active{transform:scale(.985);filter:brightness(1.25)}
+.ship-options span{min-width:0}
+.ship-options strong{display:block;color:#e9fbff;font:1000 14px ui-monospace;letter-spacing:.05em}
+.ship-options small{display:block;margin-top:5px;color:#8fb1c2;font:800 9px ui-monospace}
+.ship-options b{color:#4ee7ff;font:900 8px ui-monospace;white-space:nowrap}
+.ship-silhouette{position:relative;width:96px;height:68px;display:block;filter:drop-shadow(0 0 8px rgba(36,207,255,.42))}
+.ship-silhouette:before,.ship-silhouette:after{content:"";position:absolute;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#9aabb3,#263b46 38%,#07121a 72%,#438397);box-shadow:inset 0 1px #dce6ea,0 0 0 2px #111e25}
+.fortress-ship:before{width:88px;height:48px;bottom:7px;clip-path:polygon(12% 18%,28% 4%,72% 4%,88% 18%,100% 68%,83% 94%,17% 94%,0 68%)}
+.fortress-ship:after{width:40px;height:34px;bottom:28px;clip-path:polygon(20% 0,80% 0,100% 70%,76% 100%,24% 100%,0 70%)}
+.strike-ship:before{width:94px;height:45px;bottom:10px;clip-path:polygon(0 62%,37% 39%,48% 0,57% 0,65% 39%,100% 62%,66% 76%,56% 100%,45% 100%,35% 76%)}
+.strike-ship:after{width:18px;height:58px;bottom:5px;clip-path:polygon(50% 0,100% 78%,72% 100%,28% 100%,0 78%)}
+.interceptor-ship:before{width:91px;height:51px;bottom:7px;clip-path:polygon(0 53%,28% 34%,38% 6%,50% 25%,62% 6%,72% 34%,100% 53%,73% 78%,59% 70%,50% 100%,41% 70%,27% 78%)}
+.interceptor-ship:after{width:24px;height:48px;bottom:10px;clip-path:polygon(50% 0,100% 75%,68% 100%,32% 100%,0 75%)}
+
+/* Fortress Class: approved four-row 3,3,3,4 control layout. */
+#buildControls.ship-fortress .rank-row{grid-template-columns:repeat(12,minmax(0,1fr))}
+#buildControls.ship-fortress .rank-button{grid-column:span 4}
+#buildControls.ship-fortress .rank-button:nth-child(n+10){grid-column:span 3}
+
+/* Strike Class: six ranks above seven ranks with suits retained at the right. */
+#buildControls.ship-strike{grid-template-columns:minmax(0,1.8fr) minmax(102px,.52fr)}
+#buildControls.ship-strike .rank-row{grid-template-columns:repeat(42,minmax(0,1fr));gap:4px}
+#buildControls.ship-strike .rank-button{grid-column:span 7;height:48px;font-size:clamp(14px,4vw,20px)}
+#buildControls.ship-strike .rank-button:nth-child(n+7){grid-column:span 6}
+#buildControls.ship-strike .suit-button{width:min(47px,11.5vw);height:min(47px,11.5vw)}
+
+/* Interceptor Class: central rank keypad with black suits left and red suits right. */
+#buildControls.ship-interceptor{grid-template-columns:72px minmax(0,1fr) 72px;column-gap:5px}
+#buildControls.ship-interceptor .rank-panel{grid-column:2;grid-row:2;z-index:2}
+#buildControls.ship-interceptor .rank-row{grid-template-columns:repeat(12,minmax(0,1fr));gap:5px}
+#buildControls.ship-interceptor .rank-button{grid-column:span 4;height:42px}
+#buildControls.ship-interceptor .rank-button:nth-child(n+10){grid-column:span 3}
+#buildControls.ship-interceptor .suit-panel{grid-column:1/-1;grid-row:2;position:relative;z-index:3;pointer-events:none}
+#buildControls.ship-interceptor .suit-row{position:absolute;inset:0;display:block;transform:none}
+#buildControls.ship-interceptor .suit-button{position:absolute;width:59px;height:59px;pointer-events:auto}
+#buildControls.ship-interceptor .suit-button:nth-child(1){left:5px;top:calc(50% + 5px)}
+#buildControls.ship-interceptor .suit-button:nth-child(3){left:5px;bottom:calc(50% + 5px)}
+#buildControls.ship-interceptor .suit-button:nth-child(2){right:5px;bottom:calc(50% + 5px)}
+#buildControls.ship-interceptor .suit-button:nth-child(4){right:5px;top:calc(50% + 5px)}
+
+/* Captain selection now introduces the memorized stack as part of the fleet fiction. */
+#stackChooser .stack-options button[data-stack]{border-color:#566f7c;background:repeating-linear-gradient(105deg,rgba(255,255,255,.025) 0 1px,transparent 1px 7px),linear-gradient(120deg,#263d49,#091620 62%)}
+#stackChooser .stack-options button[data-stack]:before{content:"CAPTAIN";position:absolute;right:69px;top:10px;color:#3fdff4;font:900 6px ui-monospace;letter-spacing:.18em;opacity:.75}
+
+@media(max-height:720px){
+  .ship-chooser-card h2{margin:3px 0;font-size:24px}
+  .ship-chooser-card>p:not(.eyebrow){display:none}
+  .ship-options{gap:6px}
+  .ship-options button{min-height:86px;grid-template-columns:82px minmax(0,1fr) auto;padding:6px 10px}
+  .ship-silhouette{width:76px;height:54px;transform:scale(.82)}
+  #buildControls.ship-strike .rank-button{height:39px}
+  #buildControls.ship-interceptor{grid-template-columns:60px minmax(0,1fr) 60px}
+  #buildControls.ship-interceptor .rank-button{height:36px}
+  #buildControls.ship-interceptor .suit-button{width:51px;height:51px}
+}
+
+/* Final Fortress dashboard layer order. Keep this after the shared cockpit
+   rules so the approved dashboard cannot be covered by the generic shell. */
+#buildControls.ship-fortress{
+  padding:0!important;
+  background:#02080d!important;
+}
+#buildControls.ship-fortress::after{
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  background-image:url("assets/dashboard-fortress-windows-v1.png")!important;
+}
+
+/* The shared cockpit artwork read as a second turret assembly above the
+   mothership. The compact HUD remains, without that decorative silhouette. */
+.status-strip{
+  background-image:none!important;
+  background:linear-gradient(180deg,#111e26 0,#050b10 24%,#03070a 100%)!important;
+  box-shadow:inset 0 -1px #243c47,0 3px 10px rgba(0,0,0,.55)!important;
+}
+
+/* Strike Class: low-profile two-row console with the same live-window
+   construction used by Fortress Class. */
+#buildControls.ship-strike{
+  position:relative;
+  display:block;
+  width:100%;
+  aspect-ratio:1864/634;
+  min-height:0;
+  padding:0!important;
+  overflow:hidden;
+  border:0!important;
+  background:#02080d!important;
+  box-shadow:0 -5px 18px rgba(0,0,0,.65)!important;
+}
+#buildControls.ship-strike::after{
+  content:"";
+  position:absolute;
+  z-index:4;
+  inset:0;
+  width:auto!important;
+  height:auto!important;
+  display:block!important;
+  pointer-events:none;
+  background:url("assets/dashboard-strike-windows-v1.png") center/100% 100% no-repeat!important;
+}
+#buildControls.ship-strike .build-hint{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  margin:0;
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+  pointer-events:none;
+}
+#buildControls.ship-strike .panel-health{
+  position:absolute;
+  left:6.1%;
+  top:13.6%;
+  width:50.1%;
+  height:17.1%;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:clamp(3px,1.1vw,8px);
+  padding:0 1.4%!important;
+  overflow:hidden;
+  border:0!important;
+  border-radius:0;
+  background:#020d13!important;
+  box-shadow:none!important;
+}
+#buildControls.ship-strike .panel-health>span{display:contents!important}
+#buildControls.ship-strike .panel-health>span:before{content:none!important}
+#buildControls.ship-strike .panel-health>span em{
+  order:1;
+  color:#b7f8ff;
+  font:900 clamp(5px,1.8vw,12px) ui-monospace,monospace;
+  font-style:normal;
+  letter-spacing:.08em;
+}
+#buildControls.ship-strike .panel-health>span b{
+  position:static!important;
+  order:3;
+  color:#b7f8ff;
+  font-size:clamp(6px,2vw,14px);
+  text-shadow:none;
+}
+#buildControls.ship-strike .panel-health>i{
+  order:2;
+  width:100%!important;
+  height:clamp(5px,1.55vw,11px);
+  margin:0;
+  border-color:#4f8794;
+}
+#buildControls.ship-strike .build-readouts{display:contents}
+#buildControls.ship-strike .build-hint .target-position,
+#buildControls.ship-strike .build-hint .target-card{
+  position:absolute;
+  top:13.1%;
+  height:17.4%;
+  min-width:0;
+  min-height:0;
+  padding:0;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border:0!important;
+  border-radius:0;
+  background:#020d13!important;
+  box-shadow:none!important;
+  color:#b7f8ff;
+  font:900 clamp(11px,3.3vw,24px) ui-monospace,monospace;
+  line-height:1;
+  text-shadow:none;
+  white-space:nowrap;
+}
+#buildControls.ship-strike .build-hint .target-position{left:59.8%;width:13.5%}
+#buildControls.ship-strike .build-hint .target-card{left:76.2%;width:17.2%}
+#buildControls.ship-strike .rank-panel{
+  position:absolute;
+  z-index:6;
+  left:4.1%;
+  top:37.5%;
+  width:69.8%;
+  height:51.3%;
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-strike .rank-row{
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns:repeat(42,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  column-gap:.55%;
+  row-gap:4.7%;
+  padding:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-strike .rank-button,
+#buildControls.ship-strike .rank-button.selected{
+  grid-column:span 7;
+  width:100%;
+  height:100%;
+  min-height:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  clip-path:polygon(9% 0,91% 0,100% 17%,100% 83%,91% 100%,9% 100%,0 83%,0 17%);
+  background:none!important;
+  box-shadow:none;
+  filter:none;
+}
+#buildControls.ship-strike .rank-button:nth-child(n+7){grid-column:span 6}
+#buildControls.ship-strike .rank-button:before,
+#buildControls.ship-strike .rank-button:after{display:none}
+#buildControls.ship-strike .rank-button>span{opacity:0}
+#buildControls.ship-strike .rank-button.selected{
+  background:rgba(40,210,255,.2)!important;
+  box-shadow:inset 0 0 0 2px #c8faff,inset 0 0 14px #21d6ff,0 0 9px #18c8ff;
+}
+#buildControls.ship-strike .suit-panel{
+  position:absolute;
+  z-index:6;
+  left:75.1%;
+  top:37.5%;
+  width:20.6%;
+  height:51.3%;
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-strike .suit-row{
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:4%;
+  padding:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-strike .suit-button,
+#buildControls.ship-strike .suit-button.red{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  clip-path:polygon(17% 0,83% 0,100% 17%,100% 83%,83% 100%,17% 100%,0 83%,0 17%);
+  background:none!important;
+  box-shadow:none;
+  filter:none;
+  animation:none;
+}
+#buildControls.ship-strike .suit-button span,
+#buildControls.ship-strike .suit-button small{opacity:0}
+#buildControls.ship-strike .suit-button:disabled{opacity:1;filter:none;background:rgba(0,0,0,.5)!important}
+#buildControls.ship-strike .suit-button:not(:disabled):active{background:rgba(38,216,255,.22)!important;box-shadow:inset 0 0 12px #24dcff}
+
+/* Global restart rail. It has its own top row and never overlaps a gameplay
+   dashboard, suit control, Raider keypad, or modal content. */
+.app-shell{grid-template-rows:auto auto minmax(270px,1fr) auto!important}
+.topbar{
+  position:relative!important;
+  z-index:20;
+  min-height:calc(31px + env(safe-area-inset-top))!important;
+  height:calc(31px + env(safe-area-inset-top))!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:flex-end!important;
+  padding:env(safe-area-inset-top) 8px 3px!important;
+  border:0!important;
+  background:linear-gradient(180deg,#17262e 0,#071017 56%,#03080c 100%)!important;
+  box-shadow:inset 0 -1px #304b57,0 2px 8px rgba(0,0,0,.55)!important;
+}
+.topbar:after{display:none!important}
+.top-restart{
+  position:static!important;
+  inset:auto!important;
+  width:72px!important;
+  height:25px!important;
+  min-height:25px!important;
+  margin:0!important;
+  padding:0 9px!important;
+  border:1px solid #9a531f!important;
+  border-radius:5px!important;
+  color:#ffd28a!important;
+  background-color:#281109!important;
+  background-image:url("assets/console-rank-key-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  font:900 8px ui-monospace,monospace!important;
+  letter-spacing:.08em!important;
+  box-shadow:0 0 7px rgba(255,105,24,.2)!important;
+}
+@media(max-height:700px){
+  .app-shell{grid-template-rows:auto auto minmax(235px,1fr) auto!important}
+  .topbar{min-height:calc(28px + env(safe-area-inset-top))!important;height:calc(28px + env(safe-area-inset-top))!important;padding-bottom:2px!important}
+  .top-restart{height:23px!important;min-height:23px!important}
+}
+
+/* Content-first menu geometry. Frames expand around live copy instead of constraining it. */
+.stack-chooser{align-items:start;padding-top:max(14px,env(safe-area-inset-top));padding-bottom:max(14px,env(safe-area-inset-bottom))}
+.stack-chooser-card,
+.modal-card,
+.tutorial-card{
+  width:min(100%,500px);
+  min-height:0;
+  box-sizing:border-box;
+  padding:clamp(48px,7vh,66px) clamp(30px,7vw,48px) clamp(52px,8vh,72px);
+  overflow:visible;
+}
+.stack-chooser-card>p:not(.eyebrow){max-width:100%;margin-bottom:clamp(10px,2vh,18px);font-size:clamp(10px,2.9vw,13px);line-height:1.35}
+.stack-chooser h2{font-size:clamp(21px,7vw,34px);line-height:1.05;overflow-wrap:anywhere}
+.stack-options{gap:clamp(6px,1.3vh,10px)}
+.stack-options button{
+  width:100%;
+  min-height:clamp(76px,10vh,92px);
+  box-sizing:border-box;
+  padding:14px 70px 14px 21px!important;
+  overflow:visible;
+}
+.stack-options strong{
+  max-width:100%;
+  font-size:clamp(10px,3.35vw,15px);
+  line-height:1.15;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+.stack-options small{
+  max-width:100%;
+  font-size:clamp(7px,2.35vw,10px);
+  line-height:1.25;
+  white-space:normal;
+}
+.stack-options span{right:18px;max-width:48px;line-height:1.25;text-align:right;white-space:normal}
+#stackChooser .stack-options button[data-stack]:before{right:66px;top:8px}
+
+.ship-options button{
+  width:100%;
+  min-height:116px;
+  box-sizing:border-box;
+  grid-template-columns:minmax(76px,104px) minmax(0,1fr);
+  grid-template-rows:auto auto;
+  gap:4px 12px;
+  padding:18px 24px!important;
+}
+.ship-silhouette{grid-column:1;grid-row:1/3;width:100%;max-width:108px;height:76px}
+.ship-options span{grid-column:2;grid-row:1;align-self:end}
+.ship-options b{grid-column:2;grid-row:2;align-self:start;margin-top:4px}
+.ship-options strong{font-size:clamp(10px,3.3vw,14px);line-height:1.15;white-space:normal;overflow-wrap:anywhere}
+.ship-options small{font-size:clamp(7px,2.25vw,9px);line-height:1.25;white-space:normal}
+
+.tutorial-card p,.modal-card p,.modal-card small,.performance-insights,.leaderboard{max-width:100%;overflow-wrap:anywhere}
+.modal-card{max-height:calc(100dvh - 24px);overflow:auto}
+.primary-button{height:auto;min-height:48px;padding:12px 18px;white-space:normal;line-height:1.2}
+
+@media(max-width:380px){
+  .stack-chooser-card,.modal-card,.tutorial-card{padding-left:25px;padding-right:25px}
+  .stack-options button{padding-left:17px!important;padding-right:61px!important}
+  .ship-options button{grid-template-columns:72px minmax(0,1fr);padding:14px 18px!important}
+  .ship-silhouette{height:60px}
+}
+@media(max-height:700px){
+  .stack-chooser-card,.modal-card,.tutorial-card{padding-top:38px;padding-bottom:42px}
+  .chooser-orbit{width:52px;height:52px;margin-bottom:7px}.chooser-orbit b{font-size:15px}
+  .stack-options button{min-height:66px;padding-top:10px!important;padding-bottom:10px!important}
+  .ship-options button{min-height:80px;padding-top:8px!important;padding-bottom:8px!important}
+  .ship-silhouette{height:54px}
+}
+
+/* Approved Fortress Class dashboard: rendered artwork with live control hit areas. */
+#buildControls.ship-fortress{
+  position:relative;
+  display:block;
+  width:100%;
+  aspect-ratio:1914/822;
+  min-height:0;
+  padding:0!important;
+  overflow:hidden;
+  border:0!important;
+  background-color:#03070a!important;
+  background-image:url("assets/dashboard-fortress-approved-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  box-shadow:0 -5px 18px rgba(0,0,0,.65)!important;
+}
+#buildControls.ship-fortress .build-hint{
+  position:absolute;
+  z-index:5;
+  top:6.4%;
+  left:9.1%;
+  right:8.1%;
+  height:9.2%;
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 23%;
+  grid-template-rows:1fr;
+  gap:7%;
+  padding:0;
+  margin:0;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-fortress .panel-health{
+  align-self:stretch;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:6px;
+  padding:3px 7px!important;
+  background:#041018;
+  box-shadow:inset 0 0 0 2px #344f5d,inset 0 0 10px #000;
+}
+#buildControls.ship-fortress .panel-health>span{display:contents;font-size:7px}
+#buildControls.ship-fortress .panel-health>span:before{content:"SHIELDS";color:#8fefff;font:900 7px ui-monospace,monospace;letter-spacing:.08em}
+#buildControls.ship-fortress .panel-health>span{font-size:0}
+#buildControls.ship-fortress .panel-health>span b{font-size:9px;order:3}
+#buildControls.ship-fortress .panel-health>i{order:2;height:8px;margin:0}
+#buildControls.ship-fortress .build-readouts{
+  display:grid;
+  grid-template-columns:1fr 1.13fr;
+  gap:8%;
+  min-width:0;
+}
+#buildControls.ship-fortress .build-hint .target-position,
+#buildControls.ship-fortress .build-hint .target-card{
+  width:auto;
+  min-width:0;
+  min-height:0;
+  height:100%;
+  padding:0;
+  display:grid;
+  place-items:center;
+  border:0;
+  border-radius:0;
+  background:#041018;
+  box-shadow:inset 0 0 0 2px #344f5d,inset 0 0 10px #000;
+  color:#bff7ff;
+  font:900 clamp(11px,3.2vw,22px) ui-monospace,monospace;
+  text-shadow:0 0 8px #168ed9;
+}
+#buildControls.ship-fortress .rank-panel{
+  position:absolute;
+  z-index:6;
+  left:7.7%;
+  top:21.3%;
+  width:52.6%;
+  height:69.8%;
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-fortress .rank-row{
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:repeat(4,minmax(0,1fr));
+  column-gap:1.4%;
+  row-gap:2.1%;
+  padding:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-fortress .rank-button,
+#buildControls.ship-fortress .rank-button.selected{
+  grid-column:span 4;
+  width:100%;
+  height:100%;
+  min-height:0;
+  padding:0;
+  border:0;
+  clip-path:polygon(8% 0,92% 0,100% 15%,100% 85%,92% 100%,8% 100%,0 85%,0 15%);
+  background:none!important;
+  box-shadow:none;
+  filter:none;
+}
+#buildControls.ship-fortress .rank-button:nth-child(n+10){grid-column:span 3}
+#buildControls.ship-fortress .rank-button:before,
+#buildControls.ship-fortress .rank-button:after{display:none}
+#buildControls.ship-fortress .rank-button>span{opacity:0}
+#buildControls.ship-fortress .rank-button.selected{
+  background:rgba(40,210,255,.2)!important;
+  box-shadow:inset 0 0 0 2px #c8faff,inset 0 0 14px #21d6ff,0 0 9px #18c8ff;
+}
+#buildControls.ship-fortress .suit-panel{
+  position:absolute;
+  z-index:6;
+  left:65.2%;
+  top:25.7%;
+  width:24.8%;
+  height:55.8%;
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+#buildControls.ship-fortress .suit-row{position:relative;width:100%;height:100%;display:block;padding:0;background:none;box-shadow:none;transform:none}
+#buildControls.ship-fortress .suit-button,
+#buildControls.ship-fortress .suit-button.red{
+  position:absolute;
+  width:36%;
+  height:36%;
+  margin:0;
+  padding:0;
+  border:0;
+  background:none!important;
+  box-shadow:none;
+  filter:none;
+  clip-path:polygon(25% 0,75% 0,100% 25%,100% 75%,75% 100%,25% 100%,0 75%,0 25%);
+  animation:none;
+}
+#buildControls.ship-fortress .suit-button:nth-child(1){left:32%;top:0}
+#buildControls.ship-fortress .suit-button:nth-child(2){right:0;top:32%}
+#buildControls.ship-fortress .suit-button:nth-child(3){left:32%;bottom:0}
+#buildControls.ship-fortress .suit-button:nth-child(4){left:0;top:32%}
+#buildControls.ship-fortress .suit-button span{opacity:0}
+#buildControls.ship-fortress .suit-button:disabled{opacity:1;filter:none;background:rgba(0,0,0,.48)!important}
+#buildControls.ship-fortress .suit-button:not(:disabled):active{background:rgba(38,216,255,.22)!important;box-shadow:inset 0 0 12px #24dcff}
+
+@media(max-width:420px){
+  #buildControls.ship-fortress .panel-health{gap:3px;padding:2px 4px!important}
+  #buildControls.ship-fortress .panel-health>span:before{font-size:5px}
+  #buildControls.ship-fortress .panel-health>span b{font-size:7px}
+  #buildControls.ship-fortress .panel-health>i{height:5px}
+}
+
+/* Fortress dashboard v2: the artwork is a foreground bezel with three real
+   transparent apertures. Every changing readout sits behind its opening. */
+#buildControls.ship-fortress{
+  background-image:none!important;
+  background-color:#02080d!important;
+}
+#buildControls.ship-fortress::after{
+  content:"";
+  position:absolute;
+  z-index:4;
+  inset:0;
+  pointer-events:none;
+  background:url("assets/dashboard-fortress-windows-v1.png") center/100% 100% no-repeat;
+}
+#buildControls.ship-fortress .build-hint{
+  z-index:2;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  pointer-events:none;
+}
+#buildControls.ship-fortress .panel-health{
+  position:absolute;
+  left:6.2%;
+  top:8.15%;
+  width:50.8%;
+  height:7.1%;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:clamp(3px,1.2vw,8px);
+  padding:0 1.25%!important;
+  overflow:hidden;
+  border:0!important;
+  border-radius:0;
+  background:#020d13!important;
+  box-shadow:none!important;
+}
+#buildControls.ship-fortress .panel-health>span:before{
+  content:none!important;
+}
+#buildControls.ship-fortress .panel-health>span{display:contents!important}
+#buildControls.ship-fortress .panel-health>span em{
+  order:1;
+  color:#b7f8ff;
+  font:900 clamp(5px,1.8vw,12px) ui-monospace,monospace;
+  font-style:normal;
+  letter-spacing:.08em;
+  text-shadow:none;
+}
+#buildControls.ship-fortress .panel-health>span b{
+  position:static!important;
+  order:3;
+  font-size:clamp(6px,2vw,14px);
+  color:#b7f8ff;
+  text-shadow:none;
+}
+#buildControls.ship-fortress .panel-health>i{
+  order:2;
+  width:100%!important;
+  height:clamp(5px,1.55vw,11px);
+  border-color:#4f8794;
+}
+#buildControls.ship-fortress .build-readouts{display:contents}
+#buildControls.ship-fortress .build-hint .target-position,
+#buildControls.ship-fortress .build-hint .target-card{
+  position:absolute;
+  top:7.05%;
+  height:9%;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border:0!important;
+  border-radius:0;
+  background:#020d13!important;
+  box-shadow:none!important;
+  color:#b7f8ff;
+  font:900 clamp(10px,3.25vw,23px) ui-monospace,monospace;
+  line-height:1;
+  text-shadow:none;
+  white-space:nowrap;
+}
+#buildControls.ship-fortress .build-hint .target-position{
+  left:66.35%;
+  width:9.95%;
+}
+#buildControls.ship-fortress .build-hint .target-card{
+  left:77.6%;
+  width:10.1%;
+}
+#buildControls.ship-fortress .rank-panel,
+#buildControls.ship-fortress .suit-panel{z-index:6}
+
+/* Geometry-first dashboards. The live keyboard defines every opening. */
+#buildControls,
+.phase-two-controls,
+.custom-control-panel{
+  background-image:
+    radial-gradient(circle at 10px 10px,#dce7eb 0 2px,#526873 2.5px 5px,#0a141a 5.5px 7px,transparent 7.5px),
+    radial-gradient(circle at calc(100% - 10px) 10px,#dce7eb 0 2px,#526873 2.5px 5px,#0a141a 5.5px 7px,transparent 7.5px),
+    radial-gradient(circle at 10px calc(100% - 10px),#dce7eb 0 2px,#526873 2.5px 5px,#0a141a 5.5px 7px,transparent 7.5px),
+    radial-gradient(circle at calc(100% - 10px) calc(100% - 10px),#dce7eb 0 2px,#526873 2.5px 5px,#0a141a 5.5px 7px,transparent 7.5px),
+    repeating-linear-gradient(105deg,rgba(255,255,255,.035) 0 1px,transparent 1px 7px),
+    linear-gradient(180deg,#71848e 0,#263b46 7%,#0b1820 19%,#050c11 78%,#263b45 93%,#71838c 100%)!important;
+  background-color:#071017!important;
+  border:2px solid #536b77!important;
+  border-top-color:#aab9c0!important;
+  border-bottom-color:#17272f!important;
+  box-shadow:inset 0 2px rgba(255,255,255,.18),inset 0 -5px 10px #010407,0 -5px 16px rgba(0,0,0,.55)!important;
+}
+#buildControls{padding:8px 12px calc(10px + env(safe-area-inset-bottom))}
+#buildControls .rank-panel,
+#buildControls .suit-panel{
+  min-width:0;
+  padding:5px;
+  border:2px solid #5f7580;
+  border-top-color:#a9b8bf;
+  border-bottom-color:#172830;
+  background:linear-gradient(145deg,#60747e 0,#233741 11%,#071219 25%,#03080c 76%,#243942 89%,#667a84 100%);
+  box-shadow:inset 0 0 0 2px #0a151b,inset 0 0 10px #000,0 2px 5px rgba(0,0,0,.75);
+}
+#buildControls .rank-row,
+#buildControls .suit-row{
+  padding:4px;
+  background:linear-gradient(180deg,#020609,#0a151c 48%,#020609);
+  box-shadow:inset 0 0 0 1px #243a45,inset 0 0 12px #000;
+}
+#buildControls .rank-button{width:100%;max-width:none}
+#buildControls .suit-button{margin:0}
+
+/* Fortress housing follows the 3,3,3,4 grid exactly. */
+#buildControls.ship-fortress{grid-template-columns:minmax(0,1.42fr) minmax(120px,.9fr)}
+#buildControls.ship-fortress .rank-panel{grid-column:1;grid-row:2}
+#buildControls.ship-fortress .suit-panel{grid-column:2;grid-row:2}
+#buildControls.ship-fortress .rank-row{grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
+#buildControls.ship-fortress .rank-button{grid-column:span 4}
+#buildControls.ship-fortress .rank-button:nth-child(n+10){grid-column:span 3}
+
+/* Strike housing is independently fitted to its 6-over-7 keyboard. */
+#buildControls.ship-strike{grid-template-columns:minmax(0,1.82fr) minmax(106px,.5fr)}
+#buildControls.ship-strike .rank-panel{grid-column:1;grid-row:2;padding:6px}
+#buildControls.ship-strike .suit-panel{grid-column:2;grid-row:2;padding:5px}
+#buildControls.ship-strike .rank-row{grid-template-columns:repeat(42,minmax(0,1fr));gap:4px;padding:5px}
+#buildControls.ship-strike .rank-button{grid-column:span 7;height:48px}
+#buildControls.ship-strike .rank-button:nth-child(n+7){grid-column:span 6}
+#buildControls.ship-strike .suit-row{padding:3px}
+
+/* Interceptor housing is built around the centered keypad and two side towers. */
+#buildControls.ship-interceptor{grid-template-columns:72px minmax(0,1fr) 72px;column-gap:6px}
+#buildControls.ship-interceptor .rank-panel{grid-column:2;grid-row:2;padding:6px}
+#buildControls.ship-interceptor .rank-row{grid-template-columns:repeat(12,minmax(0,1fr));gap:5px;padding:5px}
+#buildControls.ship-interceptor .rank-button{grid-column:span 4;height:42px}
+#buildControls.ship-interceptor .rank-button:nth-child(n+10){grid-column:span 3}
+#buildControls.ship-interceptor .suit-panel{grid-column:1/-1;grid-row:2;padding:0;border:0;background:none;box-shadow:none;pointer-events:none}
+#buildControls.ship-interceptor .suit-row{position:absolute;inset:0;display:block;padding:0;background:none;box-shadow:none}
+#buildControls.ship-interceptor .suit-row:before,
+#buildControls.ship-interceptor .suit-row:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:0;
+  bottom:0;
+  width:69px;
+  border:2px solid #6b808a;
+  background:linear-gradient(145deg,#71848d,#243842 13%,#071118 30%,#03080c 72%,#2a414b 88%,#73858e);
+  box-shadow:inset 0 0 0 2px #0b171d,inset 0 0 12px #000;
+}
+#buildControls.ship-interceptor .suit-row:before{left:0}
+#buildControls.ship-interceptor .suit-row:after{right:0}
+#buildControls.ship-interceptor .suit-button{width:58px;height:58px}
+#buildControls.ship-interceptor .suit-button:nth-child(1){left:6px;top:calc(50% + 5px)}
+#buildControls.ship-interceptor .suit-button:nth-child(3){left:6px;bottom:calc(50% + 5px)}
+#buildControls.ship-interceptor .suit-button:nth-child(2){right:6px;bottom:calc(50% + 5px)}
+#buildControls.ship-interceptor .suit-button:nth-child(4){right:6px;top:calc(50% + 5px)}
+
+/* Raider and custom-stack dashboards are fitted around their existing grids. */
+.phase-two-controls{padding:10px 14px calc(12px + env(safe-area-inset-bottom))}
+.phase-two-controls .position-grid{
+  padding:7px;
+  border:2px solid #657a84;
+  background:linear-gradient(180deg,#243943,#050c11 17%,#020609 83%,#263c46);
+  box-shadow:inset 0 0 0 2px #0b171d,inset 0 0 14px #000;
+}
+.custom-control-panel{padding:10px!important}
+.custom-rank-row,.custom-suit-row{
+  padding:6px;
+  border:2px solid #5e747f;
+  background:linear-gradient(180deg,#20353f,#03080c 22%,#07131a 78%,#263c46);
+  box-shadow:inset 0 0 10px #000;
+}
+
+@media(max-height:720px){
+  #buildControls{padding:6px 9px calc(8px + env(safe-area-inset-bottom))}
+  #buildControls .rank-panel,#buildControls .suit-panel{padding:3px}
+  #buildControls .rank-row,#buildControls .suit-row{padding:3px}
+  #buildControls.ship-strike .rank-button{height:39px}
+  #buildControls.ship-interceptor{grid-template-columns:60px minmax(0,1fr) 60px}
+  #buildControls.ship-interceptor .rank-button{height:35px}
+  #buildControls.ship-interceptor .suit-row:before,#buildControls.ship-interceptor .suit-row:after{width:58px}
+  #buildControls.ship-interceptor .suit-button{width:48px;height:48px}
+}
+
+/* Unified illustrated fleet skin for every menu and control surface. */
+.stack-chooser-card,
+.modal-card,
+.tutorial-card{
+  position:relative;
+  border:0;
+  border-radius:0;
+  padding:clamp(54px,8vh,76px) clamp(38px,8vw,58px) clamp(58px,9vh,82px);
+  background-color:transparent;
+  background-image:url("assets/menu-command-frame-v1.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+  box-shadow:none;
+}
+.stack-chooser-card:before,
+.modal-card:before,
+.tutorial-card:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:13% 12%;
+  background:radial-gradient(circle at 50% 0,rgba(26,74,96,.34),#03080d 68%);
+}
+.stack-chooser h2,.modal-card h2,.tutorial-card h2{color:#eafcff;text-shadow:0 0 5px #fff,0 0 15px rgba(35,199,255,.7)}
+.stack-chooser .eyebrow,.modal-card .eyebrow,.tutorial-card .eyebrow{color:#58e7ff;text-shadow:0 0 8px rgba(35,205,255,.65)}
+.stack-options button,
+.custom-builder-actions button,
+.custom-review-back,
+.primary-button,
+.replay-option button{
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:url("assets/console-rank-key-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  box-shadow:none!important;
+  color:#dffaff!important;
+  text-shadow:0 0 5px rgba(37,209,255,.65);
+}
+.stack-options button{padding-left:22px;padding-right:92px}
+.stack-options button:active,.primary-button:active,.custom-builder-actions button:active{filter:brightness(1.3) drop-shadow(0 0 7px rgba(39,213,255,.7))}
+
+/* Real fleet ships replace the temporary CSS silhouettes. */
+.ship-silhouette{width:110px;height:74px;background-repeat:no-repeat;background-position:center;background-size:contain;filter:drop-shadow(0 0 8px rgba(38,211,255,.5))}
+.ship-silhouette:before,.ship-silhouette:after{display:none}
+.fortress-ship{background-image:url("assets/ship-fortress-v1.png")}
+.strike-ship{background-image:url("assets/ship-strike-v1.png")}
+.interceptor-ship{background-image:url("assets/ship-interceptor-v1.png")}
+.ship-options button{
+  border:0;
+  clip-path:none;
+  background-color:transparent;
+  background-image:url("assets/cockpit-shell-v1.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 100%;
+  box-shadow:none;
+  padding:19px 24px;
+}
+.ship-options button:before{display:none}
+
+/* Every playable input deck uses the same physical cockpit shell. */
+#buildControls,
+.phase-two-controls,
+.custom-control-panel{
+  border:0!important;
+  background-color:#050b0f!important;
+  background-image:url("assets/cockpit-shell-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  box-shadow:none!important;
+}
+#buildControls{padding-left:clamp(20px,5vw,30px);padding-right:clamp(20px,5vw,30px);padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+#buildControls:after{display:none}
+.phase-two-controls{padding:clamp(20px,4vw,28px) clamp(23px,6vw,34px) calc(24px + env(safe-area-inset-bottom))}
+.custom-control-panel{padding:18px 22px}
+
+/* Matching illustrated keys for Raider, numeric, and custom-stack dashboards. */
+.phase-two-controls .position-button,
+.numeric-keypad .position-button,
+/* Strike dashboard calibration. Keep the interactive glass exactly inside the
+   illustrated bezels, regardless of the shared dashboard rules above. */
+#buildControls.ship-strike .rank-panel{
+  left:4.3%;
+  top:37.7%;
+  width:69.9%;
+  height:50%;
+  padding:0!important;
+}
+#buildControls.ship-strike .rank-row{
+  grid-template-columns:repeat(42,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  column-gap:.55%;
+  row-gap:6.3%;
+  padding:0!important;
+}
+#buildControls.ship-strike .rank-button,
+#buildControls.ship-strike .rank-button.selected{
+  height:100%!important;
+  min-height:0!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+#buildControls.ship-strike .rank-button.selected:after{
+  content:"";
+  display:block;
+  position:absolute;
+  inset:10% 7%;
+  border:1px solid rgba(206,250,255,.92);
+  clip-path:polygon(9% 0,91% 0,100% 17%,100% 83%,91% 100%,9% 100%,0 83%,0 17%);
+  background:rgba(40,210,255,.2);
+  box-shadow:inset 0 0 12px #21d6ff,0 0 8px #18c8ff;
+  pointer-events:none;
+}
+#buildControls.ship-strike .suit-panel{
+  left:74.8%;
+  top:37.7%;
+  width:19.65%;
+  height:50%;
+  padding:0!important;
+}
+#buildControls.ship-strike .suit-row{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  column-gap:4.4%;
+  row-gap:6.3%;
+  padding:0!important;
+}
+#buildControls.ship-strike .suit-button,
+#buildControls.ship-strike .suit-button.red{
+  position:relative;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  transform:none!important;
+}
+#buildControls.ship-strike .suit-button[data-suit="clubs"]{grid-column:1;grid-row:1}
+#buildControls.ship-strike .suit-button[data-suit="hearts"]{grid-column:2;grid-row:1}
+#buildControls.ship-strike .suit-button[data-suit="spades"]{grid-column:1;grid-row:2}
+#buildControls.ship-strike .suit-button[data-suit="diamonds"]{grid-column:2;grid-row:2}
+#buildControls.ship-strike .suit-button:disabled{
+  opacity:1!important;
+  filter:none!important;
+  background:rgba(0,0,0,.72)!important;
+  box-shadow:inset 0 0 10px rgba(0,0,0,.9)!important;
+}
+#buildControls.ship-strike .suit-button:not(:disabled){
+  animation:none!important;
+  background:rgba(22,185,225,.06)!important;
+}
+
+.custom-rank-row .rank-button{
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:url("assets/console-rank-key-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  box-shadow:none!important;
+  color:#c9f8ff!important;
+  text-shadow:0 0 4px #fff,0 0 9px #058dff!important;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.8));
+}
+.phase-two-controls .position-button:active,.numeric-keypad .position-button:active,.custom-rank-row .rank-button:active{filter:brightness(1.3) drop-shadow(0 0 7px #25d5ff)}
+.custom-suit-row .suit-button{
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:url("assets/console-suit-key-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:contain!important;
+  box-shadow:none!important;
+}
+.custom-position-display,.custom-recent,.custom-name-panel,.custom-review-sectors{
+  border-color:#718894!important;
+  background:linear-gradient(180deg,#1b303a,#061018 68%,#142630)!important;
+  box-shadow:inset 0 0 14px #000,0 0 0 2px #1b303a!important;
+}
+
+/* The status rail and lower deck belong to the same ship. */
+.status-strip{
+  border:0;
+  background-color:#050a0e;
+  background-image:url("assets/cockpit-shell-v1.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:100% 150%;
+}
+footer{
+  border:0;
+  background-color:#070d12;
+  background-image:linear-gradient(rgba(2,7,11,.72),rgba(2,7,11,.86)),url("assets/fortress-deck-v2.png");
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:cover;
+}
+.top-restart{background-image:url("assets/console-rank-key-v1.png");background-repeat:no-repeat;background-position:center;background-size:100% 100%;border:0;box-shadow:none}
+
+@media(max-height:720px){
+  .stack-chooser-card,.modal-card,.tutorial-card{padding:42px 30px 48px}
+  .ship-options button{padding:12px 18px}
+  .ship-silhouette{width:84px;height:58px}
+  #buildControls{padding-left:18px;padding-right:18px;padding-bottom:calc(15px + env(safe-area-inset-bottom))}
+  .phase-two-controls{padding:16px 20px calc(18px + env(safe-area-inset-bottom))}
+}
