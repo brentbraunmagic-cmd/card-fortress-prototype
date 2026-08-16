@@ -1572,6 +1572,45 @@ footer{
 #buildControls.ship-interceptor .suit-button[data-suit="hearts"]{grid-column:3;grid-row:1}
 #buildControls.ship-interceptor .suit-button[data-suit="diamonds"]{grid-column:3;grid-row:3}
 
+/* Interceptor readouts sit inside the black glass rather than covering the
+   angled window bezels. Position and card use independent type scales. */
+#buildControls.ship-interceptor .panel-health{
+  left:7.8%!important;
+  top:12.3%!important;
+  width:36.9%!important;
+  height:10.8%!important;
+  padding:0 1.6%!important;
+  clip-path:polygon(4% 0,96% 0,100% 22%,100% 78%,96% 100%,4% 100%,0 78%,0 22%);
+}
+#buildControls.ship-interceptor .panel-health>span em{
+  font-size:clamp(7px,2vw,12px)!important;
+  letter-spacing:.1em;
+}
+#buildControls.ship-interceptor .panel-health>span b{
+  font-size:clamp(8px,2.35vw,14px)!important;
+}
+#buildControls.ship-interceptor .panel-health>i{
+  height:clamp(6px,1.8vw,11px)!important;
+}
+#buildControls.ship-interceptor .build-hint .target-position,
+#buildControls.ship-interceptor .build-hint .target-card{
+  top:12.3%!important;
+  height:10.8%!important;
+  clip-path:polygon(9% 0,91% 0,100% 22%,100% 78%,91% 100%,9% 100%,0 78%,0 22%);
+}
+#buildControls.ship-interceptor .build-hint .target-position{
+  left:48.3%!important;
+  width:12%!important;
+  font-size:clamp(16px,5.2vw,28px)!important;
+  letter-spacing:.06em;
+}
+#buildControls.ship-interceptor .build-hint .target-card{
+  left:65%!important;
+  width:26.3%!important;
+  font-size:clamp(15px,4.8vw,26px)!important;
+  letter-spacing:.1em;
+}
+
 /* Mobile control scale. Every ship dashboard itself occupies approximately
    the lower third of the screen on portrait phones. */
 #buildControls.ship-fortress,
