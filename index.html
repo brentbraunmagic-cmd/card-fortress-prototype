@@ -11,26 +11,24 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-v2-180.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
-  <link rel="stylesheet" href="styles.css?v=120" />
-  <link rel="stylesheet" href="motion.css?v=123" />
+  <link rel="stylesheet" href="styles.css?v=124" />
+  <link rel="stylesheet" href="motion.css?v=124" />
+  <link rel="stylesheet" href="control-reskin.css?v=3" />
 </head>
 <body>
   <main class="app-shell">
     <header class="topbar">
-      <div>
-        <p class="eyebrow" id="sectorLabel">NEURAL DEFENSE // SECTOR 01 // 01–13</p>
-        <h1>MEMORY FORTRESS</h1>
-      </div>
-      <div class="top-actions">
-        <button class="icon-button top-restart" id="restartButton" aria-label="Restart game">RESTART</button>
-        <button class="icon-button" id="soundButton" aria-label="Toggle sound">◖))</button>
-      </div>
+      <button class="icon-button top-restart" id="restartButton" aria-label="Restart game">RESTART</button>
+      <button class="hidden" id="soundButton" aria-hidden="true" tabindex="-1"></button>
     </header>
 
     <section class="status-strip" aria-label="Game status">
-      <div><span>PHASE</span><strong id="phaseLabel">01 · BUILD</strong></div>
-      <div><span>SCORE</span><strong id="scoreLabel">0</strong></div>
-      <div class="combo-status"><strong><span>COMBO</span><b id="comboLabel">×1</b></strong></div>
+      <div class="score-status"><span>SCORE</span><strong id="scoreLabel">0</strong></div>
+      <div class="combo-status"><strong><b id="comboLabel">×1</b></strong></div>
+      <div class="fortress-health" id="fortressHealth">
+        <span>FORTRESS <b id="fortressHealthLabel">100%</b></span>
+        <i><b id="fortressHealthBar"></b></i>
+      </div>
     </section>
 
     <section class="battlefield" id="battlefield">
@@ -53,11 +51,7 @@
     </section>
 
     <section class="control-deck" id="buildControls">
-      <div class="objective">
-        <div class="objective-icon">⌁</div>
-        <div><span>FORTIFY POSITION NUMBER</span><strong id="targetPosition">01</strong></div>
-        <div class="target-card" id="targetCard">4♣</div>
-      </div>
+      <div class="target-card" id="targetCard" aria-label="Training card hint">4♣</div>
       <div class="rank-panel">
         <span class="rank-label">VALUE</span>
         <div class="rank-row" id="rankRow"></div>

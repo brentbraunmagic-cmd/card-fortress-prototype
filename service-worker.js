@@ -1,9 +1,10 @@
-const CACHE_NAME = 'memory-fortress-v5';
+const CACHE_NAME = 'memory-fortress-v6';
 const OFFLINE_FILES = [
   './',
   './index.html',
   './styles.css',
   './motion.css',
+  './control-reskin.css',
   './app.js',
   './manifest.webmanifest',
   './assets/icon-v2-180.png',
