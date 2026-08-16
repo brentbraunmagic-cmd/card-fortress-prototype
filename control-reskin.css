@@ -1541,6 +1541,59 @@ footer{
   background:rgba(22,185,225,.06)!important;
 }
 
+/* Mobile control scale. Every ship dashboard itself occupies approximately
+   the lower third of the screen on portrait phones. */
+#buildControls.ship-fortress,
+#buildControls.ship-strike,
+#buildControls.ship-interceptor{
+  width:100%;
+  height:clamp(220px,33dvh,315px)!important;
+  min-height:clamp(220px,33dvh,315px)!important;
+  aspect-ratio:auto!important;
+  flex:none;
+}
+@media(min-width:700px){
+  #buildControls.ship-fortress,
+  #buildControls.ship-strike,
+  #buildControls.ship-interceptor{
+    height:min(315px,33dvh)!important;
+    min-height:min(315px,33dvh)!important;
+  }
+}
+
+/* Mobile Safari fallback. Paint each approved dashboard on the control deck
+   itself as well as on its foreground mask, preventing an empty dashboard if
+   a generated pseudo-element layer is skipped during viewport resizing. */
+#buildControls.ship-fortress{
+  background-color:#02080d!important;
+  background-image:url("assets/dashboard-fortress-windows-v1.png")!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+}
+#buildControls.ship-strike{
+  background-color:#02080d!important;
+  background-image:url("assets/dashboard-strike-windows-v1.png")!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+}
+#buildControls.ship-interceptor{
+  background-color:#02080d!important;
+  background-image:url("assets/dashboard-interceptor-windows-v1.png")!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+}
+#buildControls.ship-fortress::after,
+#buildControls.ship-strike::after,
+#buildControls.ship-interceptor::after{
+  width:100%!important;
+  height:100%!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+
 @media(max-height:720px){
   .stack-chooser-card,.modal-card,.tutorial-card{padding:42px 30px 48px}
   .ship-options button{padding:12px 18px}

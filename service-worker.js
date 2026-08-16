@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v20';
+const CACHE_NAME = 'memory-fortress-v22';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -25,6 +25,7 @@ const OFFLINE_FILES = [
   ,'./assets/dashboard-fortress-approved-v1.png'
   ,'./assets/dashboard-fortress-windows-v1.png'
   ,'./assets/dashboard-strike-windows-v1.png'
+  ,'./assets/dashboard-interceptor-windows-v1.png'
 ];
 
 self.addEventListener('install', event => {
