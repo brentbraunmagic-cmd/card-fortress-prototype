@@ -1524,10 +1524,10 @@ footer{
   animation:none!important;
   pointer-events:auto;
 }
-#buildControls.ship-interceptor .suit-button[data-suit="clubs"]{left:5.85%;top:33.35%;width:14.9%;height:22.65%}
-#buildControls.ship-interceptor .suit-button[data-suit="spades"]{left:5.85%;top:58.55%;width:14.9%;height:23.9%}
-#buildControls.ship-interceptor .suit-button[data-suit="hearts"]{left:79.4%;top:33.35%;width:14%;height:22.65%}
-#buildControls.ship-interceptor .suit-button[data-suit="diamonds"]{left:79.4%;top:58.65%;width:14%;height:23.9%}
+#buildControls.ship-interceptor .suit-button[data-suit="clubs"]{left:7.4%;top:34.2%;width:12.2%;height:19.7%}
+#buildControls.ship-interceptor .suit-button[data-suit="spades"]{left:7.4%;top:60.5%;width:12.2%;height:20.1%}
+#buildControls.ship-interceptor .suit-button[data-suit="hearts"]{left:80.7%;top:34.2%;width:11.7%;height:19.7%}
+#buildControls.ship-interceptor .suit-button[data-suit="diamonds"]{left:80.7%;top:60.7%;width:11.7%;height:20.1%}
 #buildControls.ship-interceptor .suit-button span,
 #buildControls.ship-interceptor .suit-button small{opacity:0}
 #buildControls.ship-interceptor .suit-button:disabled{
@@ -1540,6 +1540,37 @@ footer{
   animation:none!important;
   background:rgba(22,185,225,.06)!important;
 }
+
+/* Interceptor uses the same locked-grid technique as the approved Fortress
+   and Strike dashboards. The outer columns are the suit glass openings and
+   the middle column is reserved for the rank keypad. */
+#buildControls.ship-interceptor .suit-panel{
+  left:7.4%!important;
+  top:34.2%!important;
+  width:85%!important;
+  height:46.6%!important;
+}
+#buildControls.ship-interceptor .suit-row{
+  position:static!important;
+  inset:auto!important;
+  display:grid!important;
+  grid-template-columns:14.35% 71.88% 13.77%!important;
+  grid-template-rows:42.3% 14.1% 43.1%!important;
+  gap:0!important;
+}
+#buildControls.ship-interceptor .suit-button,
+#buildControls.ship-interceptor .suit-button.red{
+  position:static!important;
+  inset:auto!important;
+  width:100%!important;
+  height:100%!important;
+  justify-self:stretch;
+  align-self:stretch;
+}
+#buildControls.ship-interceptor .suit-button[data-suit="clubs"]{grid-column:1;grid-row:1}
+#buildControls.ship-interceptor .suit-button[data-suit="spades"]{grid-column:1;grid-row:3}
+#buildControls.ship-interceptor .suit-button[data-suit="hearts"]{grid-column:3;grid-row:1}
+#buildControls.ship-interceptor .suit-button[data-suit="diamonds"]{grid-column:3;grid-row:3}
 
 /* Mobile control scale. Every ship dashboard itself occupies approximately
    the lower third of the screen on portrait phones. */
