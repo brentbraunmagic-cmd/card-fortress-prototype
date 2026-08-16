@@ -2007,3 +2007,333 @@ footer{
 #phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(n+4):nth-of-type(-n+6){top:44.44%!important}
 #phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(n+7):nth-of-type(-n+9){top:61.68%!important}
 #phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(10){left:17.5%!important;top:78.18%!important;width:65%!important;height:12%!important}
+
+/* Keep entered digits illuminated until the two-digit answer is submitted. */
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button.digit-entered{
+  color:#eaffff!important;
+  -webkit-text-fill-color:#eaffff;
+  border-color:#56e7ff!important;
+  background:rgba(22,185,255,.18)!important;
+  box-shadow:inset 0 0 0 2px rgba(217,251,255,.72),inset 0 0 18px rgba(23,202,255,.62),0 0 13px rgba(25,205,255,.88)!important;
+  text-shadow:0 0 4px #fff,0 0 10px #28dfff!important;
+}
+
+/* Mode command board. Live copy is fitted to empty glass apertures in a
+   purpose-built frame, with no separate pale button skins. */
+#modeChooser{overflow:hidden;padding:calc(8px + env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom))}
+#modeChooser .stack-chooser-card{
+  position:relative;
+  width:min(100%,calc((100dvh - 16px)*.6667),460px);
+  max-height:calc(100dvh - 16px);
+  aspect-ratio:2/3;
+  padding:0!important;
+  overflow:visible;
+  background-color:transparent!important;
+  background-image:url("assets/menu-mode-panel-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+#modeChooser .stack-chooser-card::before{display:none!important}
+#modeChooser .chooser-orbit{
+  position:absolute;
+  z-index:2;
+  left:37%;
+  top:2.2%;
+  width:26%;
+  height:16.8%;
+  margin:0;
+  display:grid;
+  place-items:center;
+  border:0!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+#modeChooser .chooser-orbit::before,#modeChooser .chooser-orbit::after,#modeChooser .chooser-orbit i{display:none!important}
+#modeChooser .chooser-orbit b{color:#8defff;font:900 clamp(16px,6vw,27px) ui-monospace,monospace;letter-spacing:.08em;text-shadow:0 0 9px rgba(44,215,255,.85)}
+#modeChooser .eyebrow{
+  position:absolute;
+  z-index:3;
+  left:29.5%;
+  top:20%;
+  width:41%;
+  height:4.7%;
+  margin:0;
+  display:grid;
+  place-items:center;
+  color:#9ff4ff;
+  font:900 clamp(7px,2.25vw,11px) ui-monospace,monospace;
+  letter-spacing:.06em;
+  white-space:nowrap;
+  text-align:center;
+  text-shadow:0 0 7px rgba(34,207,255,.7);
+}
+#modeChooser .stack-options{position:absolute;z-index:3;inset:0;display:block;margin:0;padding:0}
+#modeChooser .stack-options button{
+  position:absolute;
+  left:12.7%;
+  width:74.6%;
+  height:11.5%;
+  min-height:0!important;
+  margin:0;
+  padding:0 7.5%!important;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border:0!important;
+  border-radius:0!important;
+  background:none!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+#modeChooser .stack-options button:nth-child(1){top:29.2%}
+#modeChooser .stack-options button:nth-child(2){top:47.3%}
+#modeChooser .stack-options button:nth-child(3){top:65.7%}
+#modeChooser .stack-options button strong{width:100%;color:#e9fcff;font:900 clamp(13px,4.2vw,19px)/1.05 ui-monospace,monospace;letter-spacing:.045em;text-shadow:0 0 6px rgba(43,210,255,.66)}
+#modeChooser .stack-options button small{width:100%;margin-top:clamp(3px,.8vh,6px);color:#9fb7c4;font:700 clamp(8px,2.55vw,12px)/1.28 ui-monospace,monospace;letter-spacing:0;white-space:normal;text-align:center}
+#modeChooser .stack-options button span{display:none!important}
+#modeChooser .stack-options button:active{background:rgba(30,197,255,.1)!important;filter:brightness(1.24) drop-shadow(0 0 7px rgba(39,213,255,.7))}
+#modeChooser .tutorial-toggle{
+  position:absolute;
+  z-index:4;
+  left:21%;
+  top:82.5%;
+  width:58%;
+  height:7.2%;
+  min-height:0;
+  margin:0;
+  padding:0 9%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(8px,2.5vw,14px);
+  border:0!important;
+  border-radius:0!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+#modeChooser .tutorial-toggle>i{flex:0 0 clamp(25px,7vw,34px);width:clamp(25px,7vw,34px);height:clamp(14px,4vw,19px);border:1px solid #387c91!important;background:#07141b!important;box-shadow:inset 0 0 7px #000,0 0 5px rgba(41,203,255,.28)!important}
+#modeChooser .tutorial-toggle input:checked+i{border-color:#5ceaff!important;background:#123848!important;box-shadow:inset 0 0 7px #000,0 0 9px rgba(41,220,255,.72)!important}
+#modeChooser .tutorial-toggle span strong{color:#dffaff;font:900 clamp(10px,3vw,14px) ui-monospace,monospace;letter-spacing:.07em;white-space:nowrap;text-shadow:0 0 6px rgba(43,210,255,.65)}
+
+/* Captain selection uses the same measured glass-window system as Mode. */
+#stackChooser{overflow:hidden;padding:calc(8px + env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom))}
+#stackChooser .stack-chooser-card{
+  position:relative;
+  width:min(100%,calc((100dvh - 16px)*.6667),460px);
+  max-height:calc(100dvh - 16px);
+  aspect-ratio:2/3;
+  padding:0!important;
+  overflow:visible;
+  background-color:transparent!important;
+  background-image:url("assets/menu-mode-panel-v1.png")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+#stackChooser .stack-chooser-card::before{display:none!important}
+#stackChooser .chooser-orbit{position:absolute;z-index:2;left:37%;top:2.2%;width:26%;height:16.8%;margin:0;display:grid;place-items:center;border:0!important;background:none!important;box-shadow:none!important}
+#stackChooser .chooser-orbit::before,#stackChooser .chooser-orbit::after,#stackChooser .chooser-orbit i{display:none!important}
+#stackChooser .chooser-orbit b{color:#8defff;font:900 clamp(19px,7vw,31px) ui-monospace,monospace;letter-spacing:.04em;text-shadow:0 0 9px rgba(44,215,255,.85)}
+#stackChooser .eyebrow{position:absolute;z-index:3;left:29.5%;top:20%;width:41%;height:4.7%;margin:0;display:grid;place-items:center;color:#9ff4ff;font:900 clamp(8px,2.45vw,12px) ui-monospace,monospace;letter-spacing:.055em;white-space:nowrap;text-align:center;text-shadow:0 0 7px rgba(34,207,255,.7)}
+#stackChooser .stack-options{position:absolute;z-index:3;inset:0;display:block;margin:0;padding:0}
+#stackChooser .stack-options>button[data-stack]{position:absolute;left:12.7%;width:74.6%;height:11.5%;min-height:0!important;margin:0;padding:0 6%!important;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:0!important;border-radius:0!important;background:none!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important;clip-path:none!important}
+#stackChooser .stack-options>button[data-stack]:nth-child(1){top:29.2%}
+#stackChooser .stack-options>button[data-stack]:nth-child(2){top:47.3%}
+#stackChooser .stack-options>button[data-stack]:nth-child(3){top:65.7%}
+#stackChooser .stack-options>button[data-stack] strong{width:100%;color:#e9fcff;font:900 clamp(12px,3.8vw,18px)/1.05 ui-monospace,monospace;letter-spacing:.035em;text-align:center;text-shadow:0 0 6px rgba(43,210,255,.66)}
+#stackChooser .stack-options>button[data-stack] small{width:100%;margin-top:clamp(3px,.7vh,5px);color:#9fb7c4;font:700 clamp(8px,2.35vw,11px)/1.3 ui-monospace,monospace;letter-spacing:0;text-align:center;white-space:normal}
+#stackChooser .stack-options>button[data-stack] span{display:none!important}
+#stackChooser .stack-options>button[data-stack]:active{background:rgba(30,197,255,.1)!important;filter:brightness(1.24) drop-shadow(0 0 7px rgba(39,213,255,.7))}
+#stackChooser #createCustomStack{position:absolute;left:21%;top:82.5%;width:58%;height:7.2%;min-height:0!important;margin:0;padding:0 7%!important;display:flex;align-items:center;justify-content:center;text-align:center;border:0!important;border-radius:0!important;background:none!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important}
+#stackChooser #createCustomStack strong{color:#e9fcff;font:900 clamp(10px,3vw,14px)/1 ui-monospace,monospace;letter-spacing:.06em}
+#stackChooser #createCustomStack small{display:none!important}
+#stackChooser #createCustomStack span{display:none!important}
+
+/* Custom-stack library uses the same measured metal frame and glass bays. */
+#customStackChooser{overflow:hidden;padding:calc(8px + env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom))}
+#customStackChooser .stack-chooser-card{position:relative;width:min(100%,calc((100dvh - 16px)*.6667),460px);max-height:calc(100dvh - 16px);aspect-ratio:2/3;padding:0!important;overflow:visible;background:transparent url("assets/menu-mode-panel-v1.png") center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important}
+#customStackChooser .stack-chooser-card::before{display:none!important}
+#customStackChooser .chooser-orbit{position:absolute;z-index:2;left:37%;top:2.2%;width:26%;height:16.8%;margin:0;display:grid;place-items:center;border:0!important;background:none!important;box-shadow:none!important}
+#customStackChooser .chooser-orbit::before,#customStackChooser .chooser-orbit::after,#customStackChooser .chooser-orbit i{display:none!important}
+#customStackChooser .chooser-orbit b{color:#8defff;font:900 clamp(19px,7vw,31px) ui-monospace,monospace;letter-spacing:.04em;text-shadow:0 0 9px rgba(44,215,255,.85)}
+#customStackChooser .eyebrow{position:absolute;z-index:3;left:29.5%;top:20%;width:41%;height:4.7%;margin:0;display:grid;place-items:center;color:#9ff4ff;font:900 clamp(9px,2.7vw,13px) ui-monospace,monospace;letter-spacing:.055em;white-space:nowrap;text-align:center;text-shadow:0 0 7px rgba(34,207,255,.7)}
+#customStackChooser .stack-options{position:absolute;z-index:3;inset:0;display:block;margin:0;padding:0}
+#customStackChooser .custom-create-option,#customStackChooser .custom-stack-slot{position:absolute;left:12.7%;width:74.6%;height:11.5%;margin:0;border:0!important;background:none!important;box-shadow:none!important}
+#customStackChooser .custom-create-option{top:29.2%;padding:0 6%!important;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#customStackChooser .custom-stack-slot[data-custom-slot="0"]{top:47.3%}
+#customStackChooser .custom-stack-slot[data-custom-slot="1"]{top:65.7%}
+#customStackChooser .custom-create-option strong,#customStackChooser .custom-stack-play strong{width:100%;color:#e9fcff;font:900 clamp(12px,3.8vw,18px)/1.05 ui-monospace,monospace;letter-spacing:.035em;text-align:center;text-shadow:0 0 6px rgba(43,210,255,.66)}
+#customStackChooser .custom-create-option small,#customStackChooser .custom-stack-play small{width:100%;margin-top:clamp(3px,.7vh,5px);color:#9fb7c4;font:700 clamp(8px,2.35vw,11px)/1.25 ui-monospace,monospace;text-align:center}
+#customStackChooser .custom-stack-slot{display:grid;grid-template-columns:minmax(0,1fr) clamp(68px,21vw,98px);align-items:center;gap:clamp(5px,1.5vw,8px);padding:0 5%}
+#customStackChooser .custom-stack-slot.empty{display:block}
+#customStackChooser .custom-stack-play{min-width:0;padding:0 3%!important;display:flex;flex-direction:column;align-items:center;justify-content:center;border:0!important;background:none!important;box-shadow:none!important}
+#customStackChooser .custom-stack-edit{
+  position:relative;
+  align-self:center;
+  min-width:0!important;
+  min-height:clamp(28px,7.8vw,38px)!important;
+  padding:4px 7px!important;
+  display:grid;
+  place-items:center;
+  color:#dffbff!important;
+  font:900 clamp(7px,2vw,10px)/1.05 ui-monospace,SFMono-Regular,Consolas,monospace!important;
+  letter-spacing:.045em!important;
+  text-align:center;
+  text-shadow:0 0 6px rgba(63,220,255,.7);
+  border:1px solid #4ba4b7!important;
+  border-radius:4px!important;
+  background:
+    linear-gradient(180deg,rgba(78,111,123,.94) 0%,rgba(26,49,59,.98) 42%,rgba(7,23,31,.98) 54%,rgba(22,55,67,.98) 100%)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(225,250,255,.48),
+    inset 0 -2px 4px rgba(0,0,0,.9),
+    0 0 0 2px rgba(4,14,19,.85),
+    0 0 7px rgba(42,205,238,.34)!important;
+}
+#customStackChooser .custom-stack-edit::before,#customStackChooser .custom-stack-edit::after{content:"";position:absolute;top:4px;width:2px;height:2px;border-radius:50%;background:#a6c8d0;box-shadow:0 calc(clamp(28px,7.8vw,38px) - 11px) 0 #657f88}
+#customStackChooser .custom-stack-edit::before{left:4px}
+#customStackChooser .custom-stack-edit::after{right:4px}
+#customStackChooser .custom-stack-edit:active{color:#fff!important;border-color:#7defff!important;background:linear-gradient(180deg,#3d9bb1,#0b4050 52%,#08232d)!important;box-shadow:inset 0 0 8px rgba(73,226,255,.8),0 0 11px rgba(42,219,255,.72)!important;transform:translateY(1px)}
+#customStackChooser .empty-stack-window{display:block;width:100%;height:100%}
+#customStackChooser .custom-stack-navigation{position:absolute;left:22%;top:82.5%;width:56%;height:7.2%;display:grid;grid-template-columns:auto auto;gap:clamp(7px,2vw,10px);align-items:center;justify-content:center;padding:0}
+#customStackChooser .custom-stack-navigation button{position:relative;width:auto!important;min-width:0!important;min-height:0!important;height:clamp(21px,5.4vw,27px)!important;margin:0;padding:2px clamp(8px,2.1vw,11px)!important;display:grid;place-items:center;text-align:center;border:1px solid #4ba4b7!important;border-radius:3px!important;background:linear-gradient(180deg,rgba(78,111,123,.94),rgba(26,49,59,.98) 42%,rgba(7,23,31,.98) 54%,rgba(22,55,67,.98))!important;box-shadow:inset 0 1px 0 rgba(225,250,255,.48),inset 0 -1px 3px rgba(0,0,0,.9),0 0 0 1px rgba(4,14,19,.85),0 0 5px rgba(42,205,238,.3)!important}
+#customStackChooser .custom-stack-navigation button::before,#customStackChooser .custom-stack-navigation button::after{content:"";position:absolute;top:3px;width:1.5px;height:1.5px;border-radius:50%;background:#a6c8d0;box-shadow:0 calc(clamp(21px,5.4vw,27px) - 8px) 0 #657f88}
+#customStackChooser .custom-stack-navigation button::before{left:3px}
+#customStackChooser .custom-stack-navigation button::after{right:3px}
+#customStackChooser .custom-stack-navigation strong{color:#e9fcff;font:900 clamp(7px,2.15vw,10px)/1 ui-monospace,monospace;letter-spacing:.035em;white-space:nowrap;text-shadow:0 0 6px rgba(63,220,255,.7)}
+#customStackChooser .custom-stack-navigation button:active{color:#fff!important;border-color:#7defff!important;background:linear-gradient(180deg,#3d9bb1,#0b4050 52%,#08232d)!important;box-shadow:inset 0 0 8px rgba(73,226,255,.8),0 0 11px rgba(42,219,255,.72)!important;transform:translateY(1px)}
+#customStackChooser #nextCustomStackPage.inactive{opacity:.42}
+#customStackChooser button:active{filter:brightness(1.25) drop-shadow(0 0 7px rgba(39,213,255,.7))}
+
+/* Fleet hangar: a deliberately different, scrollable ship-selection screen. */
+#shipChooser{
+  align-items:flex-start!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  padding:calc(18px + env(safe-area-inset-top)) 12px calc(26px + env(safe-area-inset-bottom))!important;
+  background:
+    radial-gradient(circle at 15% 18%,rgba(75,210,255,.13) 0 1px,transparent 2px),
+    radial-gradient(circle at 81% 32%,rgba(255,255,255,.12) 0 1px,transparent 2px),
+    radial-gradient(circle at 37% 73%,rgba(92,177,255,.1) 0 1px,transparent 2px),
+    linear-gradient(180deg,#02070b 0%,#07131b 42%,#020609 100%)!important;
+  background-size:83px 83px,119px 119px,151px 151px,100% 100%!important;
+}
+#shipChooser .ship-chooser-card{
+  position:relative!important;
+  width:min(100%,520px)!important;
+  min-height:100%!important;
+  max-height:none!important;
+  margin:0 auto!important;
+  padding:clamp(22px,5vw,34px) clamp(12px,3.5vw,22px) clamp(24px,6vw,38px)!important;
+  overflow:visible!important;
+  border:1px solid rgba(87,153,173,.38)!important;
+  border-radius:clamp(16px,4vw,24px)!important;
+  background:
+    linear-gradient(90deg,transparent 0 7%,rgba(99,159,177,.08) 7.2% 7.6%,transparent 7.8% 92%,rgba(99,159,177,.08) 92.2% 92.6%,transparent 92.8%),
+    linear-gradient(180deg,rgba(18,35,44,.96),rgba(5,13,18,.97))!important;
+  box-shadow:inset 0 0 0 3px #03090d,inset 0 0 34px rgba(35,151,183,.1),0 12px 35px #000!important;
+}
+#shipChooser .ship-chooser-card::before{
+  content:""!important;
+  position:absolute!important;
+  inset:8px!important;
+  display:block!important;
+  pointer-events:none;
+  border:1px solid rgba(124,179,194,.18)!important;
+  border-radius:clamp(11px,3vw,18px)!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+#shipChooser h2{
+  position:relative;
+  margin:0!important;
+  color:#e9fbff!important;
+  font:1000 clamp(24px,7.5vw,38px)/1 ui-monospace,SFMono-Regular,Consolas,monospace!important;
+  letter-spacing:.055em!important;
+  text-align:center;
+  text-shadow:0 0 10px rgba(48,211,255,.64)!important;
+}
+#shipChooser .ship-chooser-card>p:not(.eyebrow){
+  position:relative;
+  margin:clamp(11px,2.5vh,17px) auto clamp(20px,4vh,30px)!important;
+  color:#a9c4cf!important;
+  font:750 clamp(11px,3.1vw,14px)/1.5 ui-monospace,SFMono-Regular,Consolas,monospace!important;
+  letter-spacing:.015em;
+  text-align:center;
+}
+#shipChooser .ship-options{display:grid!important;gap:clamp(18px,4.5vh,30px)!important;margin:0!important}
+#shipChooser .ship-options button{
+  position:relative!important;
+  width:100%!important;
+  min-height:clamp(235px,58vw,300px)!important;
+  margin:0!important;
+  padding:clamp(16px,4vw,23px) clamp(16px,4vw,24px) clamp(14px,3.5vw,20px)!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-template-rows:minmax(135px,1fr) auto!important;
+  gap:clamp(7px,2vw,12px)!important;
+  overflow:hidden!important;
+  clip-path:none!important;
+  border:1px solid #486c78!important;
+  border-radius:clamp(10px,3vw,16px)!important;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.06),transparent 12% 88%,rgba(255,255,255,.04)),
+    radial-gradient(ellipse at 50% 40%,rgba(43,176,211,.16),transparent 57%),
+    linear-gradient(180deg,#142832 0%,#071118 66%,#0c1d25 100%)!important;
+  box-shadow:inset 0 1px 0 rgba(220,247,255,.28),inset 0 -5px 12px #010405,0 0 0 4px #040b0f,0 0 18px rgba(29,151,183,.18)!important;
+}
+#shipChooser .ship-options button::before{
+  content:""!important;
+  position:absolute!important;
+  inset:9px!important;
+  display:block!important;
+  pointer-events:none;
+  border:1px solid rgba(64,181,208,.2)!important;
+  border-radius:clamp(7px,2vw,11px)!important;
+  background:linear-gradient(90deg,#75909a 0 12px,transparent 12px calc(100% - 12px),#75909a calc(100% - 12px)) top/100% 2px no-repeat!important;
+}
+#shipChooser .ship-silhouette{
+  grid-column:1!important;
+  grid-row:1!important;
+  align-self:center!important;
+  justify-self:center!important;
+  width:min(94%,420px)!important;
+  max-width:none!important;
+  height:clamp(135px,35vw,185px)!important;
+  margin:0!important;
+  background-position:center!important;
+  background-size:contain!important;
+  filter:drop-shadow(0 8px 6px rgba(0,0,0,.82)) drop-shadow(0 0 13px rgba(49,207,246,.46))!important;
+  transform:scale(1.08);
+}
+#shipChooser .ship-options span{
+  grid-column:1!important;
+  grid-row:2!important;
+  align-self:stretch!important;
+  min-width:0!important;
+  display:grid!important;
+  grid-template-columns:1fr auto!important;
+  grid-template-rows:auto auto!important;
+  column-gap:12px!important;
+  align-items:center!important;
+  padding:clamp(8px,2.2vw,12px) clamp(10px,2.7vw,15px)!important;
+  border:1px solid rgba(75,175,198,.38)!important;
+  border-radius:6px!important;
+  background:linear-gradient(180deg,rgba(13,41,51,.94),rgba(3,16,22,.98))!important;
+  box-shadow:inset 0 0 9px #000!important;
+}
+#shipChooser .ship-options strong{grid-column:1;grid-row:1;color:#eafcff!important;font:1000 clamp(15px,4.7vw,22px)/1.05 ui-monospace,SFMono-Regular,Consolas,monospace!important;letter-spacing:.045em!important;text-align:left!important;text-shadow:0 0 7px rgba(49,218,255,.65)!important}
+#shipChooser .ship-options small{grid-column:1;grid-row:2;margin-top:4px!important;color:#91aeb9!important;font:800 clamp(8px,2.25vw,10px)/1.2 ui-monospace,SFMono-Regular,Consolas,monospace!important;letter-spacing:.02em!important;text-align:left!important}
+#shipChooser .ship-options span b{grid-column:2;grid-row:1/3;align-self:center!important;margin:0!important;padding:clamp(7px,2vw,10px) clamp(9px,2.5vw,13px)!important;color:#dffcff!important;font:900 clamp(8px,2.35vw,11px)/1 ui-monospace,SFMono-Regular,Consolas,monospace!important;letter-spacing:.04em!important;white-space:nowrap!important;border:1px solid #4a9aad!important;border-radius:4px!important;background:linear-gradient(180deg,#345968,#0a222c)!important;box-shadow:inset 0 1px rgba(255,255,255,.24),inset 0 -2px 4px #000,0 0 7px rgba(44,210,245,.27)!important}
+#shipChooser .ship-options button:active{transform:scale(.99)!important;filter:brightness(1.2)!important}
+#shipChooser .ship-options button:active span b{border-color:#7ceeff!important;box-shadow:inset 0 0 8px rgba(70,226,255,.65),0 0 12px rgba(44,219,255,.58)!important}
+@media(max-width:370px){#shipChooser .ship-options button{min-height:220px!important}#shipChooser .ship-silhouette{height:126px!important}#shipChooser .ship-options span{grid-template-columns:1fr!important}#shipChooser .ship-options span b{grid-column:1;grid-row:3;margin-top:8px!important;justify-self:stretch;text-align:center}}

@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=124" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260816-38" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260816-51" />
 </head>
 <body>
   <main class="app-shell">
@@ -85,17 +85,31 @@
     </footer>
   </main>
 
-  <div class="stack-chooser hidden" id="stackChooser" role="dialog" aria-modal="true" aria-labelledby="stackChooserTitle">
+  <div class="stack-chooser hidden" id="stackChooser" role="dialog" aria-modal="true" aria-label="Choose your captain">
     <div class="stack-chooser-card">
       <div class="chooser-orbit" aria-hidden="true"><i></i><b>52</b></div>
-      <p class="eyebrow">MEMORY FLEET COMMAND</p>
-      <h2 id="stackChooserTitle">CHOOSE YOUR CAPTAIN</h2>
-      <p>Your captain determines the memorized stack used across all four sectors.</p>
+      <p class="eyebrow">CHOOSE YOUR CAPTAIN</p>
       <div class="stack-options" id="stackOptions">
-        <button data-stack="mnemonica"><strong>CAPTAIN JUAN TAMARIZ</strong><small>SPECIALTY · MNEMONICA · Starts 4♣</small><span>SELECT →</span></button>
-        <button data-stack="redford"><strong>CAPTAIN PATRICK REDFORD</strong><small>SPECIALTY · REDFORD STACK · Starts Q♥</small><span>SELECT →</span></button>
-        <button data-stack="aronson"><strong>CAPTAIN SIMON ARONSON</strong><small>SPECIALTY · ARONSON STACK · Starts J♠</small><span>SELECT →</span></button>
-        <button id="createCustomStack"><strong>CUSTOM STACK</strong><small>Build your own 52-card memorized order</small><span>BUILD →</span></button>
+        <button data-stack="mnemonica"><strong>CAPTAIN JUAN TAMARIZ</strong><small>SPECIALTY: MNEMONICA<br />STARTS 4♣</small></button>
+        <button data-stack="aronson"><strong>CAPTAIN SIMON ARONSON</strong><small>SPECIALTY: ARONSON STACK<br />STARTS J♠</small></button>
+        <button data-stack="redford"><strong>CAPTAIN PATRICK REDFORD</strong><small>SPECIALTY: REDFORD STACK<br />STARTS Q♥</small></button>
+        <button id="createCustomStack"><strong>CUSTOM STACKS</strong></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stack-chooser hidden" id="customStackChooser" role="dialog" aria-modal="true" aria-label="Custom stacks">
+    <div class="stack-chooser-card">
+      <div class="chooser-orbit" aria-hidden="true"><i></i><b>52</b></div>
+      <p class="eyebrow">CUSTOM STACKS</p>
+      <div class="stack-options" id="customStackOptions">
+        <button class="custom-create-option" id="startCustomStack"><strong>CREATE YOUR OWN STACK</strong><small>BUILD A NEW 52-CARD ORDER</small></button>
+        <div class="custom-stack-slot" data-custom-slot="0"></div>
+        <div class="custom-stack-slot" data-custom-slot="1"></div>
+        <div class="custom-stack-navigation">
+          <button id="exitCustomStackMenu"><strong>MAIN MENU</strong></button>
+          <button id="nextCustomStackPage"><strong>NEXT PAGE</strong></button>
+        </div>
       </div>
     </div>
   </div>
@@ -121,34 +135,31 @@
     </div>
   </div>
 
-  <div class="stack-chooser" id="modeChooser" role="dialog" aria-modal="true" aria-labelledby="modeChooserTitle">
+  <div class="stack-chooser" id="modeChooser" role="dialog" aria-modal="true" aria-label="Choose game mode">
     <div class="stack-chooser-card">
       <div class="chooser-orbit" aria-hidden="true"><i></i><b>MODE</b></div>
-      <p class="eyebrow">MISSION PROFILE // DIFFICULTY</p>
-      <h2 id="modeChooserTitle">CHOOSE YOUR MODE</h2>
-      <p>Training shows the card. Advanced shows only its position.</p>
+      <p class="eyebrow">CHOOSE DIFFICULTY</p>
       <div class="stack-options">
-        <button data-mode="training"><strong>TRAINING MODE</strong><small>Position and card answer are both visible</small><span>SELECT →</span></button>
-        <button data-mode="advanced"><strong>ADVANCED MODE</strong><small>Position only · recall the card from memory</small><span>SELECT →</span></button>
-        <button data-mode="super"><strong>SUPER ADVANCED</strong><small>All 52 positions shuffled once · no repeats</small><span>SELECT →</span></button>
+        <button data-mode="training"><strong>TRAINING MODE</strong><small>Position and card answer<br />are both visible</small></button>
+        <button data-mode="advanced"><strong>ADVANCED MODE</strong><small>Position only.<br />Recall the card from memory</small></button>
+        <button data-mode="super"><strong>SUPER ADVANCED</strong><small>All 52 positions shuffled once.<br />No repeats</small></button>
       </div>
       <label class="tutorial-toggle">
         <input type="checkbox" id="showTutorialToggle" />
         <i aria-hidden="true"></i>
-        <span><strong>SHOW TUTORIAL</strong><small>Replay instructions this run</small></span>
+        <span><strong>SHOW TUTORIAL</strong></span>
       </label>
     </div>
   </div>
 
   <div class="stack-chooser hidden" id="shipChooser" role="dialog" aria-modal="true" aria-labelledby="shipChooserTitle">
     <div class="stack-chooser-card ship-chooser-card">
-      <p class="eyebrow">COCKPIT CONFIGURATION</p>
       <h2 id="shipChooserTitle">SELECT YOUR SHIP</h2>
-      <p>Each ship uses the same cards and scoring. Choose the control layout that feels best.</p>
+      <p>Each ship uses the same cards and scoring.<br />Choose the control layout that feels best.</p>
       <div class="ship-options">
-        <button data-ship-class="fortress"><i class="ship-silhouette fortress-ship"></i><span><strong>FORTRESS CLASS</strong><small>Large controls · Four rank rows</small></span><b>SELECT →</b></button>
-        <button data-ship-class="strike"><i class="ship-silhouette strike-ship"></i><span><strong>STRIKE CLASS</strong><small>Low profile · Two rank rows</small></span><b>SELECT →</b></button>
-        <button data-ship-class="interceptor"><i class="ship-silhouette interceptor-ship"></i><span><strong>INTERCEPTOR CLASS</strong><small>Center keypad · Suits on both sides</small></span><b>SELECT →</b></button>
+        <button data-ship-class="fortress"><i class="ship-silhouette fortress-ship"></i><span><strong>FORTRESS CLASS</strong><small>LARGE CONTROLS · FOUR RANK ROWS</small><b>SELECT SHIP</b></span></button>
+        <button data-ship-class="strike"><i class="ship-silhouette strike-ship"></i><span><strong>STRIKE CLASS</strong><small>LOW PROFILE · TWO RANK ROWS</small><b>SELECT SHIP</b></span></button>
+        <button data-ship-class="interceptor"><i class="ship-silhouette interceptor-ship"></i><span><strong>INTERCEPTOR CLASS</strong><small>CENTER KEYPAD · SUITS ON BOTH SIDES</small><b>SELECT SHIP</b></span></button>
       </div>
     </div>
   </div>
@@ -187,6 +198,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=133"></script>
+  <script src="app.js?v=143"></script>
 </body>
 </html>
