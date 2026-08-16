@@ -1586,6 +1586,45 @@ footer{
   font-size:clamp(7px,2vw,12px)!important;
   letter-spacing:.1em;
 }
+
+/* Fortress suit faces are live, larger glyphs laid over the existing glass.
+   Rank artwork and rank hit areas remain completely unchanged. */
+#buildControls.ship-fortress .suit-button,
+#buildControls.ship-fortress .suit-button.red{
+  background:rgba(1,8,13,.94)!important;
+}
+#buildControls.ship-fortress .suit-button span{
+  display:block!important;
+  opacity:1!important;
+  transform:none!important;
+  color:#bff8ff!important;
+  font-size:clamp(32px,11vw,52px)!important;
+  line-height:1!important;
+  font-family:inherit!important;
+  font-weight:inherit!important;
+  text-shadow:0 0 4px #fff,0 0 11px #009dff!important;
+}
+#buildControls.ship-fortress .suit-button.red span{
+  color:#ff5b52!important;
+  text-shadow:0 0 4px #fff,0 0 11px #ff2b22!important;
+}
+#buildControls.ship-fortress .suit-button:disabled span{
+  opacity:.22!important;
+  filter:grayscale(.7);
+  text-shadow:none!important;
+}
+
+/* Enlarge the complete Fortress suit keys within their four-way gusset. The
+   glyph-to-key proportion stays close to the original approved layout. */
+#buildControls.ship-fortress .suit-button,
+#buildControls.ship-fortress .suit-button.red{
+  width:42%!important;
+  height:42%!important;
+}
+#buildControls.ship-fortress .suit-button:nth-child(1){left:29%!important;top:0!important}
+#buildControls.ship-fortress .suit-button:nth-child(2){right:0!important;top:29%!important}
+#buildControls.ship-fortress .suit-button:nth-child(3){left:29%!important;bottom:0!important}
+#buildControls.ship-fortress .suit-button:nth-child(4){left:0!important;top:29%!important}
 #buildControls.ship-interceptor .panel-health>span b{
   font-size:clamp(8px,2.35vw,14px)!important;
 }
