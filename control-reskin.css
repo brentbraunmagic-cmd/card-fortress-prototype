@@ -425,6 +425,152 @@
   #buildControls.ship-interceptor .suit-button{width:51px;height:51px}
 }
 
+/* Raiders cockpit dashboards. The generated metal skins define the openings;
+   live HTML remains above them so every label and touch target stays dynamic. */
+.phase-two-controls.raider-training-dashboard,
+.phase-two-controls.raider-keypad-dashboard{
+  position:relative;
+  display:block;
+  flex:0 0 clamp(238px,33.333dvh,340px);
+  width:100%;
+  height:clamp(238px,33.333dvh,340px);
+  min-height:clamp(238px,33.333dvh,340px);
+  box-sizing:border-box;
+  padding:0!important;
+  overflow:hidden;
+  background-color:#02070b!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+  border:0!important;
+  isolation:isolate;
+  clip-path:polygon(7% 0,93% 0,100% 10%,100% 90%,93% 100%,7% 100%,0 90%,0 10%);
+}
+.phase-two-controls.raider-training-dashboard{background-image:url("assets/dashboard-raiders-training-v1.png")!important}
+.phase-two-controls.raider-keypad-dashboard{background-image:url("assets/dashboard-raiders-keypad-v1.png")!important}
+.phase-two-controls.hidden{display:none!important}
+
+.raider-training-dashboard .recall-heading{
+  position:absolute;
+  z-index:2;
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+  inset:7.2% 20.5% auto;
+  height:10.5%;
+  margin:0!important;
+  padding:0 3%;
+  color:#dffaff;
+  background:transparent;
+  border:0;
+  pointer-events:none;
+}
+.raider-training-dashboard .recall-heading>div{display:none}
+.raider-training-dashboard .recall-heading>strong{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:clamp(8px,2vw,15px);
+  width:100%;
+  font-family:var(--display-font,monospace);
+  font-size:clamp(11px,3vw,17px);
+  letter-spacing:.09em;
+  text-shadow:0 0 8px rgba(42,210,255,.55);
+}
+.raider-training-dashboard .recall-heading b{font-size:clamp(18px,5vw,27px);color:#fff}
+.raider-training-dashboard .position-grid:not(.numeric-keypad){
+  position:absolute;
+  z-index:3;
+  inset:20.5% 7.5% 7.6%;
+  display:grid;
+  grid-template-columns:repeat(10,minmax(0,1fr));
+  grid-template-rows:repeat(3,minmax(0,1fr));
+  column-gap:1.25%;
+  row-gap:5.4%;
+  padding:1.5% 1.2% 1.2%;
+}
+.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button{
+  grid-column:span 2;
+  width:auto;
+  height:auto!important;
+  min-height:0;
+  margin:0;
+  padding:0;
+  color:#f5fcff;
+  background:transparent!important;
+  border:2px solid transparent!important;
+  border-radius:14%;
+  box-shadow:none!important;
+  font-family:var(--display-font,monospace);
+  font-size:clamp(20px,6.2vw,34px)!important;
+  font-weight:900;
+  text-shadow:0 0 7px rgba(50,210,255,.55);
+}
+.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(11){grid-column:2/span 2}
+.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(12){grid-column:5/span 2}
+.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(13){grid-column:8/span 2}
+
+.raider-keypad-dashboard .recall-heading{display:none!important}
+.raider-keypad-dashboard .position-grid.numeric-keypad{
+  position:absolute;
+  z-index:3;
+  inset:9.3% 10.7% 7.5%;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:17% repeat(3,minmax(0,1fr)) 18%;
+  gap:3.2% 3.1%;
+  padding:0;
+}
+.raider-keypad-dashboard .numeric-keypad .position-code{
+  grid-column:1/-1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(10px,3vw,22px);
+  width:auto;
+  height:auto!important;
+  min-height:0;
+  padding:0 4%;
+  color:#e8fbff;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.raider-keypad-dashboard .position-code small{font-size:clamp(9px,2.4vw,13px);letter-spacing:.08em}
+.raider-keypad-dashboard .position-code strong{font-size:clamp(19px,5.5vw,31px);line-height:1}
+.raider-keypad-dashboard .numeric-keypad .position-button{
+  width:auto;
+  height:auto!important;
+  min-height:0;
+  margin:0;
+  padding:0;
+  color:#f7fcff;
+  background:transparent!important;
+  border:2px solid transparent!important;
+  border-radius:10%;
+  box-shadow:none!important;
+  font-family:var(--display-font,monospace);
+  font-size:clamp(21px,6.4vw,36px)!important;
+  font-weight:900;
+  text-shadow:0 0 7px rgba(50,210,255,.5);
+}
+.raider-keypad-dashboard .numeric-keypad .position-button:last-child{grid-column:1/-1}
+.raider-training-dashboard .position-button:active,
+.raider-keypad-dashboard .position-button:active{
+  border-color:#5ceaff!important;
+  background:rgba(29,183,255,.13)!important;
+  box-shadow:inset 0 0 14px rgba(44,211,255,.45),0 0 12px rgba(44,211,255,.7)!important;
+  filter:brightness(1.22)!important;
+}
+@media(max-height:720px){
+  .phase-two-controls.raider-training-dashboard,
+  .phase-two-controls.raider-keypad-dashboard{
+    flex-basis:33.333dvh;
+    height:33.333dvh;
+    min-height:33.333dvh;
+  }
+}
+
 /* Final Fortress dashboard layer order. Keep this after the shared cockpit
    rules so the approved dashboard cannot be covered by the generic shell. */
 #buildControls.ship-fortress{
@@ -1188,9 +1334,6 @@
 .phase-two-controls{padding:clamp(20px,4vw,28px) clamp(23px,6vw,34px) calc(24px + env(safe-area-inset-bottom))}
 .custom-control-panel{padding:18px 22px}
 
-/* Matching illustrated keys for Raider, numeric, and custom-stack dashboards. */
-.phase-two-controls .position-button,
-.numeric-keypad .position-button,
 /* Strike dashboard calibration. Keep the interactive glass exactly inside the
    illustrated bezels, regardless of the shared dashboard rules above. */
 #buildControls.ship-strike .rank-panel{
@@ -1710,3 +1853,157 @@ footer{
   #buildControls{padding-left:18px;padding-right:18px;padding-bottom:calc(15px + env(safe-area-inset-bottom))}
   .phase-two-controls{padding:16px 20px calc(18px + env(safe-area-inset-bottom))}
 }
+
+/* Final Raider calibration. These rules intentionally come last so legacy
+   cockpit and Strike-class selectors cannot paint over the live controls. */
+#phaseTwoControls.raider-training-dashboard,
+#phaseTwoControls.raider-keypad-dashboard{
+  padding:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  background-color:#02070b!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+}
+#phaseTwoControls.raider-training-dashboard{background-image:url("assets/dashboard-raiders-training-v1.png")!important}
+#phaseTwoControls.raider-keypad-dashboard{background-image:url("assets/dashboard-raiders-keypad-v1.png")!important}
+#phaseTwoControls.raider-training-dashboard .position-grid,
+#phaseTwoControls.raider-keypad-dashboard .position-grid{
+  border:0!important;
+  background:none!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+#phaseTwoControls.raider-training-dashboard .position-button,
+#phaseTwoControls.raider-keypad-dashboard .position-button{
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  text-align:center!important;
+  line-height:1!important;
+  inset:auto!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-width:none!important;
+  padding:0!important;
+  margin:0!important;
+  appearance:none;
+  border:2px solid transparent!important;
+  background:none!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  color:#55dcff!important;
+  -webkit-text-fill-color:#55dcff;
+  text-shadow:0 0 3px #d9fbff,0 0 8px rgba(0,157,255,.95)!important;
+  filter:none!important;
+  opacity:1!important;
+  transform:none!important;
+  z-index:5!important;
+}
+#phaseTwoControls.raider-training-dashboard .position-button::before,
+#phaseTwoControls.raider-training-dashboard .position-button::after,
+#phaseTwoControls.raider-keypad-dashboard .position-button::before,
+#phaseTwoControls.raider-keypad-dashboard .position-button::after{display:none!important;content:none!important}
+#phaseTwoControls.raider-training-dashboard .position-button:active,
+#phaseTwoControls.raider-keypad-dashboard .position-button:active{
+  color:#dffcff!important;
+  -webkit-text-fill-color:#dffcff;
+  border-color:#5ceaff!important;
+  background:rgba(29,183,255,.14)!important;
+  box-shadow:inset 0 0 15px rgba(44,211,255,.52),0 0 12px rgba(44,211,255,.75)!important;
+}
+
+/* The Raider readout carries forward fortress health from build mode. */
+#phaseTwoControls.raider-training-dashboard .recall-heading{inset:7.2% 20.5% auto!important;height:10.5%!important;padding:0 2.5%!important}
+#phaseTwoControls.raider-training-dashboard .recall-heading>.raider-health{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(6px,2vw,12px);width:100%;height:100%;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+#phaseTwoControls .raider-health>span{display:contents!important}
+#phaseTwoControls .raider-health>span em{color:#9ff4ff;font:900 clamp(8px,2.5vw,13px) ui-monospace,monospace;font-style:normal;letter-spacing:.12em}
+#phaseTwoControls .raider-health>span b{order:3;color:#eaffff;font:900 clamp(10px,3vw,16px) ui-monospace,monospace}
+#phaseTwoControls .raider-health>i{order:2;display:block;width:100%;height:clamp(7px,1.8vw,11px);overflow:hidden;border:1px solid #4e7480;border-radius:2px;background:repeating-linear-gradient(90deg,#111c23 0 9%,#05090c 9% 10%);box-shadow:inset 0 2px 5px #000}
+#phaseTwoControls .raider-health>i>b{display:block;height:100%;transition:width .3s ease,background .25s ease}
+#phaseTwoControls .raider-health.healthy>i>b{background:linear-gradient(180deg,#85ff9d,#16cf51 55%,#08752d);box-shadow:0 0 10px #28ed64}
+#phaseTwoControls .raider-health.warning>i>b{background:linear-gradient(180deg,#fff17b,#e9af18 55%,#8d5b04);box-shadow:0 0 10px #f3c52e}
+#phaseTwoControls .raider-health.critical>i>b{background:linear-gradient(180deg,#ff8b78,#ef2f26 55%,#82140f);box-shadow:0 0 12px #ff392b}
+
+/* The illustrated third row has three centered apertures. */
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(11){position:absolute!important;left:17%!important;top:67%!important;width:22%!important;height:30%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(12){position:absolute!important;left:38.6%!important;top:67%!important;width:22.8%!important;height:30%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(13){position:absolute!important;left:61.2%!important;top:67%!important;width:21.6%!important;height:30%!important}
+
+/* Pixel-calibrated Raider training controls. The centers below come from the
+   black-glass apertures in dashboard-raiders-training-v1.png, not an inferred
+   equal grid. This keeps the numerals centered when the artwork scales. */
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad){
+  display:block!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  padding:0!important;
+}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button{
+  position:absolute!important;
+  width:14.5%!important;
+  height:17%!important;
+  top:21.38%!important;
+}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(1),
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(6){left:8.375%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(2),
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(7){left:25.53%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(3),
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(8){left:42.72%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(4),
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(9){left:59.84%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(5),
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(10){left:77%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(n+6):nth-child(-n+10){top:44.87%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(11),
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(12),
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(13){top:69.14%!important;width:17%!important;height:17%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(11){left:21.69%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(12){left:41.37%!important}
+#phaseTwoControls.raider-training-dashboard .position-grid:not(.numeric-keypad) .position-button:nth-child(13){left:61.65%!important}
+
+/* Pixel-calibrated advanced Raider keypad. Each target uses the measured
+   center of its transparent black-glass aperture in the generated artwork. */
+#phaseTwoControls.raider-keypad-dashboard .position-grid.numeric-keypad{
+  display:block!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  padding:0!important;
+}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-code{
+  position:absolute!important;
+  left:13.5%!important;
+  top:9.2%!important;
+  width:73%!important;
+  height:14.5%!important;
+  padding:0 3%!important;
+}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button{
+  position:absolute!important;
+  width:19%!important;
+  height:12%!important;
+}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(1),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(4),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(7){left:13.97%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(2),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(5),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(8){left:40.47%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(3),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(6),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(9){left:67.03%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(-n+3){top:26.91%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(n+4):nth-of-type(-n+6){top:44.44%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(n+7):nth-of-type(-n+9){top:61.68%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-of-type(10){left:17.5%!important;top:78.18%!important;width:65%!important;height:12%!important}
