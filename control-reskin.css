@@ -2639,3 +2639,101 @@ footer{
   background:rgba(22,185,225,.06)!important;
   box-shadow:none!important;
 }
+
+/* Unified cockpit language. Glass readouts share one squared digital face,
+   and interactive illumination is always the same cyan outline. */
+:root{--fortress-display-font:"Arial Narrow","Roboto Mono","Cascadia Mono",ui-monospace,SFMono-Regular,Consolas,monospace}
+.status-strip,
+.target-card,
+.panel-health,
+.raider-health,
+.objective,
+.battle-message,
+.stack-chooser-card,
+.modal-card,
+.tutorial-card{font-family:var(--fortress-display-font)!important}
+.rank-button.selected,
+.position-button.digit-entered,
+.suit-button:not(:disabled):active,
+.primary-button:focus-visible,
+.top-restart:focus-visible{outline:1px solid #70efff!important;outline-offset:1px;box-shadow:inset 0 0 11px rgba(36,220,255,.44),0 0 11px rgba(36,220,255,.72)!important}
+
+/* Compact metal-and-glass top HUD: score, multiplier, restart only. */
+.status-strip{
+  height:clamp(56px,7.2vh,68px)!important;
+  grid-template-columns:1.2fr .95fr 1.2fr!important;
+  border-top:1px solid #738794!important;
+  border-bottom:1px solid #243d49!important;
+  background:
+    linear-gradient(90deg,transparent 32.9%,rgba(54,220,255,.25) 33%,transparent 33.2%,transparent 66.8%,rgba(54,220,255,.25) 67%,transparent 67.2%),
+    linear-gradient(180deg,#52616a 0,#1b2931 12%,#071117 23%,#02070b 78%,#17262e 90%,#65747c 100%)!important;
+  box-shadow:inset 0 1px rgba(235,250,255,.52),inset 0 -2px rgba(0,0,0,.8),0 5px 16px rgba(0,0,0,.48)!important;
+}
+.status-strip>div{position:relative;border:0!important}
+.status-strip>div:before{content:"";position:absolute;inset:7px 8px;border:1px solid #2f5968;clip-path:polygon(6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px),0 6px);background:linear-gradient(145deg,rgba(16,39,49,.68),rgba(2,8,12,.86));box-shadow:inset 0 0 10px #000,0 0 5px rgba(35,208,255,.18);pointer-events:none}
+.status-strip>div>*{position:relative;z-index:1}
+.status-strip .score-status span{color:#83a7b6!important;font:800 clamp(7px,2vw,9px)/1 var(--fortress-display-font)!important;letter-spacing:.16em!important}
+.status-strip .score-status strong{margin-top:3px!important;color:#f4feff!important;font:950 clamp(23px,7.4vw,34px)/.9 var(--fortress-display-font)!important;letter-spacing:-.045em!important;text-shadow:0 0 4px #fff,0 0 12px rgba(47,222,255,.72)!important;font-variant-numeric:tabular-nums}
+.status-strip .score-status strong.score-wide{font-size:clamp(19px,5.8vw,28px)!important;letter-spacing:-.065em!important}
+.status-strip .score-status strong.score-extra-wide{font-size:clamp(16px,4.8vw,23px)!important;letter-spacing:-.075em!important}
+.status-strip .score-status strong.score-rolling{animation:hud-score-roll .28s ease-out}
+@keyframes hud-score-roll{0%{filter:brightness(1);transform:translateY(0)}42%{filter:brightness(1.75);transform:translateY(-1px)}100%{filter:brightness(1);transform:translateY(0)}}
+
+.status-strip .combo-status strong b{font:1000 clamp(32px,10.5vw,47px)/1 var(--fortress-display-font)!important;letter-spacing:-.08em!important;transition:color .14s ease,text-shadow .14s ease,filter .14s ease!important}
+#comboLabel.combo-level-1{color:#75f1ff!important;text-shadow:0 0 7px rgba(52,224,255,.5)!important}
+#comboLabel.combo-level-2{color:#52eaff!important;text-shadow:0 0 8px rgba(35,219,255,.62)!important}
+#comboLabel.combo-level-3{color:#2bddff!important;text-shadow:0 0 10px rgba(27,206,255,.72)!important}
+#comboLabel.combo-level-4{color:#25c2ff!important;text-shadow:0 0 11px rgba(25,181,255,.78)!important}
+#comboLabel.combo-level-5{color:#249dff!important;text-shadow:0 0 12px rgba(29,137,255,.82)!important}
+#comboLabel.combo-level-6{color:#557cff!important;text-shadow:0 0 13px rgba(67,94,255,.86)!important}
+#comboLabel.combo-level-7{color:#ffba45!important;text-shadow:0 0 12px rgba(255,159,34,.78)!important}
+#comboLabel.combo-level-8{color:#ff7a24!important;text-shadow:0 0 14px rgba(255,99,23,.9)!important}
+#comboLabel.combo-level-9{color:#bffaff!important;text-shadow:0 0 5px #fff,0 0 15px #24e5ff,0 0 28px rgba(28,178,255,.9)!important;animation:max-combo-breathe 1.05s ease-in-out infinite alternate}
+@keyframes max-combo-breathe{from{filter:brightness(1);text-shadow:0 0 4px #fff,0 0 11px #24e5ff,0 0 20px rgba(28,178,255,.65)}to{filter:brightness(1.5);text-shadow:0 0 7px #fff,0 0 19px #35efff,0 0 34px rgba(28,178,255,1)}}
+
+.restart-status .top-restart{
+  width:min(96px,25vw)!important;
+  height:31px!important;
+  min-height:31px!important;
+  border:1px solid #4fb6c9!important;
+  color:#dffbff!important;
+  background:linear-gradient(180deg,#354852 0,#14232b 45%,#071117 55%,#1b3039 100%)!important;
+  font:900 clamp(8px,2.25vw,10px)/1 var(--fortress-display-font)!important;
+  letter-spacing:.11em!important;
+  text-shadow:0 0 5px rgba(69,222,255,.62)!important;
+  box-shadow:inset 0 1px rgba(225,250,255,.45),inset 0 -2px rgba(0,0,0,.7),0 0 7px rgba(36,210,255,.22)!important;
+}
+.restart-status .top-restart:active{border-color:#8df4ff!important;filter:brightness(1.28);box-shadow:inset 0 0 13px rgba(36,220,255,.5),0 0 13px rgba(36,220,255,.72)!important}
+
+@media(max-height:700px){.status-strip{height:54px!important}.status-strip>div:before{inset:5px 7px}.status-strip .combo-status strong b{font-size:34px!important}.status-strip .score-status strong{font-size:24px!important}.status-strip .score-status strong.score-wide{font-size:20px!important}.status-strip .score-status strong.score-extra-wide{font-size:17px!important}.restart-status .top-restart{height:27px!important;min-height:27px!important}}
+@media(prefers-reduced-motion:reduce){#comboLabel.combo-level-9,.status-strip .score-status strong.score-rolling{animation:none!important}}
+
+/* Raiders dashboard cleanup. Crop the baked light rim at the bitmap edge and
+   let the shield readout sit cleanly in the existing black-glass aperture. */
+#phaseTwoControls.raider-training-dashboard,
+#phaseTwoControls.raider-keypad-dashboard{
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  background-size:calc(100% + 6px) calc(100% + 6px)!important;
+  background-position:center!important;
+  box-shadow:none!important;
+  clip-path:polygon(8% 1.5%,92% 1.5%,99% 10.7%,99% 87.8%,90.8% 97.2%,9.2% 97.2%,1% 87.8%,1% 10.7%)!important;
+}
+#phaseTwoControls.raider-training-dashboard .recall-heading,
+#phaseTwoControls.raider-training-dashboard .recall-heading>.raider-health,
+#phaseTwoControls.raider-training-dashboard .raider-health{
+  border:0!important;
+  outline:0!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+#phaseTwoControls .raider-health>i{
+  border:0!important;
+  outline:0!important;
+  border-radius:1px!important;
+  background:#020609!important;
+  box-shadow:inset 0 2px 5px #000!important;
+}

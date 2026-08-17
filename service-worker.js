@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v59';
+const CACHE_NAME = 'memory-fortress-v64';
 const OFFLINE_FILES = [
   './',
   './index.html',
