@@ -3187,7 +3187,7 @@ footer{
   to{filter:brightness(1.35) drop-shadow(0 0 9px rgba(49,255,102,.95))}
 }
 .ground-laser.dashboard-twin-beam{
-  height:2px!important;
+  height:1.5px!important;
   border-radius:2px!important;
   background:linear-gradient(90deg,#dcffe5 0,#55ff82 42%,#12ef55 78%,#dfffe7 100%)!important;
   box-shadow:0 0 2px 1px #fff,0 0 6px 2px #22ff63,0 0 11px 3px rgba(16,255,82,.45)!important;
