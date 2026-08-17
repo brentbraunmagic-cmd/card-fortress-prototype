@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=124" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260816-81" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260817-97" />
 </head>
 <body>
   <div class="launch-splash" id="launchSplash" aria-label="Memory Fortress">
@@ -45,17 +45,14 @@
       <div class="laser-layer" id="laserLayer" aria-hidden="true"></div>
       <div class="bomb-layer" id="bombLayer"></div>
       <div class="fortress" id="fortress" aria-label="13 position card fortress"></div>
-      <div class="defense-turrets" id="defenseTurrets" aria-hidden="true">
-        <div class="defense-turret left"><div class="dome-shell"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="turret-head"><i class="turret-barrel"></i><b></b></div><span></span></div>
-        <div class="defense-turret right"><div class="dome-shell"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="turret-head"><i class="turret-barrel"></i><b></b></div><span></span></div>
-      </div>
+      <div class="defense-turrets" id="defenseTurrets" aria-hidden="true"></div>
       <div class="battle-message" id="battleMessage">FORTIFY POSITION 01</div>
     </section>
 
     <section class="control-deck" id="buildControls">
       <div class="build-hint" id="buildHint">
         <div class="panel-health fortress-health healthy" id="panelFortressHealth">
-          <span><em>SHIELDS</em><b id="panelFortressHealthLabel">100%</b></span>
+          <span aria-hidden="true"><b id="panelFortressHealthLabel"></b></span>
           <i><b id="panelFortressHealthBar"></b></i>
         </div>
         <div class="build-readouts">
@@ -74,14 +71,24 @@
     </section>
 
     <section class="control-deck phase-two-controls hidden" id="phaseTwoControls">
-      <div class="recall-heading">
-        <div class="raider-health fortress-health healthy" id="raiderFortressHealth">
-          <span><em>SHIELDS</em><b id="raiderFortressHealthLabel">100%</b></span>
+      <div class="build-hint raider-readouts">
+        <div class="panel-health raider-health fortress-health healthy" id="raiderFortressHealth">
+          <span aria-hidden="true"><b id="raiderFortressHealthLabel"></b></span>
           <i><b id="raiderFortressHealthBar"></b></i>
+        </div>
+        <div class="build-readouts">
+          <div class="target-position" id="raiderDigitOne" aria-label="First entered digit"></div>
+          <div class="target-card" id="raiderDigitTwo" aria-label="Second entered digit"></div>
         </div>
       </div>
       <div class="position-grid" id="positionGrid"></div>
     </section>
+
+    <div class="dashboard-transition hidden" id="dashboardTransition" aria-hidden="true">
+      <div class="dashboard-turret-mount left"><img src="assets/twin-cannon-turret.png" alt="" /></div>
+      <div class="dashboard-turret-mount right"><img src="assets/twin-cannon-turret.png" alt="" /></div>
+      <div class="dashboard-cassette-shutter"></div>
+    </div>
 
     <footer>
       <div class="progress-wrap"><span id="progressText">0 / 13 BUILT</span><div class="progress"><i id="progressBar"></i></div></div>
@@ -218,6 +225,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=170"></script>
+  <script src="app.js?v=177"></script>
 </body>
 </html>
