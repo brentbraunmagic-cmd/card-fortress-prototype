@@ -2009,6 +2009,60 @@ footer{
 #modal .report-actions button{width:100%!important;padding:3px 4px!important;color:#e5fbff!important;font:900 clamp(6px,1.85vw,9px)/1.05 ui-monospace,monospace!important;letter-spacing:.025em!important;text-align:center!important;border:1px solid #477f8d!important;border-radius:3px!important;background:linear-gradient(180deg,#3d5963,#0a2029 55%,#061116)!important;box-shadow:inset 0 1px rgba(255,255,255,.25),inset 0 -2px 3px #000,0 0 5px rgba(38,198,231,.25)!important}
 #modal .report-actions button:active{border-color:#77eaff!important;filter:brightness(1.25)!important}
 #modal .report-actions .replay-option small{display:none!important}
+
+/* Larger, phone-readable menu typography. Every scale remains constrained by
+   its measured glass opening instead of enlarging the surrounding artwork. */
+#modeChooser .eyebrow,#stackChooser .eyebrow,#customStackChooser .eyebrow{
+  font-size:clamp(10px,3vw,14px)!important;
+}
+#modeChooser .stack-options button strong{
+  font-size:clamp(15px,4.6vw,21px)!important;
+  line-height:1.03!important;
+}
+#modeChooser .stack-options button small{
+  font-size:clamp(9px,2.8vw,13px)!important;
+  line-height:1.22!important;
+}
+#modeChooser .tutorial-toggle span strong{
+  font-size:clamp(11px,3.25vw,15px)!important;
+}
+#stackChooser .stack-options>button[data-stack] strong,
+#customStackChooser .custom-create-option strong,
+#customStackChooser .custom-stack-play strong{
+  font-size:clamp(14px,4.15vw,20px)!important;
+  line-height:1.03!important;
+}
+#stackChooser .stack-options>button[data-stack] small,
+#customStackChooser .custom-create-option small,
+#customStackChooser .custom-stack-play small{
+  font-size:clamp(9px,2.7vw,13px)!important;
+  line-height:1.2!important;
+}
+#stackChooser #createCustomStack strong{
+  font-size:clamp(11px,3.3vw,15px)!important;
+}
+#customStackChooser .custom-stack-edit{
+  font-size:clamp(8px,2.25vw,11px)!important;
+}
+#customStackChooser .custom-stack-navigation strong{
+  font-size:clamp(8px,2.35vw,11px)!important;
+}
+#shipChooser h2{font-size:clamp(28px,8.2vw,40px)!important}
+#shipChooser .ship-chooser-card>p:not(.eyebrow){font-size:clamp(12px,3.45vw,16px)!important}
+#shipChooser .ship-options strong{font-size:clamp(17px,5vw,23px)!important}
+#shipChooser .ship-options small{font-size:clamp(9px,2.65vw,12px)!important}
+#shipChooser .ship-options span b{font-size:clamp(9px,2.65vw,12px)!important}
+#modal #modalTitle{font-size:clamp(12px,3.65vw,17px)!important}
+#modal #modalEyebrow{font-size:clamp(10px,2.9vw,14px)!important;line-height:1.18!important}
+#modal #modalText{font-size:clamp(11px,3.15vw,15px)!important;line-height:1.38!important}
+#modal .run-score span,#modal .run-score small{font-size:clamp(9px,2.55vw,12px)!important;line-height:1.25!important}
+#modal .run-score strong{font-size:clamp(34px,10vw,49px)!important}
+#modal .performance-insights{font-size:clamp(9px,2.5vw,12px)!important;line-height:1.22!important}
+#modal .leaderboard>p{font-size:clamp(9px,2.5vw,12px)!important}
+#modal .leaderboard li b{font-size:clamp(10px,2.8vw,13px)!important}
+#modal .leaderboard li strong{font-size:clamp(13px,3.8vw,18px)!important}
+#modal .leaderboard li span{font-size:clamp(8px,2.25vw,10px)!important;line-height:1.22!important}
+#modal .report-actions button{font-size:clamp(7px,2.15vw,10px)!important;line-height:1.05!important}
 #phaseTwoControls.raider-training-dashboard .position-button,
 #phaseTwoControls.raider-keypad-dashboard .position-button{
   position:relative!important;
