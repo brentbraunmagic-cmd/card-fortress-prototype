@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=124" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260816-67" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260816-69" />
 </head>
 <body>
   <div class="launch-splash" id="launchSplash" aria-label="Memory Fortress">
@@ -28,6 +28,7 @@
       <div class="score-status"><span>SCORE</span><strong id="scoreLabel">0</strong></div>
       <div class="combo-status"><strong><b id="comboLabel">×1</b></strong></div>
       <div class="restart-status">
+        <button class="icon-button top-pause" id="pauseButton" aria-label="Pause game" aria-pressed="false">Ⅱ</button>
         <button class="icon-button top-restart" id="restartButton" aria-label="Restart game">RESTART</button>
       </div>
     </section>
@@ -84,7 +85,6 @@
 
     <footer>
       <div class="progress-wrap"><span id="progressText">0 / 13 BUILT</span><div class="progress"><i id="progressBar"></i></div></div>
-      <button class="secondary-button" id="pauseButton">Ⅱ PAUSE</button>
     </footer>
   </main>
 
@@ -205,6 +205,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=155"></script>
+  <script src="app.js?v=156"></script>
 </body>
 </html>

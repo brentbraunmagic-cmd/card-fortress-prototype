@@ -2705,7 +2705,34 @@ footer{
 }
 .restart-status .top-restart:active{border-color:#8df4ff!important;filter:brightness(1.28);box-shadow:inset 0 0 13px rgba(36,220,255,.5),0 0 13px rgba(36,220,255,.72)!important}
 
-@media(max-height:700px){.status-strip{height:54px!important}.status-strip>div:before{inset:5px 7px}.status-strip .combo-status strong b{font-size:34px!important}.status-strip .score-status strong{font-size:24px!important}.status-strip .score-status strong.score-wide{font-size:20px!important}.status-strip .score-status strong.score-extra-wide{font-size:17px!important}.restart-status .top-restart{height:27px!important;min-height:27px!important}}
+.restart-status{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;gap:clamp(5px,1.5vw,8px)!important;padding:0 5px!important}
+.restart-status .top-restart{width:min(76px,20vw)!important}
+.restart-status .top-pause{
+  position:relative!important;
+  z-index:2;
+  flex:0 0 31px!important;
+  width:31px!important;
+  height:31px!important;
+  min-width:31px!important;
+  min-height:31px!important;
+  margin:0!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid #4fb6c9!important;
+  border-radius:50%!important;
+  color:#dffbff!important;
+  background:radial-gradient(circle at 50% 35%,#38505b 0,#14252d 47%,#050c11 72%,#213640 100%)!important;
+  font:1000 14px/1 var(--fortress-display-font)!important;
+  letter-spacing:-.12em!important;
+  text-indent:-.12em;
+  text-shadow:0 0 6px rgba(69,222,255,.78)!important;
+  box-shadow:inset 0 1px rgba(225,250,255,.5),inset 0 -2px rgba(0,0,0,.75),0 0 8px rgba(36,210,255,.3)!important;
+}
+.restart-status .top-pause.is-paused{color:#9dffb8!important;border-color:#4edb83!important;text-indent:.08em;letter-spacing:0!important;text-shadow:0 0 7px rgba(44,255,113,.85)!important;box-shadow:inset 0 0 10px rgba(29,184,86,.3),0 0 10px rgba(44,255,113,.48)!important}
+.restart-status .top-pause:active{border-color:#8df4ff!important;filter:brightness(1.3);box-shadow:inset 0 0 13px rgba(36,220,255,.55),0 0 13px rgba(36,220,255,.75)!important}
+
+@media(max-height:700px){.status-strip{height:54px!important}.status-strip>div:before{inset:5px 7px}.status-strip .combo-status strong b{font-size:34px!important}.status-strip .score-status strong{font-size:24px!important}.status-strip .score-status strong.score-wide{font-size:20px!important}.status-strip .score-status strong.score-extra-wide{font-size:17px!important}.restart-status .top-restart{height:27px!important;min-height:27px!important}.restart-status .top-pause{flex-basis:27px!important;width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important;font-size:12px!important}}
 @media(prefers-reduced-motion:reduce){#comboLabel.combo-level-9,.status-strip .score-status strong.score-rolling{animation:none!important}}
 
 /* Raiders dashboard cleanup. Crop the baked light rim at the bitmap edge and
