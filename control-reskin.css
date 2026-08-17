@@ -2245,7 +2245,7 @@ footer{
   position:absolute;
   z-index:3;
   left:29.5%;
-  top:20%;
+  top:20.45%;
   width:41%;
   height:4.7%;
   margin:0;
@@ -2331,7 +2331,7 @@ footer{
 #stackChooser .chooser-orbit{position:absolute;z-index:2;left:37%;top:2.2%;width:26%;height:16.8%;margin:0;display:grid;place-items:center;border:0!important;background:none!important;box-shadow:none!important}
 #stackChooser .chooser-orbit::before,#stackChooser .chooser-orbit::after,#stackChooser .chooser-orbit i{display:none!important}
 #stackChooser .chooser-orbit b{color:#8defff;font:900 clamp(19px,7vw,31px) ui-monospace,monospace;letter-spacing:.04em;text-shadow:0 0 9px rgba(44,215,255,.85)}
-#stackChooser .eyebrow{position:absolute;z-index:3;left:29.5%;top:20%;width:41%;height:4.7%;margin:0;display:grid;place-items:center;color:#9ff4ff;font:900 clamp(8px,2.45vw,12px) ui-monospace,monospace;letter-spacing:.055em;white-space:nowrap;text-align:center;text-shadow:0 0 7px rgba(34,207,255,.7)}
+#stackChooser .eyebrow{position:absolute;z-index:3;left:29.5%;top:20.45%;width:41%;height:4.7%;margin:0;display:grid;place-items:center;color:#9ff4ff;font:900 clamp(8px,2.45vw,12px) ui-monospace,monospace;letter-spacing:.055em;white-space:nowrap;text-align:center;text-shadow:0 0 7px rgba(34,207,255,.7)}
 #stackChooser .stack-options{position:absolute;z-index:3;inset:0;display:block;margin:0;padding:0}
 #stackChooser .stack-options>button[data-stack]{position:absolute;left:12.7%;width:74.6%;height:11.5%;min-height:0!important;margin:0;padding:0 6%!important;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:0!important;border-radius:0!important;background:none!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important;clip-path:none!important}
 #stackChooser .stack-options>button[data-stack]:nth-child(1){top:29.2%}
@@ -2353,7 +2353,7 @@ footer{
 #customStackChooser .chooser-orbit{position:absolute;z-index:2;left:37%;top:2.2%;width:26%;height:16.8%;margin:0;display:grid;place-items:center;border:0!important;background:none!important;box-shadow:none!important}
 #customStackChooser .chooser-orbit::before,#customStackChooser .chooser-orbit::after,#customStackChooser .chooser-orbit i{display:none!important}
 #customStackChooser .chooser-orbit b{color:#8defff;font:900 clamp(19px,7vw,31px) ui-monospace,monospace;letter-spacing:.04em;text-shadow:0 0 9px rgba(44,215,255,.85)}
-#customStackChooser .eyebrow{position:absolute;z-index:3;left:29.5%;top:20%;width:41%;height:4.7%;margin:0;display:grid;place-items:center;color:#9ff4ff;font:900 clamp(9px,2.7vw,13px) ui-monospace,monospace;letter-spacing:.055em;white-space:nowrap;text-align:center;text-shadow:0 0 7px rgba(34,207,255,.7)}
+#customStackChooser .eyebrow{position:absolute;z-index:3;left:29.5%;top:20.45%;width:41%;height:4.7%;margin:0;display:grid;place-items:center;color:#9ff4ff;font:900 clamp(9px,2.7vw,13px) ui-monospace,monospace;letter-spacing:.055em;white-space:nowrap;text-align:center;text-shadow:0 0 7px rgba(34,207,255,.7)}
 #customStackChooser .stack-options{position:absolute;z-index:3;inset:0;display:block;margin:0;padding:0}
 #customStackChooser .custom-create-option,#customStackChooser .custom-stack-slot{position:absolute;left:12.7%;width:74.6%;height:11.5%;margin:0;border:0!important;background:none!important;box-shadow:none!important}
 #customStackChooser .custom-create-option{top:29.2%;padding:0 6%!important;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
