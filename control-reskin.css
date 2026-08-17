@@ -2475,3 +2475,27 @@ footer{
 #buildControls.ship-fortress .suit-button.red:disabled::after{opacity:.72!important}
 #buildControls.ship-fortress .suit-button:not(:disabled)::after,
 #buildControls.ship-fortress .suit-button.red:not(:disabled)::after{opacity:0!important}
+
+/* Match Strike exactly: the suit is baked into the dashboard artwork. The
+   transparent hit area only removes its dark cover after rank selection. */
+#buildControls.ship-fortress .suit-button span,
+#buildControls.ship-fortress .suit-button small,
+#buildControls.ship-fortress .suit-button.red span,
+#buildControls.ship-fortress .suit-button.red small{opacity:0!important;visibility:hidden!important}
+#buildControls.ship-fortress .suit-button::after,
+#buildControls.ship-fortress .suit-button.red::after{display:none!important;content:none!important}
+#buildControls.ship-fortress .suit-button:disabled,
+#buildControls.ship-fortress .suit-button.red:disabled{
+  opacity:1!important;
+  filter:none!important;
+  background:rgba(0,0,0,.72)!important;
+  box-shadow:inset 0 0 10px rgba(0,0,0,.9)!important;
+}
+#buildControls.ship-fortress .suit-button:not(:disabled),
+#buildControls.ship-fortress .suit-button.red:not(:disabled){
+  opacity:1!important;
+  filter:none!important;
+  animation:none!important;
+  background:rgba(22,185,225,.06)!important;
+  box-shadow:none!important;
+}
