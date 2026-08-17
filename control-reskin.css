@@ -634,12 +634,12 @@
 #buildControls.ship-strike .panel-health{
   position:absolute;
   left:6.1%;
-  top:13.6%;
+  top:13.1%;
   width:50.1%;
-  height:17.1%;
+  height:17.4%;
   display:grid!important;
   grid-template-columns:auto minmax(0,1fr) auto;
-  align-items:center;
+  align-items:center!important;
   gap:clamp(3px,1.1vw,8px);
   padding:0 1.4%!important;
   overflow:hidden;
@@ -1524,7 +1524,7 @@ footer{
   height:12.9%;
   display:grid!important;
   grid-template-columns:auto minmax(0,1fr) auto;
-  align-items:center;
+  align-items:center!important;
   gap:clamp(3px,1vw,7px);
   padding:0 1.5%!important;
   overflow:hidden;
