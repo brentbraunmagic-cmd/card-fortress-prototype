@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=124" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260816-59" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260816-60" />
 </head>
 <body>
   <div class="launch-splash" id="launchSplash" aria-label="Memory Fortress">
@@ -169,22 +169,26 @@
 
   <div class="modal hidden" id="modal" role="dialog" aria-modal="true">
     <div class="modal-card">
-      <p class="eyebrow" id="modalEyebrow">PHASE COMPLETE</p>
       <h2 id="modalTitle">FORTRESS ONLINE</h2>
-      <p id="modalText">All 13 memory positions are secure.</p>
-      <div class="leaderboard hidden" id="leaderboard">
-        <div class="run-score"><span>THIS RUN</span><strong id="runScore">0</strong><small id="runTimes">BUILD 00:00.0 · RAIDERS 00:00.0</small><small id="scoreResult">NEW RECORD</small><div class="performance-insights" id="performanceInsights"></div></div>
-        <p>TOP 3 MISSIONS</p>
-        <ol id="leaderboardList"></ol>
+      <div class="report-content">
+        <p class="eyebrow" id="modalEyebrow">PHASE COMPLETE</p>
+        <p id="modalText">All 13 memory positions are secure.</p>
+        <div class="leaderboard hidden" id="leaderboard">
+          <div class="run-score"><span>THIS RUN</span><strong id="runScore">0</strong><small id="runTimes">BUILD 00:00.0 · RAIDERS 00:00.0</small><small id="scoreResult">NEW RECORD</small><div class="performance-insights" id="performanceInsights"></div></div>
+          <p>TOP 3 MISSIONS</p>
+          <ol id="leaderboardList"></ol>
+        </div>
       </div>
-      <button class="primary-button" id="modalButton">BEGIN PHASE 2</button>
-      <div class="replay-option hidden" id="practiceOption">
-        <button id="practiceButton">PRACTICE WEAK CARDS</button>
-        <small>Run a short unscored targeting drill.</small>
-      </div>
-      <div class="replay-option hidden" id="replayOption">
-        <button id="replaySectorButton">REPLAY SECTOR 1</button>
-        <small>Replay this sector and try for a higher score.</small>
+      <div class="report-actions">
+        <button class="primary-button" id="modalButton">BEGIN PHASE 2</button>
+        <div class="replay-option hidden" id="practiceOption">
+          <button id="practiceButton">PRACTICE WEAK CARDS</button>
+          <small>Run a short unscored targeting drill.</small>
+        </div>
+        <div class="replay-option hidden" id="replayOption">
+          <button id="replaySectorButton">REPLAY SECTOR 1</button>
+          <small>Replay this sector and try for a higher score.</small>
+        </div>
       </div>
     </div>
   </div>
@@ -201,6 +205,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=151"></script>
+  <script src="app.js?v=152"></script>
 </body>
 </html>
