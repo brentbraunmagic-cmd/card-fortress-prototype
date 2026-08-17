@@ -1332,11 +1332,11 @@ footer {
   box-shadow: inset 0 0 13px rgba(255, 45, 91, .6), 0 0 16px rgba(255, 38, 79, .9);
 }
 
-/* Approved C manta drone asset with a live card display. */
+/* Alien Crescent Raider asset with a large live card display. */
 .bomb.drone {
   width: 104px;
   height: 70px;
-  background: url('assets/manta-drone.png') center / contain no-repeat;
+  background: url('assets/alien-crescent-raider-v1.png') center / contain no-repeat;
   filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .7)) drop-shadow(0 0 7px rgba(69, 184, 255, .58));
   transition: transform .1s linear, filter .18s ease;
 }
@@ -1363,17 +1363,17 @@ footer {
 
 .bomb.drone .drone-core b {
   flex-direction: column;
-  gap: 0;
+  gap: 1px;
   color: #08121b;
-  font-size: 16px;
-  line-height: .72;
-  letter-spacing: 0;
+  font-size: 19px;
+  line-height: .66;
+  letter-spacing: -.06em;
   text-shadow: none;
 }
 
 .bomb.drone .drone-core b span {
-  font-size: 19px;
-  line-height: .85;
+  font-size: 22px;
+  line-height: .76;
 }
 
 .bomb.drone .drone-core b.red {
