@@ -411,7 +411,6 @@
 
 /* Captain selection now introduces the memorized stack as part of the fleet fiction. */
 #stackChooser .stack-options button[data-stack]{border-color:#566f7c;background:repeating-linear-gradient(105deg,rgba(255,255,255,.025) 0 1px,transparent 1px 7px),linear-gradient(120deg,#263d49,#091620 62%)}
-#stackChooser .stack-options button[data-stack]:before{content:"CAPTAIN";position:absolute;right:69px;top:10px;color:#3fdff4;font:900 6px ui-monospace;letter-spacing:.18em;opacity:.75}
 
 @media(max-height:720px){
   .ship-chooser-card h2{margin:3px 0;font-size:24px}
@@ -861,8 +860,6 @@
   white-space:normal;
 }
 .stack-options span{right:18px;max-width:48px;line-height:1.25;text-align:right;white-space:normal}
-#stackChooser .stack-options button[data-stack]:before{right:66px;top:8px}
-
 .ship-options button{
   width:100%;
   min-height:116px;
@@ -1578,6 +1575,61 @@ footer{
   text-shadow:none;
   white-space:nowrap;
 }
+
+/* 52-sector campaign selector and rapid phase transition. */
+.sector-chooser-card{max-height:min(90dvh,760px);overflow:hidden}
+.sector-chooser-card>h2{margin:8px auto 5px;font:900 clamp(18px,5vw,27px) var(--display-font,ui-monospace);color:#eafbff;text-align:center}
+.sector-chooser-card>p:not(.eyebrow){max-width:340px;margin:0 auto 12px;color:#9db2c2;font:800 10px/1.4 var(--display-font,ui-monospace);text-align:center}
+.sector-continue,.sector-grid-toggle{width:calc(100% - 36px);margin:5px 18px;border:1px solid #35dfff;border-radius:7px;background:linear-gradient(180deg,#18374a,#07141f);box-shadow:inset 0 0 18px rgba(37,213,255,.12);color:#eaffff;font-family:var(--display-font,ui-monospace)}
+.sector-continue{min-height:66px}.sector-continue small,.sector-continue strong{display:block}.sector-continue small{font-size:9px;letter-spacing:.18em;color:#73dff1}.sector-continue strong{margin-top:3px;font-size:24px;letter-spacing:.08em}
+.sector-grid-toggle{height:40px;font-weight:900;letter-spacing:.1em}
+.sector-number-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;max-height:38dvh;margin:8px 18px 14px;padding:8px;overflow-y:auto;border:1px solid #405f70;border-radius:7px;background:rgba(2,8,14,.72)}
+.sector-number-grid button{aspect-ratio:1;border:1px solid #53798e;border-radius:4px;background:linear-gradient(#172d3b,#09131d);color:#dffcff;font:900 10px var(--display-font,ui-monospace)}
+.sector-number-grid button.last-sector{border-color:#39e8ff;box-shadow:inset 0 0 10px rgba(49,231,255,.2);color:#56edff}
+.incoming-raiders-warning{position:absolute;z-index:40;transform:translate(-50%,-50%);min-width:min(92%,430px);padding:14px 18px;border:2px solid #ff3b45;background:rgba(34,0,5,.9);box-shadow:0 0 30px rgba(255,28,45,.7),inset 0 0 25px rgba(255,45,53,.2);color:#ff4a52;text-align:center;font-family:var(--display-font,ui-monospace);animation:incoming-warning 1.45s steps(2,end) forwards;pointer-events:none}
+.incoming-raiders-warning b,.incoming-raiders-warning span{display:block}.incoming-raiders-warning b{font-size:clamp(24px,8vw,40px)}.incoming-raiders-warning span{margin-top:4px;color:#fff;font-size:clamp(12px,4vw,19px);letter-spacing:.08em}
+@keyframes incoming-warning{0%,18%,38%,58%{opacity:0}8%,28%,48%,68%,92%{opacity:1}100%{opacity:0}}
+.battlefield.rapid-deploy .defense-turret{animation-duration:.72s!important;animation-delay:0s!important}
+@media(max-width:380px){.sector-number-grid{grid-template-columns:repeat(7,1fr);max-height:34dvh}.sector-number-grid button{font-size:9px}}
+.modal-tap-hint{position:absolute;z-index:4;top:12px;left:50%;transform:translateX(-50%);color:#8defff;font:900 8px var(--display-font,ui-monospace);letter-spacing:.14em;white-space:nowrap;animation:tap-hint-pulse 1.2s ease-in-out infinite}
+
+/* Keep an active Raider readable when its evasive path crosses the HUD. */
+.battlefield{overflow:visible}
+#bombLayer{position:absolute;inset:0;z-index:30;overflow:visible;pointer-events:none}
+#bombLayer .bomb{pointer-events:auto}
+
+.bomb.drone.dive-bombing{
+  filter:drop-shadow(0 0 10px rgba(255,70,12,.95)) drop-shadow(0 0 20px rgba(255,180,35,.65));
+}
+.bomb.drone.dive-bombing:after{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  left:50%;
+  top:-76px;
+  width:18px;
+  height:88px;
+  transform:translateX(-50%);
+  transform-origin:center bottom;
+  clip-path:polygon(42% 100%,58% 100%,72% 24%,100% 0,77% 18%,53% 0,33% 18%,0 0,27% 25%);
+  background:linear-gradient(0deg,#fff 0,#fff4a0 9%,#ff8a12 24%,rgba(255,41,6,.8) 47%,rgba(255,70,10,0) 100%);
+  filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 11px #ff4a08);
+  animation:dive-tracer-rage .07s steps(2,end) infinite;
+}
+.bomb.drone.dive-bombing .drone-thruster{
+  top:-18px;
+  height:36px;
+  transform:rotate(180deg) scaleX(1.35);
+  clip-path:polygon(28% 100%,72% 100%,100% 0,73% 17%,52% 0,31% 18%,0 0);
+  background:linear-gradient(180deg,#fff 0,#fff5a8 18%,#ff8a12 46%,rgba(255,38,4,0) 100%);
+  filter:drop-shadow(0 0 7px #fff) drop-shadow(0 0 14px #ff4b08);
+  animation:dive-engine-rage .06s steps(2,end) infinite;
+}
+@keyframes dive-tracer-rage{50%{height:102px;top:-90px;opacity:.76;filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 17px #ff3d05)}}
+@keyframes dive-engine-rage{50%{height:48px;top:-30px;filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 19px #ff3203)}}
+.score-tap-hint{display:block;margin-bottom:6px;color:#8defff!important;font:900 8px var(--display-font,ui-monospace)!important;letter-spacing:.14em!important;text-align:center}
+.dismissible-score{cursor:pointer;touch-action:manipulation;pointer-events:auto!important}
+@keyframes tap-hint-pulse{50%{opacity:.42}}
 #buildControls.ship-interceptor .build-hint .target-position{left:47.45%;width:13.45%}
 #buildControls.ship-interceptor .build-hint .target-card{left:64.3%;width:28.35%}
 #buildControls.ship-interceptor .build-hint .target-card.answer-hidden{display:none!important}

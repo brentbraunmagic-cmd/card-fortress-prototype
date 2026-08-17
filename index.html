@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=124" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260816-74" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260816-79" />
 </head>
 <body>
   <div class="launch-splash" id="launchSplash" aria-label="Memory Fortress">
@@ -167,8 +167,21 @@
     </div>
   </div>
 
+  <div class="stack-chooser hidden" id="sectorChooser" role="dialog" aria-modal="true" aria-labelledby="sectorChooserTitle">
+    <div class="stack-chooser-card sector-chooser-card">
+      <div class="chooser-orbit" aria-hidden="true"><i></i><b>52</b></div>
+      <p class="eyebrow">SELECT STARTING SECTOR</p>
+      <h2 id="sectorChooserTitle">WHERE SHOULD TRAINING BEGIN?</h2>
+      <p>Resume your campaign or begin with any card you are currently learning.</p>
+      <button class="sector-continue" id="continueSector"><small>CONTINUE</small><strong>SECTOR 01</strong></button>
+      <button class="sector-grid-toggle" id="chooseSectorButton">CHOOSE SECTOR</button>
+      <div class="sector-number-grid hidden" id="sectorNumberGrid" aria-label="Choose sector 01 through 52"></div>
+    </div>
+  </div>
+
   <div class="modal hidden" id="modal" role="dialog" aria-modal="true">
     <div class="modal-card">
+      <small class="modal-tap-hint hidden" id="modalTapHint">TAP TO DISMISS</small>
       <h2 id="modalTitle">FORTRESS ONLINE</h2>
       <div class="report-content">
         <p class="eyebrow" id="modalEyebrow">PHASE COMPLETE</p>
@@ -205,6 +218,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=156"></script>
+  <script src="app.js?v=168"></script>
 </body>
 </html>
