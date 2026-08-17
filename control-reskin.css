@@ -1601,21 +1601,21 @@ footer{
 .bomb.drone.dive-bombing{
   filter:drop-shadow(0 0 10px rgba(255,70,12,.95)) drop-shadow(0 0 20px rgba(255,180,35,.65));
 }
-.bomb.drone.dive-bombing:after{
-  content:"";
+.dive-trail{
   position:absolute;
-  z-index:-2;
-  left:50%;
-  top:-76px;
-  width:18px;
-  height:88px;
-  transform:translateX(-50%);
-  transform-origin:center bottom;
-  clip-path:polygon(42% 100%,58% 100%,72% 24%,100% 0,77% 18%,53% 0,33% 18%,0 0,27% 25%);
-  background:linear-gradient(0deg,#fff 0,#fff4a0 9%,#ff8a12 24%,rgba(255,41,6,.8) 47%,rgba(255,70,10,0) 100%);
+  z-index:5;
+  width:0;
+  height:14px;
+  transform:translateY(-50%);
+  transform-origin:left center;
+  clip-path:polygon(0 7%,15% 24%,0 34%,19% 50%,0 66%,15% 76%,0 93%,72% 68%,100% 57%,100% 43%,72% 32%);
+  background:linear-gradient(90deg,rgba(255,52,6,.08) 0,rgba(255,68,8,.5) 34%,#ff9b18 72%,#fff 100%);
   filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 11px #ff4a08);
+  pointer-events:none;
   animation:dive-tracer-rage .07s steps(2,end) infinite;
+  transition:opacity .28s ease-out,filter .28s ease-out;
 }
+.dive-trail.spent{opacity:0;filter:blur(5px) drop-shadow(0 0 9px #ff4a08)}
 .bomb.drone.dive-bombing .drone-thruster{
   top:-18px;
   height:36px;
@@ -1625,7 +1625,7 @@ footer{
   filter:drop-shadow(0 0 7px #fff) drop-shadow(0 0 14px #ff4b08);
   animation:dive-engine-rage .06s steps(2,end) infinite;
 }
-@keyframes dive-tracer-rage{50%{height:102px;top:-90px;opacity:.76;filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 17px #ff3d05)}}
+@keyframes dive-tracer-rage{50%{height:19px;filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 17px #ff3d05)}}
 @keyframes dive-engine-rage{50%{height:48px;top:-30px;filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 19px #ff3203)}}
 .score-tap-hint{display:block;margin-bottom:6px;color:#8defff!important;font:900 8px var(--display-font,ui-monospace)!important;letter-spacing:.14em!important;text-align:center}
 .dismissible-score{cursor:pointer;touch-action:manipulation;pointer-events:auto!important}
