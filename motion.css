@@ -1385,36 +1385,74 @@ footer {
   filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .7)) drop-shadow(0 0 11px rgba(255, 40, 76, .95));
 }
 
-/* One learned-pressure target per Raider phase. */
+/* The Elite's card stays readable while its outer iris accelerates around it. */
 .bomb.drone.elite-raider {
-  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .8)) drop-shadow(0 0 9px #ff3d16) drop-shadow(0 0 17px rgba(255, 154, 28, .82));
-  animation: elite-raider-heat .58s ease-in-out infinite alternate;
+  width: 78px;
+  height: 78px;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .82));
+  animation: none;
+  transform-origin: 50% 50%;
 }
 
-.bomb.drone.elite-raider::after {
-  content: 'ELITE';
+.bomb.drone.elite-raider .elite-spinner {
   position: absolute;
-  z-index: 8;
-  left: 50%;
-  top: -10px;
-  transform: translateX(-50%);
-  padding: 2px 6px;
-  border: 1px solid #ffb229;
-  border-radius: 3px;
-  background: rgba(48, 8, 2, .9);
-  color: #fff0b0;
-  font: 900 7px ui-monospace;
-  letter-spacing: .16em;
-  box-shadow: 0 0 8px rgba(255, 77, 20, .9);
+  z-index: 2;
+  inset: 0;
+  background: url("assets/elite-raider-rotor-v4.png") center / contain no-repeat;
+  transform-origin: 50% 50%;
+  will-change: transform, filter;
 }
 
 .bomb.drone.elite-raider .drone-core {
-  border-color: #ff8b20;
-  box-shadow: inset 0 0 9px rgba(255, 69, 16, .58), 0 0 9px rgba(255, 133, 26, .95);
+  z-index: 1;
+  left: 22px;
+  top: 14px;
+  width: 34px;
+  height: 50px;
+  transform: none;
+  clip-path: none;
+  border: 2px solid #24201b;
+  border-radius: 4px;
+  background: linear-gradient(145deg, #fffdf5, #e8e0d2);
+  box-shadow: 0 0 0 3px #111, inset 0 0 7px rgba(78, 50, 20, .22);
 }
 
-@keyframes elite-raider-heat {
-  to { filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .8)) drop-shadow(0 0 13px #ff3517) drop-shadow(0 0 22px rgba(255, 184, 35, .95)) brightness(1.09); }
+.bomb.drone.elite-raider .elite-bezel {
+  position: absolute;
+  z-index: 3;
+  inset: 4px;
+  background: url("assets/elite-raider-bezel-v1.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.bomb.drone.elite-raider .drone-core b {
+  font-size: 20px;
+  line-height: .72;
+}
+
+.bomb.drone.elite-raider .drone-core b span {
+  font-size: 24px;
+}
+
+.bomb.drone.elite-raider.charging {
+  animation: elite-charge-shell 1.5s cubic-bezier(.32, 0, .78, 1) forwards;
+}
+
+.bomb.drone.elite-raider.charging .elite-spinner {
+  animation: elite-charge-iris 1.5s cubic-bezier(.32, 0, .78, 1) forwards;
+}
+
+@keyframes elite-charge-shell {
+  0% { filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .82)); }
+  55% { filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .82)) drop-shadow(0 0 7px rgba(255, 93, 16, .55)); }
+  82% { filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .82)) drop-shadow(0 0 14px rgba(255, 71, 10, .88)) drop-shadow(0 0 24px rgba(255, 183, 34, .68)); }
+  100% { filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .82)) drop-shadow(0 0 20px #ff3c08) drop-shadow(0 0 35px rgba(255, 193, 41, .98)) brightness(1.22); }
+}
+
+@keyframes elite-charge-iris {
+  0%, 42% { filter: brightness(1) saturate(1); }
+  78% { filter: brightness(1.22) saturate(1.3); }
+  100% { filter: brightness(1.55) saturate(1.65); }
 }
 
 .elite-warning {

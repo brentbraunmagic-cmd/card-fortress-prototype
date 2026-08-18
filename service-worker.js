@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v109';
+const CACHE_NAME = 'memory-fortress-v142';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -28,12 +28,21 @@ const OFFLINE_FILES = [
   ,'./assets/dashboard-strike-windows-v1.png'
   ,'./assets/dashboard-interceptor-windows-v1.png'
   ,'./assets/dashboard-raiders-training-v1.png'
+  ,'./assets/dashboard-raiders-training-inset-v2.png'
   ,'./assets/dashboard-raiders-keypad-v1.png'
   ,'./assets/dashboard-raiders-keypad-fortress-v2.png'
+  ,'./assets/dashboard-raiders-fortress-chassis-v3.png'
   ,'./assets/dashboard-armored-shutter-v1.png'
+  ,'./assets/dashboard-fortress-master-frame-v1.png'
+  ,'./assets/dashboard-fortress-header-overlay-v1.png'
   ,'./assets/menu-mode-panel-v1.png'
   ,'./assets/memory-fortress-splash-v1.png'
   ,'./assets/menu-report-frame-v1.png'
+  ,'./assets/elite-raider-iris-v2.png'
+  ,'./assets/elite-raider-iris-v3.png'
+  ,'./assets/elite-raider-rotor-v4.png'
+  ,'./assets/elite-raider-bezel-v1.png'
+  ,'./assets/mission-briefing-plaque-v1.png'
 ];
 
 self.addEventListener('install', event => {

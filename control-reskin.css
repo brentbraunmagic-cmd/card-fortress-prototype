@@ -3009,6 +3009,58 @@ footer{
   margin:0!important;
 }
 
+/* Cleaned training inset preserves its existing layout without the generated
+   white canvas around it. */
+#phaseTwoControls.raider-training-dashboard{
+  background-image:url("assets/dashboard-raiders-training-inset-v2.png")!important;
+}
+
+/* Phase two now keeps the complete Fortress chassis and header pixel-for-pixel.
+   Only the lower control cassette changes to the Raider keypad. */
+#phaseTwoControls.raider-keypad-dashboard{
+  background-image:url("assets/dashboard-raiders-fortress-chassis-v3.png")!important;
+}
+
+/* The health readout contains only the bar. Its centerline is identical to the
+   adjacent position and card windows in both phases. */
+#buildControls.ship-fortress .panel-health>span,
+#buildControls.ship-strike .panel-health>span,
+#buildControls.ship-interceptor .panel-health>span,
+#phaseTwoControls.raider-training-dashboard .raider-health>span,
+#phaseTwoControls.raider-keypad-dashboard .raider-health>span,
+#phaseTwoControls.raider-keypad-dashboard .raider-readouts .panel-health>span{
+  display:none!important;
+  visibility:hidden!important;
+}
+#buildControls.ship-fortress .panel-health,
+#phaseTwoControls.raider-keypad-dashboard .raider-readouts .panel-health{
+  left:6.2%!important;
+  top:7.05%!important;
+  width:50.8%!important;
+  height:9%!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-template-rows:1fr!important;
+  place-items:center!important;
+  padding:0 1.25%!important;
+}
+#buildControls.ship-fortress .panel-health>i,
+#phaseTwoControls.raider-keypad-dashboard .raider-readouts .panel-health>i{
+  display:block!important;
+  align-self:center!important;
+  justify-self:center!important;
+  width:94%!important;
+  height:clamp(6px,1.7vw,11px)!important;
+  margin:0!important;
+}
+
+/* The shutter fills the complete inset opening so neither control cassette is
+   visible at the midpoint of the swap. The permanent Fortress rim remains. */
+.dashboard-cassette-shutter{
+  inset:4.6% 4.6% 4.2%!important;
+}
+
+
 /* Raiders dashboard cleanup. Crop the baked light rim at the bitmap edge and
    let the shield readout sit cleanly in the existing black-glass aperture. */
 #phaseTwoControls.raider-training-dashboard,
@@ -3174,17 +3226,13 @@ footer{
   transition:transform .08s linear,filter .16s ease!important;
 }
 .dashboard-transition.deployed .dashboard-turret-mount{
-  filter:brightness(1.18) drop-shadow(0 0 7px rgba(63,255,116,.85)) drop-shadow(0 8px 10px rgba(0,0,0,.95))!important;
+  filter:brightness(1.08) drop-shadow(0 8px 10px rgba(0,0,0,.95))!important;
 }
 .dashboard-transition.deployed .dashboard-turret-mount img{
-  animation:dashboard-turret-online 1.05s ease-in-out infinite alternate;
+  animation:none;
 }
 .dashboard-transition.deployed .dashboard-turret-mount.firing img{
-  filter:brightness(1.75) drop-shadow(0 0 10px #55ff86)!important;
-}
-@keyframes dashboard-turret-online{
-  from{filter:brightness(1.05) drop-shadow(0 0 3px rgba(49,255,102,.55))}
-  to{filter:brightness(1.35) drop-shadow(0 0 9px rgba(49,255,102,.95))}
+  filter:brightness(1.32) drop-shadow(0 3px 5px rgba(0,0,0,.9))!important;
 }
 .ground-laser.dashboard-twin-beam{
   height:1.5px!important;
@@ -3198,3 +3246,330 @@ footer{
   height:8px!important;
   box-shadow:0 0 4px 2px #fff,0 0 9px 4px #28ff68!important;
 }
+
+/* One permanent dashboard chassis. Fortress establishes the exterior size,
+   bevel, corner cuts, and transition footprint. Ship and Raider artwork is
+   treated only as an inset beneath this shared perimeter. */
+#buildControls.ship-fortress,
+#buildControls.ship-strike,
+#buildControls.ship-interceptor,
+#phaseTwoControls.raider-training-dashboard,
+#phaseTwoControls.raider-keypad-dashboard{
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:clamp(220px,33dvh,315px)!important;
+  min-height:clamp(220px,33dvh,315px)!important;
+  max-height:315px!important;
+  flex:0 0 clamp(220px,33dvh,315px)!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+  clip-path:polygon(5% 2.4%,95% 2.4%,98.4% 12.8%,100% 50%,98.4% 87.2%,94.5% 98.4%,5.5% 98.4%,1.6% 87.2%,0 50%,1.6% 12.8%)!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+}
+
+/* The transparent center leaves every current control inset and live hit area
+   exactly where it already is while one Fortress frame owns the perimeter. */
+#buildControls.ship-fortress::after,
+#buildControls.ship-strike::after,
+#buildControls.ship-interceptor::after,
+#phaseTwoControls.raider-training-dashboard::after,
+#phaseTwoControls.raider-keypad-dashboard::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:9!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  background:url("assets/dashboard-fortress-master-frame-v1.png") center/100% 100% no-repeat!important;
+}
+
+/* Baffles use the same fixed chassis footprint for every ship and phase. */
+.dashboard-transition{
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:clamp(220px,33dvh,315px)!important;
+  max-height:315px!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  margin:0!important;
+}
+
+/* One physical dashboard remains mounted for the entire game. The build and
+   Raider interfaces are now internal cassettes and cannot alter its bounds. */
+.dashboard-chassis{
+  position:relative;
+  z-index:8;
+  box-sizing:border-box;
+  width:100%;
+  height:clamp(220px,33dvh,315px);
+  min-height:clamp(220px,33dvh,315px);
+  max-height:315px;
+  margin:0;
+  padding:0;
+  flex:none;
+  overflow:hidden;
+  isolation:isolate;
+  background:#02080d;
+  clip-path:polygon(5% 2.4%,95% 2.4%,98.4% 12.8%,100% 50%,98.4% 87.2%,94.5% 98.4%,5.5% 98.4%,1.6% 87.2%,0 50%,1.6% 12.8%);
+}
+.dashboard-chassis::after{
+  content:"";
+  position:absolute;
+  z-index:20;
+  inset:0;
+  pointer-events:none;
+  background:url("assets/dashboard-fortress-master-frame-v1.png") center/100% 100% no-repeat;
+}
+.dashboard-chassis>.dashboard-inset{
+  position:absolute!important;
+  z-index:1!important;
+  inset:0!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  flex:none!important;
+  clip-path:none!important;
+  overflow:hidden!important;
+}
+.dashboard-chassis>#buildControls::after,
+.dashboard-chassis>#phaseTwoControls::after{
+  display:none!important;
+  content:none!important;
+}
+
+/* Strike and Interceptor retain their unique button fields, but their legacy
+   upper housings are concealed beneath the exact Fortress readout header. */
+.dashboard-chassis>#buildControls.ship-strike::before,
+.dashboard-chassis>#buildControls.ship-interceptor::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:8!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  pointer-events:none!important;
+  background:url("assets/dashboard-fortress-header-overlay-v1.png") center/100% 100% no-repeat!important;
+}
+#buildControls.ship-strike .build-hint,
+#buildControls.ship-interceptor .build-hint{
+  position:absolute!important;
+  z-index:10!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  pointer-events:none!important;
+}
+#buildControls.ship-strike .panel-health,
+#buildControls.ship-interceptor .panel-health{
+  position:absolute!important;
+  left:6.2%!important;
+  top:7.05%!important;
+  width:50.8%!important;
+  height:9%!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-template-rows:1fr!important;
+  place-items:center!important;
+  padding:0 1.25%!important;
+  border:0!important;
+  background:#020d13!important;
+  box-shadow:none!important;
+}
+#buildControls.ship-strike .panel-health>i,
+#buildControls.ship-interceptor .panel-health>i{
+  align-self:center!important;
+  justify-self:center!important;
+  width:94%!important;
+  height:clamp(6px,1.7vw,11px)!important;
+  margin:0!important;
+}
+#buildControls.ship-strike .build-hint .target-position,
+#buildControls.ship-strike .build-hint .target-card,
+#buildControls.ship-interceptor .build-hint .target-position,
+#buildControls.ship-interceptor .build-hint .target-card{
+  position:absolute!important;
+  top:7.05%!important;
+  height:9%!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#020d13!important;
+  box-shadow:none!important;
+  color:#b7f8ff!important;
+  font:900 clamp(10px,3.25vw,23px)/1 ui-monospace,monospace!important;
+  letter-spacing:normal!important;
+  text-shadow:none!important;
+}
+#buildControls.ship-strike .build-hint .target-position,
+#buildControls.ship-interceptor .build-hint .target-position{left:66.35%!important;width:9.95%!important}
+#buildControls.ship-strike .build-hint .target-card,
+#buildControls.ship-interceptor .build-hint .target-card{left:77.6%!important;width:10.1%!important}
+
+/* Every ship uses the Fortress selection behavior. The dashboard artwork
+   permanently supplies each rank glyph; the live control is only a clear hit
+   area whose glass outline illuminates when selected. */
+#buildControls.ship-fortress .rank-button,
+#buildControls.ship-strike .rank-button,
+#buildControls.ship-interceptor .rank-button,
+#buildControls.ship-fortress .rank-button.selected,
+#buildControls.ship-strike .rank-button.selected,
+#buildControls.ship-interceptor .rank-button.selected{
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  text-shadow:none!important;
+  font-size:0!important;
+  transform:none!important;
+}
+#buildControls.ship-fortress .rank-button>span,
+#buildControls.ship-strike .rank-button>span,
+#buildControls.ship-interceptor .rank-button>span{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  font-size:0!important;
+  text-shadow:none!important;
+}
+#buildControls.ship-fortress .rank-button::before,
+#buildControls.ship-fortress .rank-button::after,
+#buildControls.ship-strike .rank-button::before,
+#buildControls.ship-strike .rank-button::after,
+#buildControls.ship-interceptor .rank-button::before,
+#buildControls.ship-interceptor .rank-button::after{
+  content:none!important;
+  display:none!important;
+}
+#buildControls.ship-fortress .rank-button.selected,
+#buildControls.ship-strike .rank-button.selected,
+#buildControls.ship-interceptor .rank-button.selected{
+  background:rgba(40,210,255,.2)!important;
+  box-shadow:inset 0 0 0 2px #c8faff,inset 0 0 14px #21d6ff,0 0 9px #18c8ff!important;
+  filter:none!important;
+}
+
+/* Raider keypad numerals are permanently baked into the dashboard artwork.
+   Live buttons are empty hit areas; entered digits illuminate only the glass
+   perimeter and can never render a duplicate glowing numeral. */
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button,
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:active,
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button.digit-entered{
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  font-size:0!important;
+  text-shadow:none!important;
+  background:transparent!important;
+  background-image:none!important;
+  filter:none!important;
+}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button.digit-entered{
+  border:2px solid #70efff!important;
+  outline:0!important;
+  box-shadow:inset 0 0 0 1px rgba(200,250,255,.55),0 0 8px rgba(24,200,255,.82)!important;
+}
+
+/* Compact story briefings remain above the live battlefield, leaving the
+   fortress and full control deck visible beneath them. */
+.briefing-overlay{
+  position:fixed;
+  inset:0;
+  z-index:48;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:clamp(86px,14vh,132px) 12px 0;
+  background:transparent;
+  pointer-events:none;
+}
+.briefing-overlay.hidden{display:none!important}
+.briefing-plaque{
+  position:relative;
+  width:min(510px,96vw);
+  height:clamp(188px,40vw,220px);
+  box-sizing:border-box;
+  padding:clamp(43px,10.5vw,56px) clamp(38px,10vw,62px) clamp(36px,8.5vw,46px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#eafcff;
+  background:url('./assets/mission-briefing-plaque-v1.png') center/100% 100% no-repeat;
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,.78));
+  pointer-events:auto;
+  animation:briefing-arrival .24s cubic-bezier(.16,.9,.24,1) both;
+}
+.briefing-eyebrow{
+  margin:0 0 2px;
+  max-width:100%;
+  color:#62eaff;
+  font:900 clamp(7px,1.65vw,10px)/1.05 ui-monospace,monospace;
+  letter-spacing:.14em;
+  white-space:normal;
+}
+.briefing-plaque h2{
+  width:100%;
+  margin:0 0 4px;
+  font:1000 clamp(16px,4.4vw,24px)/.95 ui-monospace,monospace;
+  letter-spacing:.02em;
+  overflow-wrap:anywhere;
+  text-shadow:0 0 12px rgba(54,220,255,.38);
+}
+.enemy-brief .briefing-plaque h2,
+.enemy-brief .briefing-copy strong{color:#ff754d;text-shadow:0 0 12px rgba(255,64,20,.55)}
+.briefing-copy{display:grid;gap:2px;width:100%;max-width:100%;min-width:0}
+.briefing-copy strong{
+  font:1000 clamp(10px,2.55vw,14px)/1.05 ui-monospace,monospace;
+  letter-spacing:.025em;
+  overflow-wrap:anywhere;
+}
+.briefing-copy span{
+  font:800 clamp(8px,2.05vw,11px)/1.12 ui-monospace,monospace;
+  color:#d2dde0;
+  overflow-wrap:anywhere;
+}
+.briefing-copy b{
+  color:#70efff;
+  font:1000 clamp(8px,2.15vw,11px)/1 ui-monospace,monospace;
+  letter-spacing:.07em;
+  overflow-wrap:anywhere;
+}
+.briefing-plaque button{
+  width:min(78%,290px);
+  max-width:100%;
+  min-height:27px;
+  margin-top:5px;
+  padding:6px 14px;
+  border:2px solid #8cf4ff;
+  border-radius:5px;
+  background:linear-gradient(180deg,#1d5b70 0,#082630 55%,#04151b 100%);
+  color:#fff;
+  box-shadow:inset 0 0 12px rgba(80,230,255,.36),0 0 10px rgba(27,198,255,.58);
+  font:1000 clamp(9px,2.25vw,12px)/1 ui-monospace,monospace;
+  letter-spacing:.065em;
+  white-space:normal;
+  cursor:pointer;
+  animation:briefing-action-pulse 1.25s ease-in-out infinite;
+}
+.briefing-plaque button::after{content:'  ▶';color:#8cf4ff}
+.briefing-plaque button:active{transform:translateY(1px);filter:brightness(1.3)}
+@keyframes briefing-arrival{from{opacity:0;transform:translateY(-18px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes briefing-action-pulse{50%{border-color:#d9fdff;box-shadow:inset 0 0 15px rgba(110,240,255,.5),0 0 17px rgba(27,198,255,.82)}}
+@media(max-height:700px){.briefing-overlay{padding-top:72px}.briefing-plaque{width:min(470px,94vw);height:188px}}

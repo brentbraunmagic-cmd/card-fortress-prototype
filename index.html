@@ -12,8 +12,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-v2-180.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
-  <link rel="stylesheet" href="motion.css?v=126" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260817-98" />
+  <link rel="stylesheet" href="motion.css?v=136" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260818-114" />
 </head>
 <body>
   <div class="launch-splash" id="launchSplash" aria-label="Memory Fortress">
@@ -49,7 +49,8 @@
       <div class="battle-message" id="battleMessage">FORTIFY POSITION 01</div>
     </section>
 
-    <section class="control-deck" id="buildControls">
+    <section class="dashboard-chassis" id="dashboardChassis" aria-label="Ship control dashboard">
+    <div class="control-deck dashboard-inset" id="buildControls">
       <div class="build-hint" id="buildHint">
         <div class="panel-health fortress-health healthy" id="panelFortressHealth">
           <span aria-hidden="true"><b id="panelFortressHealthLabel"></b></span>
@@ -68,9 +69,9 @@
         <span>SUIT</span>
         <div class="suit-row" id="suitRow"></div>
       </div>
-    </section>
+    </div>
 
-    <section class="control-deck phase-two-controls hidden" id="phaseTwoControls">
+    <div class="control-deck phase-two-controls dashboard-inset hidden" id="phaseTwoControls">
       <div class="build-hint raider-readouts">
         <div class="panel-health raider-health fortress-health healthy" id="raiderFortressHealth">
           <span aria-hidden="true"><b id="raiderFortressHealthLabel"></b></span>
@@ -82,6 +83,7 @@
         </div>
       </div>
       <div class="position-grid" id="positionGrid"></div>
+    </div>
     </section>
 
     <div class="dashboard-transition hidden" id="dashboardTransition" aria-hidden="true">
@@ -186,6 +188,15 @@
     </div>
   </div>
 
+  <div class="briefing-overlay hidden" id="briefingOverlay" role="dialog" aria-modal="true" aria-labelledby="briefingTitle">
+    <div class="briefing-plaque">
+      <p class="briefing-eyebrow" id="briefingEyebrow">EMERGENCY TRANSMISSION</p>
+      <h2 id="briefingTitle">WE ARE UNDER ATTACK</h2>
+      <div class="briefing-copy" id="briefingText"></div>
+      <button id="briefingButton">BUILD THE FORTRESS</button>
+    </div>
+  </div>
+
   <div class="modal hidden" id="modal" role="dialog" aria-modal="true">
     <div class="modal-card">
       <small class="modal-tap-hint hidden" id="modalTapHint">TAP TO DISMISS</small>
@@ -225,6 +236,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=178"></script>
+  <script src="app.js?v=194"></script>
 </body>
 </html>
