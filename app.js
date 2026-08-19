@@ -302,7 +302,22 @@ $('tutorialNext').onclick=()=>{const finalStep=state.tutorialStep===activeTutori
 $('ship').addEventListener('animationiteration',event=>{if(event.animationName==='saucer-bank-patrol'&&state.phase===1)randomizeShipFlight()});randomizeShipFlight();
 $('createCustomStack').onclick=openCustomStackMenu;$('startCustomStack').onclick=openCustomBuilder;$('exitCustomStackMenu').onclick=()=>{$('customStackChooser').classList.add('hidden');$('stackChooser').classList.remove('hidden');renderStackOptions();sound('select')};$('nextCustomStackPage').onclick=()=>{customStackPage++;renderCustomStackMenu();sound('select')};$('undoCustomCard').onclick=()=>{if(!customDraft.cards.length)return;customDraft.cards.pop();customDraft.selectedRank=null;saveCustomDraft();renderCustomBuilder();sound('select')};$('exitCustomBuilder').onclick=()=>{saveCustomDraft();$('customStackBuilder').classList.add('hidden');$('customStackChooser').classList.remove('hidden');renderCustomStackMenu();sound('select')};$('returnToCustomEntry').onclick=()=>{customEditingIndex=51;customDraft.selectedRank=customDraft.cards[51][0];renderCustomBuilder();sound('select')};$('saveCustomStack').onclick=saveCompletedCustomStack;$('customStackName').addEventListener('keydown',event=>{if(event.key==='Enter')saveCompletedCustomStack()});registerCustomStacks();renderStackOptions();
 document.querySelectorAll('[data-mode]').forEach(button=>button.onclick=()=>{state.mode=button.dataset.mode;state.forceTutorial=$('showTutorialToggle').checked;state.positionOrder=state.mode==='super'?shuffle(Array.from({length:52},(_,i)=>i)):Array.from({length:52},(_,i)=>i);state.dronePositionOrder=state.mode==='super'?makeDroneOrder(state.positionOrder):[...state.positionOrder];$('modeChooser').classList.add('hidden');$('stackChooser').classList.remove('hidden');sound('select')});
-document.querySelectorAll('[data-ship-class]').forEach(button=>button.onclick=()=>{state.shipClass=button.dataset.shipClass;try{localStorage.setItem('memory-fortress-ship-class',state.shipClass)}catch{}$('buildControls').classList.remove('ship-fortress','ship-strike','ship-strike-clean','ship-interceptor');$('buildControls').classList.add(`ship-${state.shipClass}`);openSectorChooser();sound('select')});
+document.querySelectorAll('[data-ship-class]').forEach(button=>button.onclick=()=>{state.shipClass=button.dataset.shipClass;try{localStorage.setItem('memory-fortress-ship-class',state.shipClass)}catch{}$('buildControls').classList.remove('ship-fortress','ship-strike','ship-strike-clean','ship-interceptor','ship-interceptor-clean');$('buildControls').classList.add(state.shipClass==='interceptor'?'ship-interceptor-clean':`ship-${state.shipClass}`);openSectorChooser();sound('select')});
+/* Interceptor taps are resolved by the dashboard's measured raster geometry.
+   This capture handler is independent of which visual layer receives the click. */
+$('buildControls').addEventListener('click',event=>{
+  if(state.shipClass!=='interceptor'||state.paused||state.phase!==1||!state.selectedRank)return;
+  const rect=$('buildControls').getBoundingClientRect();
+  if(!rect.width||!rect.height)return;
+  const x=(event.clientX-rect.left)/rect.width*100,y=(event.clientY-rect.top)/rect.height*100;
+  const regions=[
+    ['clubs',1.5,23.8,14.3,29.2],['spades',1.5,55.1,14.3,29.2],
+    ['hearts',82.3,23.8,14.3,29.2],['diamonds',82.3,55.1,14.3,29.2]
+  ];
+  const hit=regions.find(([,left,top,width,height])=>x>=left&&x<=left+width&&y>=top&&y<=top+height);
+  if(!hit)return;
+  event.preventDefault();event.stopImmediatePropagation();placeCard(hit[0]);
+},true);
 $('continueSector').onclick=()=>launchSector(savedCampaignSector());$('chooseSectorButton').onclick=()=>{$('sectorNumberGrid').classList.toggle('hidden');sound('select')};
 renderFortress();renderControls();updateUI();
 setTimeout(dismissLaunchSplash,3500);

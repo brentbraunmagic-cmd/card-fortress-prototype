@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v193';
+const CACHE_NAME = 'memory-fortress-v202';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -26,7 +26,6 @@ const OFFLINE_FILES = [
   ,'./assets/ship-interceptor-v1.png'
   ,'./assets/dashboard-fortress-approved-v1.png'
   ,'./assets/dashboard-fortress-windows-v1.png'
-  ,'./assets/dashboard-interceptor-windows-v1.png'
   ,'./assets/dashboard-raiders-training-v1.png'
   ,'./assets/dashboard-raiders-training-inset-v2.png'
   ,'./assets/dashboard-raiders-keypad-v1.png'
@@ -53,10 +52,9 @@ const OFFLINE_FILES = [
   ,'./assets/dashboard-strike-clean-base-v2.png'
   ,'./assets/dashboard-strike-clean-lights-v1.png'
   ,'./assets/dashboard-strike-layout-v1.json'
-  ,'./assets/dashboard-interceptor-layered-base-v1.png'
-  ,'./assets/dashboard-interceptor-suit-lights-v1.png'
+  ,'./assets/dashboard-interceptor-clean-base-v1.png'
+  ,'./assets/dashboard-interceptor-clean-lights-v1.png'
   ,'./assets/dashboard-interceptor-layout-v1.json'
-  ,'./assets/dashboard-interceptor-fullwidth-v2.png'
   ,'./assets/dashboard-raider-fullwidth-v3.png'
 ];
 

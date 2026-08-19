@@ -2,7 +2,7 @@
    HTML supplies only live readouts, health, hit areas, and illumination. */
 .dashboard-chassis{clip-path:none!important;background:#02070b!important}
 .dashboard-chassis::after,.dashboard-chassis>#buildControls::before,.dashboard-chassis>#buildControls::after,.dashboard-chassis>#phaseTwoControls::before,.dashboard-chassis>#phaseTwoControls::after{display:none!important;content:none!important}
-#buildControls.ship-fortress,#buildControls.ship-strike,#buildControls.ship-interceptor,#phaseTwoControls.raider-keypad-dashboard{clip-path:none!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important}
+#buildControls.ship-fortress,#buildControls.ship-strike,#buildControls.ship-interceptor-clean,#phaseTwoControls.raider-keypad-dashboard{clip-path:none!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important}
 #buildControls.ship-fortress{background-image:url("assets/dashboard-fortress-layered-base-v1.png")!important}
 #buildControls.ship-strike{
   position:relative!important;
@@ -30,7 +30,34 @@
 #buildControls.ship-strike.hidden{display:none!important}
 #buildControls.ship-strike::before,
 #buildControls.ship-strike::after{display:none!important;visibility:hidden!important;content:none!important}
-#buildControls.ship-interceptor{background-image:url("assets/dashboard-interceptor-layered-base-v1.png")!important}
+#buildControls.ship-interceptor-clean{
+  position:relative!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:clamp(220px,33dvh,315px)!important;
+  min-height:clamp(220px,33dvh,315px)!important;
+  max-height:315px!important;
+  flex:0 0 clamp(220px,33dvh,315px)!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  clip-path:none!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background-color:#02070b!important;
+  background-image:url("assets/dashboard-interceptor-clean-base-v1.png")!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+}
+#buildControls.ship-interceptor-clean.hidden{display:none!important}
+#buildControls.ship-interceptor-clean::before,
+#buildControls.ship-interceptor-clean::after{display:none!important;visibility:hidden!important;content:none!important;background:none!important;background-image:none!important}
+.dashboard-chassis>#buildControls.ship-interceptor-clean::before,
+.dashboard-chassis>#buildControls.ship-interceptor-clean::after{display:none!important;visibility:hidden!important;content:none!important;background:none!important;background-image:none!important;box-shadow:none!important}
 #phaseTwoControls.raider-keypad-dashboard{background-image:url("assets/dashboard-raider-fullwidth-v3.png")!important}
 
 /* Independent suit illumination. The raster shares the dashboard's native
@@ -38,10 +65,11 @@
 #buildControls .dashboard-suit-lights{display:none!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:fill!important;z-index:10!important;opacity:0!important;pointer-events:none!important}
 #buildControls.ship-fortress .suit-lights-fortress,
 #buildControls.ship-strike .suit-lights-strike-clean,
-#buildControls.ship-interceptor .suit-lights-interceptor{display:block!important}
+#buildControls.ship-interceptor-clean .suit-lights-interceptor-clean{display:block!important}
 #buildControls.suits-ready .dashboard-suit-lights{opacity:1!important}
 #buildControls.ship-fortress:not(.suits-ready) .suit-lights-fortress,
 #buildControls.ship-strike:not(.suits-ready) .suit-lights-strike-clean{opacity:.25!important}
+#buildControls.ship-interceptor-clean:not(.suits-ready) .suit-lights-interceptor-clean{opacity:.25!important}
 
 /* Shared live header: shield bar plus one combined answer window. */
 #buildControls .build-hint,#phaseTwoControls.raider-keypad-dashboard .raider-readouts{position:absolute!important;z-index:12!important;inset:0!important;width:100%!important;height:100%!important;pointer-events:none!important}
@@ -136,17 +164,40 @@
 #buildControls.ship-strike .suit-button[data-suit="diamonds"]{left:89.67%!important;top:61.10%!important;width:9.80%!important;height:30.03%!important}
 
 /* Interceptor: central ranks with tall flank suits. */
-#buildControls.ship-interceptor .rank-panel{left:17.7%!important;top:22.4%!important;width:63.6%!important;height:69.2%!important}
-#buildControls.ship-interceptor .rank-row{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:repeat(4,minmax(0,1fr))!important;gap:.25%!important}
-#buildControls.ship-interceptor .rank-button{grid-column:span 4!important}
-#buildControls.ship-interceptor .rank-button:nth-child(n+10){grid-column:span 3!important}
-#buildControls.ship-interceptor .suit-panel{inset:0!important;width:100%!important;height:100%!important}
-#buildControls.ship-interceptor .suit-row{position:relative!important;display:block!important}
-#buildControls.ship-interceptor .suit-button{position:absolute!important;width:14.3%!important;height:29.2%!important}
-#buildControls.ship-interceptor .suit-button[data-suit="clubs"]{left:1.5%!important;top:23.8%!important}
-#buildControls.ship-interceptor .suit-button[data-suit="spades"]{left:1.5%!important;top:55.1%!important}
-#buildControls.ship-interceptor .suit-button[data-suit="hearts"]{left:82.3%!important;top:23.8%!important}
-#buildControls.ship-interceptor .suit-button[data-suit="diamonds"]{left:82.3%!important;top:55.1%!important}
+#buildControls.ship-interceptor-clean .build-hint{position:absolute!important;z-index:12!important;inset:0!important;width:100%!important;height:100%!important;background:none!important;background-image:none!important;box-shadow:none!important;pointer-events:none!important}
+#buildControls.ship-interceptor-clean .panel-health{position:absolute!important;left:4.1%!important;top:6.1%!important;width:49.3%!important;height:12.6%!important;display:grid!important;grid-template-columns:1fr!important;align-items:center!important;padding:0 3.2%!important;border:0!important;border-radius:0!important;clip-path:none!important;background:#02090e!important;background-image:none!important;box-shadow:inset 0 0 12px #000!important}
+#buildControls.ship-interceptor-clean .panel-health>span{display:none!important}
+#buildControls.ship-interceptor-clean .panel-health::before,
+#buildControls.ship-interceptor-clean .panel-health::after{display:none!important;content:none!important}
+#buildControls.ship-interceptor-clean .build-readouts{position:absolute!important;left:57.36%!important;top:6.1%!important;width:38.65%!important;height:12.6%!important;display:grid!important;grid-template-columns:42% 58%!important;align-items:center!important;padding:0!important;background:#02090e!important;background-image:none!important;box-shadow:inset 0 0 13px #000!important}
+#buildControls.ship-interceptor-clean .build-hint .target-position,
+#buildControls.ship-interceptor-clean .build-hint .target-card{position:static!important;inset:auto!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;display:grid!important;place-items:center!important;padding:0!important;border:0!important;border-radius:0!important;clip-path:none!important;background:transparent!important;background-image:none!important;box-shadow:none!important;color:#bff9ff!important;font:950 clamp(22px,7.2vw,40px)/1 var(--fortress-display-font,ui-monospace)!important;letter-spacing:.08em!important;text-shadow:0 0 6px rgba(44,205,255,.72)!important;overflow:visible!important}
+#buildControls.ship-interceptor-clean .build-hint .target-card.answer-hidden{display:none!important}
+#buildControls.ship-interceptor-clean .rank-panel{left:17.7%!important;top:22.4%!important;width:63.6%!important;height:69.2%!important}
+#buildControls.ship-interceptor-clean .rank-row{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:repeat(4,minmax(0,1fr))!important;gap:.25%!important}
+#buildControls.ship-interceptor-clean .rank-button{grid-column:span 4!important}
+#buildControls.ship-interceptor-clean .rank-button:nth-child(n+10){grid-column:span 3!important}
+#buildControls.ship-interceptor-clean .rank-button,
+#buildControls.ship-interceptor-clean .rank-button.selected{color:transparent!important;-webkit-text-fill-color:transparent!important;font-size:0!important;text-shadow:none!important;transform:none!important;filter:none!important}
+#buildControls.ship-interceptor-clean .rank-button::before,
+#buildControls.ship-interceptor-clean .rank-button::after{display:none!important;visibility:hidden!important;content:none!important;background:none!important}
+#buildControls.ship-interceptor-clean .rank-button.selected{background:rgba(34,207,255,.14)!important;box-shadow:inset 0 0 0 2px #bff8ff,inset 0 0 15px #20d5ff,0 0 8px #18bfe8!important}
+#buildControls.ship-interceptor-clean .suit-panel{inset:0!important;width:100%!important;height:100%!important;z-index:20!important;display:block!important;visibility:visible!important;pointer-events:auto!important}
+#buildControls.ship-interceptor-clean .suit-row{position:relative!important;display:block!important;width:100%!important;height:100%!important;visibility:visible!important;pointer-events:auto!important}
+#buildControls.ship-interceptor-clean .suit-row::before,
+#buildControls.ship-interceptor-clean .suit-row::after{display:none!important;visibility:hidden!important;content:none!important;background:none!important;background-image:none!important;box-shadow:none!important}
+#buildControls.ship-interceptor-clean .suit-button,
+#buildControls.ship-interceptor-clean .suit-button.red,
+#buildControls.ship-interceptor-clean .suit-button:disabled,
+#buildControls.ship-interceptor-clean .suit-button.red:disabled,
+#buildControls.ship-interceptor-clean .suit-button:not(:disabled),
+#buildControls.ship-interceptor-clean .suit-button.red:not(:disabled){position:absolute!important;display:block!important;visibility:visible!important;z-index:21!important;width:14.3%!important;height:29.2%!important;opacity:1!important;background:transparent!important;background-image:none!important;box-shadow:none!important;filter:none!important;animation:none!important;transform:none!important;pointer-events:auto!important;touch-action:manipulation!important;-webkit-appearance:none!important;appearance:none!important}
+#buildControls.ship-interceptor-clean .suit-button::before,
+#buildControls.ship-interceptor-clean .suit-button::after{display:none!important;visibility:hidden!important;content:none!important;background:none!important;box-shadow:none!important}
+#buildControls.ship-interceptor-clean .suit-button[data-suit="clubs"]{left:1.5%!important;top:23.8%!important}
+#buildControls.ship-interceptor-clean .suit-button[data-suit="spades"]{left:1.5%!important;top:55.1%!important}
+#buildControls.ship-interceptor-clean .suit-button[data-suit="hearts"]{left:82.3%!important;top:23.8%!important}
+#buildControls.ship-interceptor-clean .suit-button[data-suit="diamonds"]{left:82.3%!important;top:55.1%!important}
 
 /* Raider keypad hit targets measured directly from the v3 raster (1915x821).
    No inherited grid geometry is used. */
