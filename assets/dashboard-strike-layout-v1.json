@@ -1,0 +1,33 @@
+{
+  "ship": "strike",
+  "nativeSize": {
+    "width": 2052,
+    "height": 766
+  },
+  "suits": {
+    "clubs": {
+      "x": 0.7622,
+      "y": 0.3107,
+      "width": 0.1101,
+      "height": 0.2846
+    },
+    "hearts": {
+      "x": 0.8748,
+      "y": 0.3107,
+      "width": 0.1165,
+      "height": 0.2846
+    },
+    "spades": {
+      "x": 0.7856,
+      "y": 0.611,
+      "width": 0.1096,
+      "height": 0.3003
+    },
+    "diamonds": {
+      "x": 0.8967,
+      "y": 0.611,
+      "width": 0.098,
+      "height": 0.3003
+    }
+  }
+}

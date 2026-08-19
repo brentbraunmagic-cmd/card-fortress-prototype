@@ -1,0 +1,33 @@
+{
+  "ship": "fortress",
+  "nativeSize": {
+    "width": 1870,
+    "height": 841
+  },
+  "suits": {
+    "clubs": {
+      "x": 0.5995,
+      "y": 0.263,
+      "width": 0.169,
+      "height": 0.3045
+    },
+    "diamonds": {
+      "x": 0.7685,
+      "y": 0.263,
+      "width": 0.1725,
+      "height": 0.3045
+    },
+    "hearts": {
+      "x": 0.5995,
+      "y": 0.5745,
+      "width": 0.169,
+      "height": 0.295
+    },
+    "spades": {
+      "x": 0.7685,
+      "y": 0.5745,
+      "width": 0.1725,
+      "height": 0.295
+    }
+  }
+}

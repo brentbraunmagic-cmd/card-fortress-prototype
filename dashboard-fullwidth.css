@@ -1,0 +1,163 @@
+/* Full-width production dashboards. One raster unit owns each dashboard;
+   HTML supplies only live readouts, health, hit areas, and illumination. */
+.dashboard-chassis{clip-path:none!important;background:#02070b!important}
+.dashboard-chassis::after,.dashboard-chassis>#buildControls::before,.dashboard-chassis>#buildControls::after,.dashboard-chassis>#phaseTwoControls::before,.dashboard-chassis>#phaseTwoControls::after{display:none!important;content:none!important}
+#buildControls.ship-fortress,#buildControls.ship-strike-clean,#buildControls.ship-interceptor,#phaseTwoControls.raider-keypad-dashboard{clip-path:none!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important}
+#buildControls.ship-fortress{background-image:url("assets/dashboard-fortress-layered-base-v1.png")!important}
+#buildControls.ship-strike-clean{
+  position:relative!important;
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:clamp(220px,33dvh,315px)!important;
+  min-height:clamp(220px,33dvh,315px)!important;
+  max-height:315px!important;
+  flex:0 0 clamp(220px,33dvh,315px)!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  clip-path:none!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background-color:#02070b!important;
+  background-image:url("assets/dashboard-strike-clean-base-v1.png")!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:none!important;
+}
+#buildControls.ship-strike-clean::before,
+#buildControls.ship-strike-clean::after{display:none!important;visibility:hidden!important;content:none!important}
+#buildControls.ship-interceptor{background-image:url("assets/dashboard-interceptor-layered-base-v1.png")!important}
+#phaseTwoControls.raider-keypad-dashboard{background-image:url("assets/dashboard-raider-fullwidth-v3.png")!important}
+
+/* Independent suit illumination. The raster shares the dashboard's native
+   dimensions, so scaling cannot separate the light from its glass window. */
+#buildControls .dashboard-suit-lights{display:none!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:fill!important;z-index:10!important;opacity:0!important;pointer-events:none!important}
+#buildControls.ship-fortress .suit-lights-fortress,
+#buildControls.ship-strike-clean .suit-lights-strike-clean,
+#buildControls.ship-interceptor .suit-lights-interceptor{display:block!important}
+#buildControls.suits-ready .dashboard-suit-lights{opacity:1!important}
+
+/* Shared live header: shield bar plus one combined answer window. */
+#buildControls .build-hint,#phaseTwoControls.raider-keypad-dashboard .raider-readouts{position:absolute!important;z-index:12!important;inset:0!important;width:100%!important;height:100%!important;pointer-events:none!important}
+#buildControls .panel-health,#phaseTwoControls.raider-keypad-dashboard .raider-readouts .panel-health{position:absolute!important;left:3.4%!important;top:5.5%!important;width:53.8%!important;height:14.6%!important;display:grid!important;grid-template-columns:1fr!important;align-items:center!important;padding:0 3.2%!important;border:0!important;background:#02090e!important;box-shadow:inset 0 0 12px #000!important;color:#23df64!important}
+#buildControls .panel-health.warning,#phaseTwoControls .panel-health.warning{color:#efc22c!important}
+#buildControls .panel-health.critical,#phaseTwoControls .panel-health.critical{color:#f23a31!important}
+#buildControls .panel-health>span,#phaseTwoControls.raider-keypad-dashboard .panel-health>span{display:none!important}
+#buildControls .panel-health::before,#phaseTwoControls.raider-keypad-dashboard .panel-health::before{display:none!important;content:none!important}
+#buildControls .panel-health::after,#phaseTwoControls.raider-keypad-dashboard .panel-health::after{display:none!important;content:none!important}
+#buildControls .panel-health,#phaseTwoControls.raider-keypad-dashboard .panel-health{clip-path:none!important}
+#buildControls .panel-health>i,#phaseTwoControls.raider-keypad-dashboard .panel-health>i{display:block!important;width:100%!important;height:clamp(8px,2.5vw,14px)!important;margin:0!important;border:1px solid color-mix(in srgb,currentColor 70%,#78909a)!important;border-radius:2px!important;background:repeating-linear-gradient(90deg,#111b20 0 7.5%,#030608 7.5% 8.5%)!important;box-shadow:inset 0 2px 5px #000!important}
+#buildControls .build-readouts,#phaseTwoControls.raider-keypad-dashboard .raider-readouts .build-readouts{position:absolute!important;left:59.1%!important;top:5.5%!important;width:37.4%!important;height:14.6%!important;display:grid!important;grid-template-columns:42% 58%!important;align-items:center!important;padding:0!important;background:#02090e!important;box-shadow:inset 0 0 13px #000!important;pointer-events:none!important}
+#buildControls .build-hint .target-position,#buildControls .build-hint .target-card,#phaseTwoControls.raider-keypad-dashboard .raider-readouts .target-position,#phaseTwoControls.raider-keypad-dashboard .raider-readouts .target-card{position:static!important;width:100%!important;height:100%!important;display:grid!important;place-items:center!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;color:#bff9ff!important;font:950 clamp(22px,7.2vw,40px)/1 var(--fortress-display-font,ui-monospace)!important;letter-spacing:.08em!important;text-shadow:0 0 6px rgba(44,205,255,.72)!important}
+
+/* Every baked key receives one transparent hit area and one outline state. */
+#buildControls .rank-panel,#buildControls .suit-panel,#phaseTwoControls.raider-keypad-dashboard .position-grid{position:absolute!important;z-index:13!important;margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+#buildControls .rank-row,#buildControls .suit-row,#phaseTwoControls.raider-keypad-dashboard .position-grid{width:100%!important;height:100%!important;margin:0!important;padding:0!important;background:none!important;box-shadow:none!important}
+#buildControls .rank-button,#buildControls .suit-button,#phaseTwoControls.raider-keypad-dashboard .position-button{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:transparent!important;-webkit-text-fill-color:transparent!important;font-size:0!important;transform:none!important;filter:none!important;pointer-events:auto!important;touch-action:manipulation!important;-webkit-tap-highlight-color:transparent!important}
+#buildControls .rank-button.selected,#buildControls .suit-button:not(:disabled):active,#phaseTwoControls.raider-keypad-dashboard .position-button.digit-entered{background:rgba(34,207,255,.14)!important;box-shadow:inset 0 0 0 2px #bff8ff,inset 0 0 15px #20d5ff,0 0 8px #18bfe8!important}
+#buildControls.ship-fortress .suit-button,
+#buildControls.ship-fortress .suit-button.red,
+#buildControls.ship-fortress .suit-button:disabled,
+#buildControls.ship-fortress .suit-button.red:disabled,
+#buildControls.ship-fortress .suit-button:not(:disabled),
+#buildControls.ship-fortress .suit-button.red:not(:disabled){opacity:1!important;background:transparent!important;background-image:none!important;box-shadow:none!important;filter:none!important;animation:none!important}
+#buildControls.ship-fortress .suit-button span,
+#buildControls.ship-fortress .suit-button small,
+#buildControls.ship-fortress .suit-button.red span,
+#buildControls.ship-fortress .suit-button.red small,
+#buildControls.ship-fortress .suit-button:disabled span,
+#buildControls.ship-fortress .suit-button:not(:disabled) span{display:none!important;visibility:hidden!important;opacity:0!important;font-size:0!important;text-shadow:none!important;-webkit-text-stroke:0!important}
+#buildControls.ship-fortress .suit-button::before,
+#buildControls.ship-fortress .suit-button::after,
+#buildControls.ship-fortress .suit-button.red::before,
+#buildControls.ship-fortress .suit-button.red::after{display:none!important;visibility:hidden!important;content:none!important;background:none!important;box-shadow:none!important}
+#buildControls .suit-button:disabled{opacity:1!important;background:transparent!important}
+#buildControls .suit-button span,#buildControls .suit-button small{display:none!important}
+
+/* Fortress suit locks are baked into the paired dashboard raster. */
+#buildControls.ship-fortress .suit-button::after{display:none!important;content:none!important}
+#buildControls.ship-fortress::before{display:none!important;visibility:hidden!important;content:none!important;background:none!important;-webkit-mask-image:none!important;mask-image:none!important}
+#buildControls.ship-fortress .suit-button:not(:disabled),
+#buildControls.ship-fortress .suit-button:not(:disabled):active{
+  background:transparent!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+
+/* Fortress: large 3-column ranks, 4-column final row, 2x2 suits. */
+#buildControls.ship-fortress .rank-panel{left:2.4%!important;top:23.2%!important;width:54.7%!important;height:66.7%!important}
+#buildControls.ship-fortress .rank-row{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:repeat(4,minmax(0,1fr))!important;gap:.25%!important}
+#buildControls.ship-fortress .rank-button{grid-column:span 4!important}
+#buildControls.ship-fortress .rank-button:nth-child(n+10){grid-column:span 3!important}
+#buildControls.ship-fortress .suit-panel{inset:0!important;width:100%!important;height:100%!important}
+#buildControls.ship-fortress .suit-panel,#buildControls.ship-fortress .suit-row{pointer-events:none!important}
+#buildControls.ship-fortress .suit-row{position:relative!important;display:block!important}
+#buildControls.ship-fortress .suit-button{position:absolute!important;height:30.45%!important;pointer-events:auto!important}
+#buildControls.ship-fortress .suit-button[data-suit="clubs"]{left:59.95%!important;top:26.30%!important;width:16.90%!important}
+#buildControls.ship-fortress .suit-button[data-suit="diamonds"]{left:76.85%!important;top:26.30%!important;width:17.25%!important}
+#buildControls.ship-fortress .suit-button[data-suit="hearts"]{left:59.95%!important;top:57.45%!important;width:16.90%!important;height:29.50%!important}
+#buildControls.ship-fortress .suit-button[data-suit="spades"]{left:76.85%!important;top:57.45%!important;width:17.25%!important;height:29.50%!important}
+
+/* Strike: A–6 and 7–K consume the width immediately beside the suits. */
+#buildControls.ship-strike-clean .rank-panel{left:.8%!important;top:30.3%!important;width:75.4%!important;height:62.2%!important}
+#buildControls.ship-strike-clean .rank-row{display:grid!important;grid-template-columns:repeat(42,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:.2%!important}
+#buildControls.ship-strike-clean .rank-button{grid-column:span 7!important}
+#buildControls.ship-strike-clean .rank-button:nth-child(n+7){grid-column:span 6!important}
+#buildControls.ship-strike-clean .suit-panel{inset:0!important;width:100%!important;height:100%!important}
+#buildControls.ship-strike-clean .suit-panel,#buildControls.ship-strike-clean .suit-row{pointer-events:none!important}
+#buildControls.ship-strike-clean .suit-row{position:relative!important;display:block!important}
+#buildControls.ship-strike-clean .suit-button{position:absolute!important;pointer-events:auto!important}
+#buildControls.ship-strike-clean .suit-button,
+#buildControls.ship-strike-clean .suit-button.red,
+#buildControls.ship-strike-clean .suit-button:disabled,
+#buildControls.ship-strike-clean .suit-button.red:disabled,
+#buildControls.ship-strike-clean .suit-button:not(:disabled),
+#buildControls.ship-strike-clean .suit-button.red:not(:disabled){opacity:1!important;background:transparent!important;background-image:none!important;box-shadow:none!important;filter:none!important;animation:none!important}
+#buildControls.ship-strike-clean .suit-button::before,
+#buildControls.ship-strike-clean .suit-button::after{display:none!important;visibility:hidden!important;content:none!important;background:none!important;box-shadow:none!important}
+#buildControls.ship-strike-clean .suit-button[data-suit="clubs"]{left:76.22%!important;top:31.07%!important;width:11.01%!important;height:28.46%!important}
+#buildControls.ship-strike-clean .suit-button[data-suit="hearts"]{left:87.48%!important;top:31.07%!important;width:11.65%!important;height:28.46%!important}
+#buildControls.ship-strike-clean .suit-button[data-suit="spades"]{left:78.56%!important;top:61.10%!important;width:10.96%!important;height:30.03%!important}
+#buildControls.ship-strike-clean .suit-button[data-suit="diamonds"]{left:89.67%!important;top:61.10%!important;width:9.80%!important;height:30.03%!important}
+
+/* Interceptor: central ranks with tall flank suits. */
+#buildControls.ship-interceptor .rank-panel{left:17.7%!important;top:22.4%!important;width:63.6%!important;height:69.2%!important}
+#buildControls.ship-interceptor .rank-row{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:repeat(4,minmax(0,1fr))!important;gap:.25%!important}
+#buildControls.ship-interceptor .rank-button{grid-column:span 4!important}
+#buildControls.ship-interceptor .rank-button:nth-child(n+10){grid-column:span 3!important}
+#buildControls.ship-interceptor .suit-panel{inset:0!important;width:100%!important;height:100%!important}
+#buildControls.ship-interceptor .suit-row{position:relative!important;display:block!important}
+#buildControls.ship-interceptor .suit-button{position:absolute!important;width:14.3%!important;height:29.2%!important}
+#buildControls.ship-interceptor .suit-button[data-suit="clubs"]{left:1.5%!important;top:23.8%!important}
+#buildControls.ship-interceptor .suit-button[data-suit="spades"]{left:1.5%!important;top:55.1%!important}
+#buildControls.ship-interceptor .suit-button[data-suit="hearts"]{left:82.3%!important;top:23.8%!important}
+#buildControls.ship-interceptor .suit-button[data-suit="diamonds"]{left:82.3%!important;top:55.1%!important}
+
+/* Raider keypad hit targets measured directly from the v3 raster (1915x821).
+   No inherited grid geometry is used. */
+#phaseTwoControls.raider-keypad-dashboard .position-grid.numeric-keypad{inset:0!important;width:100%!important;height:100%!important;display:block!important;pointer-events:none!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button{position:absolute!important;width:31.65%!important;height:17.20%!important;pointer-events:auto!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(1),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(4),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(7){left:3.76%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(2),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(5),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(8),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(10){left:35.46%!important;width:28.46%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(3),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(6),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(9),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(11){left:63.92%!important;width:31.80%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(-n+3){top:24.60%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(n+4):nth-child(-n+6){top:42.20%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(n+7):nth-child(-n+9){top:59.50%!important}
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(10),
+#phaseTwoControls.raider-keypad-dashboard .numeric-keypad .position-button:nth-child(11){top:77.20%!important;height:16.85%!important}
+#phaseTwoControls.raider-keypad-dashboard .clear-position-button:active{background:rgba(242,58,49,.18)!important;box-shadow:inset 0 0 0 2px #ff857d,inset 0 0 15px #f23a31,0 0 8px #f23a31!important}
+
+/* Transition artwork is visual only and can never block either dashboard. */
+.dashboard-transition,.dashboard-transition *{pointer-events:none!important}

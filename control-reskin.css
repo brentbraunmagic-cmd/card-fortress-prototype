@@ -1044,8 +1044,6 @@
 #buildControls.ship-fortress .suit-button:nth-child(3){left:32%;bottom:0}
 #buildControls.ship-fortress .suit-button:nth-child(4){left:0;top:32%}
 #buildControls.ship-fortress .suit-button span{opacity:0}
-#buildControls.ship-fortress .suit-button:disabled{opacity:1;filter:none;background:rgba(0,0,0,.48)!important}
-#buildControls.ship-fortress .suit-button:not(:disabled):active{background:rgba(38,216,255,.22)!important;box-shadow:inset 0 0 12px #24dcff}
 
 @media(max-width:420px){
   #buildControls.ship-fortress .panel-health{gap:3px;padding:2px 4px!important}
@@ -2618,80 +2616,6 @@ footer{
   margin-right:auto!important;
 }
 
-/* Fortress suit artwork never changes size or weight. Only its glass frame
-   illuminates after a rank is chosen. */
-#buildControls.ship-fortress .suit-button,
-#buildControls.ship-fortress .suit-button.red,
-#buildControls.ship-fortress .suit-button:disabled,
-#buildControls.ship-fortress .suit-button:not(:disabled){
-  box-sizing:border-box!important;
-  transform:none!important;
-  scale:1!important;
-  transition:none!important;
-}
-#buildControls.ship-fortress .suit-button span,
-#buildControls.ship-fortress .suit-button:disabled span,
-#buildControls.ship-fortress .suit-button:not(:disabled) span{
-  position:relative!important;
-  z-index:1!important;
-  opacity:1!important;
-  color:rgba(5,16,22,.88)!important;
-  -webkit-text-stroke:1px #bff8ff!important;
-  text-shadow:0 0 4px rgba(0,157,255,.45)!important;
-  filter:none!important;
-  transform:none!important;
-  scale:1!important;
-  transition:none!important;
-}
-#buildControls.ship-fortress .suit-button.red span,
-#buildControls.ship-fortress .suit-button.red:disabled span,
-#buildControls.ship-fortress .suit-button.red:not(:disabled) span{
-  opacity:1!important;
-  color:rgba(24,7,7,.82)!important;
-  -webkit-text-stroke:1px #ff766e!important;
-  text-shadow:0 0 4px rgba(255,43,34,.4)!important;
-}
-#buildControls.ship-fortress .suit-button::after,
-#buildControls.ship-fortress .suit-button.red::after{
-  content:""!important;
-  position:absolute!important;
-  z-index:2!important;
-  inset:0!important;
-  display:block!important;
-  pointer-events:none!important;
-  background:#000!important;
-  opacity:0!important;
-  transition:opacity .12s linear!important;
-}
-#buildControls.ship-fortress .suit-button:disabled::after,
-#buildControls.ship-fortress .suit-button.red:disabled::after{opacity:.72!important}
-#buildControls.ship-fortress .suit-button:not(:disabled)::after,
-#buildControls.ship-fortress .suit-button.red:not(:disabled)::after{opacity:0!important}
-
-/* Match Strike exactly: the suit is baked into the dashboard artwork. The
-   transparent hit area only removes its dark cover after rank selection. */
-#buildControls.ship-fortress .suit-button span,
-#buildControls.ship-fortress .suit-button small,
-#buildControls.ship-fortress .suit-button.red span,
-#buildControls.ship-fortress .suit-button.red small{opacity:0!important;visibility:hidden!important}
-#buildControls.ship-fortress .suit-button::after,
-#buildControls.ship-fortress .suit-button.red::after{display:none!important;content:none!important}
-#buildControls.ship-fortress .suit-button:disabled,
-#buildControls.ship-fortress .suit-button.red:disabled{
-  opacity:1!important;
-  filter:none!important;
-  background:rgba(0,0,0,.72)!important;
-  box-shadow:inset 0 0 10px rgba(0,0,0,.9)!important;
-}
-#buildControls.ship-fortress .suit-button:not(:disabled),
-#buildControls.ship-fortress .suit-button.red:not(:disabled){
-  opacity:1!important;
-  filter:none!important;
-  animation:none!important;
-  background:rgba(22,185,225,.06)!important;
-  box-shadow:none!important;
-}
-
 /* Unified cockpit language. Glass readouts share one squared digital face,
    and interactive illumination is always the same cyan outline. */
 :root{--fortress-display-font:"Arial Narrow","Roboto Mono","Cascadia Mono",ui-monospace,SFMono-Regular,Consolas,monospace}
@@ -3408,9 +3332,8 @@ footer{
   content:none!important;
 }
 
-/* Strike and Interceptor retain their unique button fields, but their legacy
-   upper housings are concealed beneath the exact Fortress readout header. */
-.dashboard-chassis>#buildControls.ship-strike::before,
+/* Interceptor still uses the shared header overlay. Strike owns a complete
+   flattened dashboard and must not receive any legacy skin above it. */
 .dashboard-chassis>#buildControls.ship-interceptor::before{
   content:""!important;
   display:block!important;

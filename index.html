@@ -11,9 +11,10 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-v2-180.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
-  <link rel="stylesheet" href="styles.css?v=125" />
+  <link rel="stylesheet" href="styles.css?v=127" />
   <link rel="stylesheet" href="motion.css?v=136" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260818-124" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260819-126" />
+  <link rel="stylesheet" href="dashboard-fullwidth.css?v=27" />
 </head>
 <body>
   <div class="launch-splash" id="launchSplash" aria-label="Memory Fortress">
@@ -51,6 +52,9 @@
 
     <section class="dashboard-chassis" id="dashboardChassis" aria-label="Ship control dashboard">
     <div class="control-deck dashboard-inset" id="buildControls">
+      <img class="dashboard-suit-lights suit-lights-fortress" src="assets/dashboard-fortress-suit-lights-v1.png" alt="" aria-hidden="true" />
+      <img class="dashboard-suit-lights suit-lights-strike-clean" src="assets/dashboard-strike-clean-lights-v1.png" alt="" aria-hidden="true" />
+      <img class="dashboard-suit-lights suit-lights-interceptor" src="assets/dashboard-interceptor-suit-lights-v1.png" alt="" aria-hidden="true" />
       <div class="build-hint" id="buildHint">
         <div class="panel-health fortress-health healthy" id="panelFortressHealth">
           <span aria-hidden="true"><b id="panelFortressHealthLabel"></b></span>
@@ -237,6 +241,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=203"></script>
+  <script src="app.js?v=212"></script>
 </body>
 </html>

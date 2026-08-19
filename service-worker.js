@@ -1,10 +1,11 @@
-const CACHE_NAME = 'memory-fortress-v156';
+const CACHE_NAME = 'memory-fortress-v187';
 const OFFLINE_FILES = [
   './',
   './index.html',
   './styles.css',
   './motion.css',
   './control-reskin.css',
+  './dashboard-fullwidth.css',
   './app.js',
   './manifest.webmanifest',
   './assets/icon-v2-180.png',
@@ -25,7 +26,6 @@ const OFFLINE_FILES = [
   ,'./assets/ship-interceptor-v1.png'
   ,'./assets/dashboard-fortress-approved-v1.png'
   ,'./assets/dashboard-fortress-windows-v1.png'
-  ,'./assets/dashboard-strike-windows-v1.png'
   ,'./assets/dashboard-interceptor-windows-v1.png'
   ,'./assets/dashboard-raiders-training-v1.png'
   ,'./assets/dashboard-raiders-training-inset-v2.png'
@@ -46,6 +46,18 @@ const OFFLINE_FILES = [
   ,'./assets/turret-deployment-mount-worn-v1.png'
   ,'./assets/turret-socket-base-worn-v1.png'
   ,'./assets/turret-power-cables-green-v1.png'
+  ,'./assets/dashboard-fortress-fullwidth-v2.png'
+  ,'./assets/dashboard-fortress-layered-base-v1.png'
+  ,'./assets/dashboard-fortress-suit-lights-v1.png'
+  ,'./assets/dashboard-fortress-layout-v1.json'
+  ,'./assets/dashboard-strike-clean-base-v1.png'
+  ,'./assets/dashboard-strike-clean-lights-v1.png'
+  ,'./assets/dashboard-strike-layout-v1.json'
+  ,'./assets/dashboard-interceptor-layered-base-v1.png'
+  ,'./assets/dashboard-interceptor-suit-lights-v1.png'
+  ,'./assets/dashboard-interceptor-layout-v1.json'
+  ,'./assets/dashboard-interceptor-fullwidth-v2.png'
+  ,'./assets/dashboard-raider-fullwidth-v3.png'
 ];
 
 self.addEventListener('install', event => {
