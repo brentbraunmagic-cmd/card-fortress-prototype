@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v142';
+const CACHE_NAME = 'memory-fortress-v154';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -43,6 +43,9 @@ const OFFLINE_FILES = [
   ,'./assets/elite-raider-rotor-v4.png'
   ,'./assets/elite-raider-bezel-v1.png'
   ,'./assets/mission-briefing-plaque-v1.png'
+  ,'./assets/turret-deployment-mount-worn-v1.png'
+  ,'./assets/turret-socket-base-worn-v1.png'
+  ,'./assets/turret-power-cables-green-v1.png'
 ];
 
 self.addEventListener('install', event => {

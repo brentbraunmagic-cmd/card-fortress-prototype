@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-v2-192.png" />
   <link rel="stylesheet" href="styles.css?v=124" />
   <link rel="stylesheet" href="motion.css?v=136" />
-  <link rel="stylesheet" href="control-reskin.css?v=20260818-114" />
+  <link rel="stylesheet" href="control-reskin.css?v=20260818-124" />
 </head>
 <body>
   <div class="launch-splash" id="launchSplash" aria-label="Memory Fortress">
@@ -87,9 +87,10 @@
     </section>
 
     <div class="dashboard-transition hidden" id="dashboardTransition" aria-hidden="true">
-      <div class="dashboard-turret-mount left"><img src="assets/twin-cannon-turret-weathered-v2.png" alt="" /></div>
-      <div class="dashboard-turret-mount right"><img src="assets/twin-cannon-turret-weathered-v2.png" alt="" /></div>
+      <div class="dashboard-turret-mount left"><img class="turret-cable cable-dormant" src="assets/turret-power-cables-green-v1.png" alt="" /><img class="turret-cable cable-energy" src="assets/turret-power-cables-green-v1.png" alt="" /><img class="turret-hardware" src="assets/turret-socket-base-worn-v1.png" alt="" /><img class="turret-weapon" src="assets/twin-cannon-turret-weathered-v2.png" alt="" /></div>
+      <div class="dashboard-turret-mount right"><img class="turret-cable cable-dormant" src="assets/turret-power-cables-green-v1.png" alt="" /><img class="turret-cable cable-energy" src="assets/turret-power-cables-green-v1.png" alt="" /><img class="turret-hardware" src="assets/turret-socket-base-worn-v1.png" alt="" /><img class="turret-weapon" src="assets/twin-cannon-turret-weathered-v2.png" alt="" /></div>
       <div class="dashboard-cassette-shutter"></div>
+      <div class="dashboard-scan"></div>
     </div>
 
     <footer>
@@ -236,6 +237,6 @@
     </div>
   </div>
   <div class="fireworks-layer" id="fireworksLayer" aria-hidden="true"></div>
-  <script src="app.js?v=194"></script>
+  <script src="app.js?v=201"></script>
 </body>
 </html>

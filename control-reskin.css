@@ -2864,6 +2864,61 @@ footer{
 .dashboard-transition.deployed .dashboard-cassette-shutter{display:none}
 .dashboard-transition.parked .dashboard-turret-mount{transform:perspective(190px) rotateX(68deg) scale(.92);filter:brightness(.72) drop-shadow(0 7px 7px rgba(0,0,0,.9))}
 .dashboard-transition.deployed .dashboard-turret-mount{transform:perspective(190px) rotateX(0) scale(1);filter:brightness(1.08) drop-shadow(0 8px 10px rgba(0,0,0,.95))}
+.dashboard-scan{display:none}
+.dashboard-transition.fast-scan .dashboard-cassette-shutter{display:none!important}
+.dashboard-transition.fast-scan .dashboard-scan{
+  display:block;
+  position:absolute;
+  z-index:10;
+  left:4%;
+  right:4%;
+  top:8%;
+  bottom:3%;
+  overflow:hidden;
+  opacity:0;
+  background:rgba(0,8,13,.78);
+  box-shadow:inset 0 0 25px #000;
+}
+.dashboard-transition.fast-scan .dashboard-scan::after{
+  content:"";
+  position:absolute;
+  left:-8%;
+  top:0;
+  width:10%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(150,250,255,.95),#fff,rgba(24,210,255,.55),transparent);
+  filter:blur(1px);
+  box-shadow:0 0 18px #25dfff;
+}
+.dashboard-transition.fast-scan.transitioning .dashboard-scan{animation:dashboard-power-dim 1.7s ease-in-out both}
+.dashboard-transition.fast-scan.transitioning .dashboard-scan::after{animation:dashboard-scan-sweep 1.36s cubic-bezier(.3,.05,.2,1) .16s both}
+.dashboard-transition.fast-scan.transitioning .dashboard-turret-mount{animation:dashboard-turret-fast-deploy 1.7s cubic-bezier(.15,.75,.2,1) both}
+@keyframes dashboard-power-dim{0%{opacity:0}16%,48%{opacity:1}70%{opacity:.3}100%{opacity:0}}
+@keyframes dashboard-scan-sweep{from{transform:translateX(0)}to{transform:translateX(1080%)}}
+@keyframes dashboard-turret-fast-deploy{0%,20%{transform:perspective(190px) rotateX(68deg) scale(.92);filter:brightness(.7)}75%{transform:perspective(190px) rotateX(-4deg) scale(1.02);filter:brightness(1.32)}100%{transform:perspective(190px) rotateX(0) scale(1);filter:brightness(1.08)}}
+.dashboard-turret-mount .turret-hardware{
+  position:absolute;
+  z-index:1;
+  left:50%;
+  bottom:-31%;
+  width:148%;
+  height:auto;
+  object-fit:contain;
+  opacity:.76;
+  transform:translateX(-50%) translateY(20%) scale(.76)!important;
+  transform-origin:50% 75%!important;
+  filter:brightness(.68) saturate(.75) drop-shadow(0 5px 5px #000);
+  transition:none!important;
+}
+.dashboard-turret-mount .turret-weapon{position:relative;z-index:3}
+.dashboard-transition.fast-scan.transitioning .turret-hardware{animation:turret-hardware-deploy 1.7s cubic-bezier(.15,.72,.2,1) both!important}
+.dashboard-transition.deployed .turret-hardware{opacity:1;transform:translateX(-50%) translateY(4%) scale(1)!important;filter:brightness(.94) saturate(.9) drop-shadow(0 6px 7px #000)}
+@keyframes turret-hardware-deploy{
+  0%,12%{opacity:.72;transform:translateX(-50%) translateY(22%) scale(.74);filter:brightness(.62) saturate(.7)}
+  58%{opacity:1;transform:translateX(-50%) translateY(2%) scale(1.03);filter:brightness(1.08) saturate(.95)}
+  78%{filter:brightness(1.35) saturate(1.08) drop-shadow(0 0 5px rgba(38,220,255,.5))}
+  100%{opacity:1;transform:translateX(-50%) translateY(4%) scale(1);filter:brightness(.94) saturate(.9) drop-shadow(0 6px 7px #000)}
+}
 
 /* The Raider cassette is centered inside equal armored side buffers. Its live
    digits match the Fortress dashboard's cyan digital artwork. */
@@ -3573,3 +3628,104 @@ footer{
 @keyframes briefing-arrival{from{opacity:0;transform:translateY(-18px) scale(.96)}to{opacity:1;transform:none}}
 @keyframes briefing-action-pulse{50%{border-color:#d9fdff;box-shadow:inset 0 0 15px rgba(110,240,255,.5),0 0 17px rgba(27,198,255,.82)}}
 @media(max-height:700px){.briefing-overlay{padding-top:72px}.briefing-plaque{width:min(470px,94vw);height:188px}}
+
+/* Permanent rendered turret sockets stay mounted through both phases. Only
+   the weapon rises; the base never appears, opens, or changes shape. */
+.dashboard-transition.parked .dashboard-turret-mount,
+.dashboard-transition.fast-scan.transitioning .dashboard-turret-mount,
+.dashboard-transition.deployed .dashboard-turret-mount{
+  transform:none!important;
+  filter:drop-shadow(0 7px 8px rgba(0,0,0,.92))!important;
+  opacity:1!important;
+}
+.dashboard-turret-mount .turret-hardware,
+.dashboard-transition.parked .turret-hardware,
+.dashboard-transition.fast-scan.transitioning .turret-hardware,
+.dashboard-transition.deployed .turret-hardware{
+  position:absolute!important;
+  z-index:1!important;
+  left:50%!important;
+  bottom:-25%!important;
+  width:132%!important;
+  height:auto!important;
+  opacity:1!important;
+  transform:translateX(-50%) translateY(8%) scale(1)!important;
+  animation:none!important;
+  filter:brightness(.83) saturate(.82) drop-shadow(0 5px 6px #000)!important;
+}
+.dashboard-transition.parked .turret-weapon{
+  opacity:0!important;
+  transform:translateY(48%) scale(.78)!important;
+  filter:brightness(.55)!important;
+}
+.dashboard-transition.fast-scan.transitioning .turret-weapon{animation:turret-rise-during-scan .85s cubic-bezier(.16,.78,.18,1) .55s both!important}
+.dashboard-transition.deployed .turret-weapon{opacity:1}
+@keyframes turret-rise-from-socket{
+  0%,16%{opacity:0;transform:translateY(48%) scale(.78);filter:brightness(.52)}
+  58%{opacity:1;transform:translateY(0) scale(1);filter:brightness(.92)}
+  76%{transform:translateY(-3%) scale(1.025);filter:brightness(1.26) drop-shadow(0 0 5px rgba(45,220,255,.48))}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:brightness(1.08)}
+}
+
+/* Rendered power harnesses connect first, carry a visible green charge into
+   the permanent sockets, and only then allow the weapons to rise. */
+.dashboard-turret-mount .turret-cable{
+  position:absolute!important;
+  z-index:0!important;
+  bottom:-52%!important;
+  width:190%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  transform-origin:50% 50%!important;
+  transition:none!important;
+}
+.dashboard-turret-mount.left .turret-cable{right:42%!important}
+.dashboard-turret-mount.right .turret-cable{left:42%!important;transform:scaleX(-1)!important}
+.dashboard-turret-mount .cable-dormant{filter:grayscale(.78) brightness(.42) contrast(1.15)!important;opacity:0}
+.dashboard-turret-mount .cable-energy{filter:brightness(1.08) drop-shadow(0 0 5px rgba(36,255,74,.72))!important;opacity:0}
+.dashboard-transition.fast-scan.transitioning .left .cable-dormant{animation:cable-connect-left-after-scan .55s cubic-bezier(.18,.72,.2,1) 2.03s both!important}
+.dashboard-transition.fast-scan.transitioning .right .cable-dormant{animation:cable-connect-right-after-scan .55s cubic-bezier(.18,.72,.2,1) 2.03s both!important}
+.dashboard-transition.fast-scan.transitioning .left .cable-energy{animation:cable-charge-left-after-connect .55s ease-out 2.58s both!important}
+.dashboard-transition.fast-scan.transitioning .right .cable-energy{animation:cable-charge-right-after-connect .55s ease-out 2.58s both!important}
+.dashboard-transition.deployed .cable-dormant{opacity:.82}
+.dashboard-transition.deployed .cable-energy{opacity:1;clip-path:inset(0)!important}
+.dashboard-transition.deployed .right .turret-cable{transform:scaleX(-1)!important}
+.dashboard-transition.fast-scan.transitioning .turret-hardware{animation:socket-energy-after-connect .55s ease 2.58s both!important}
+@keyframes turret-rise-during-scan{0%{opacity:0;transform:translateY(48%) scale(.78);filter:brightness(.52)}76%{opacity:1;transform:translateY(-3%) scale(1.025);filter:brightness(1.22)}100%{opacity:1;transform:none;filter:brightness(1.08)}}
+@keyframes turret-rise-after-scan{0%{opacity:0;transform:translateY(48%) scale(.78);filter:brightness(.52)}76%{opacity:1;transform:translateY(-3%) scale(1.025);filter:brightness(1.22)}100%{opacity:1;transform:none;filter:brightness(1.08)}}
+@keyframes cable-connect-left-after-scan{0%{opacity:0;transform:translate(-38%,38%) scale(.86)}82%{opacity:.82;transform:translate(-3%,4%) scale(1.01)}100%{opacity:.82;transform:none}}
+@keyframes cable-connect-right-after-scan{0%{opacity:0;transform:translate(38%,38%) scaleX(-1) scale(.86)}82%{opacity:.82;transform:translate(3%,4%) scaleX(-1) scale(1.01)}100%{opacity:.82;transform:scaleX(-1)}}
+@keyframes cable-charge-left-after-connect{0%{opacity:0;clip-path:inset(0 100% 0 0)}8%{opacity:1}100%{opacity:1;clip-path:inset(0)}}
+@keyframes cable-charge-right-after-connect{0%{opacity:0;transform:scaleX(-1);clip-path:inset(0 100% 0 0)}8%{opacity:1}100%{opacity:1;transform:scaleX(-1);clip-path:inset(0)}}
+@keyframes socket-energy-after-connect{0%{transform:translateX(-50%) translateY(8%) scale(1);filter:brightness(.83) saturate(.82)}74%{transform:translateX(-50%) translateY(8%) scale(1.045);filter:brightness(1.4) saturate(1.25) drop-shadow(0 0 10px rgba(34,255,76,.88))}100%{transform:translateX(-50%) translateY(8%) scale(1);filter:brightness(.98) saturate(.94)}}
+@keyframes cable-connect-left{
+  0%,36%{opacity:0;transform:translate(-38%,38%) scale(.86)}
+  64%{opacity:.82;transform:translate(-3%,4%) scale(1.01)}
+  72%,100%{opacity:.82;transform:none}
+}
+@keyframes cable-connect-right{
+  0%,36%{opacity:0;transform:translate(38%,38%) scaleX(-1) scale(.86)}
+  64%{opacity:.82;transform:translate(3%,4%) scaleX(-1) scale(1.01)}
+  72%,100%{opacity:.82;transform:scaleX(-1)}
+}
+@keyframes cable-charge-left{
+  0%,68%{opacity:0;transform:none;clip-path:inset(0 100% 0 0)}
+  70%{opacity:1}
+  94%,100%{opacity:1;transform:none;clip-path:inset(0)}
+}
+@keyframes cable-charge-right{
+  0%,68%{opacity:0;transform:scaleX(-1);clip-path:inset(0 100% 0 0)}
+  70%{opacity:1}
+  94%,100%{opacity:1;transform:scaleX(-1);clip-path:inset(0)}
+}
+@keyframes socket-energy-pulse{
+  0%,82%{transform:translateX(-50%) translateY(8%) scale(1);filter:brightness(.83) saturate(.82) drop-shadow(0 5px 6px #000)}
+  94%{transform:translateX(-50%) translateY(8%) scale(1.045);filter:brightness(1.4) saturate(1.25) drop-shadow(0 0 10px rgba(34,255,76,.88))}
+  100%{transform:translateX(-50%) translateY(8%) scale(1);filter:brightness(.98) saturate(.94) drop-shadow(0 6px 7px #000)}
+}
+@keyframes turret-rise-from-socket{
+  0%,5%{opacity:0;transform:translateY(48%) scale(.78);filter:brightness(.52)}
+  31%{opacity:1;transform:translateY(0) scale(1);filter:brightness(.96)}
+  40%{transform:translateY(-3%) scale(1.025);filter:brightness(1.22) drop-shadow(0 0 5px rgba(45,220,255,.4))}
+  48%,100%{opacity:1;transform:translateY(0) scale(1);filter:brightness(1.08)}
+}
