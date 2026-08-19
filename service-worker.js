@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memory-fortress-v187';
+const CACHE_NAME = 'memory-fortress-v193';
 const OFFLINE_FILES = [
   './',
   './index.html',
@@ -50,7 +50,7 @@ const OFFLINE_FILES = [
   ,'./assets/dashboard-fortress-layered-base-v1.png'
   ,'./assets/dashboard-fortress-suit-lights-v1.png'
   ,'./assets/dashboard-fortress-layout-v1.json'
-  ,'./assets/dashboard-strike-clean-base-v1.png'
+  ,'./assets/dashboard-strike-clean-base-v2.png'
   ,'./assets/dashboard-strike-clean-lights-v1.png'
   ,'./assets/dashboard-strike-layout-v1.json'
   ,'./assets/dashboard-interceptor-layered-base-v1.png'
